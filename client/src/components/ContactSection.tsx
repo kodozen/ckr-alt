@@ -663,7 +663,6 @@ export default function ContactSection({ prefilledService }: { prefilledService?
               </button>
             </div>
           </div>
-        </div>
       )}
     </footer>
   );
