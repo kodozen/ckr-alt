@@ -109,7 +109,7 @@ export default function PriceEstimator() {
                   onChange={(e) => setAreaSize(Number(e.target.value))}
                   className="w-full accent-[#122272] cursor-pointer"
                 />
-                <div className="flex justify-between text-xs text-slate-400 mt-1 font-medium">
+                <div className="flex justify-between text-xs text-slate-600 mt-1 font-medium">
                   <span>Kleinobjekt (30 m²)</span>
                   <span>Mittelbetrieb (250 m²)</span>
                   <span>Großanlage (800+ m²)</span>

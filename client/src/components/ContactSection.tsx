@@ -42,7 +42,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
           <h2 className="text-3xl sm:text-5xl font-extrabold mt-4 tracking-tight text-white">
             Rufen Sie uns an oder senden Sie uns eine Nachricht.
           </h2>
-          <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="mt-3 text-slate-300 text-sm sm:text-base leading-relaxed">
             Wir kümmern uns gerne um Ihr Anliegen und freuen uns auf Ihren Besuch! Vertrauen Sie uns – wir werden uns bemühen, Ihren Auftrag exakt an Ihre Wünsche und Vorstellungen anzupassen.
           </p>
         </div>
@@ -58,7 +58,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold">
+                  <span className="text-xs uppercase tracking-wider text-slate-300 font-semibold">
                     Telefon & 24h-Hotline
                   </span>
                   <div className="text-lg font-bold mt-0.5">
@@ -66,7 +66,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                       {CKR_INFO.phone}
                     </a>
                   </div>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-slate-300 mt-1">
                     Jederzeit für Havariefälle und Terminanfragen erreichbar.
                   </p>
                 </div>
@@ -78,7 +78,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold">
+                  <span className="text-xs uppercase tracking-wider text-slate-300 font-semibold">
                     E-Mail
                   </span>
                   <div className="text-base font-bold mt-0.5">
@@ -86,7 +86,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                       {CKR_INFO.email}
                     </a>
                   </div>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-slate-300 mt-1">
                     Angebotsanfragen innerhalb weniger Stunden beantwortet.
                   </p>
                 </div>
@@ -98,13 +98,13 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold">
+                  <span className="text-xs uppercase tracking-wider text-slate-300 font-semibold">
                     Bürostandort Kufstein
                   </span>
                   <div className="text-sm font-bold text-white mt-0.5">
                     {CKR_INFO.officeAddress}
                   </div>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-slate-300 mt-1">
                     Einsatzgebiet: Kufstein, Wörgl, Kitzbühel & ganz Tirol
                   </p>
                 </div>
@@ -117,10 +117,10 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                 <ShieldCheck className="w-4 h-4" />
                 Österreichischer Meisterbetrieb-Anspruch
               </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-300 leading-relaxed">
                 Reinigungsfachkräfte nach strengen österreichischen Hygiene- und Sicherheitsrichtlinien ausgebildet.
               </p>
-              <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-600">
+              <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
                 <span className="bg-white/10 px-2.5 py-1 rounded-md">UID: {CKR_INFO.uid}</span>
                 <span className="bg-white/10 px-2.5 py-1 rounded-md">Geschäftsführung: {CKR_INFO.owner}</span>
               </div>
@@ -135,7 +135,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   <h3 className="text-xl sm:text-2xl font-extrabold text-[#122272]">
                     Unverbindliche Anfrage senden
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                  <p className="text-xs sm:text-sm text-slate-300 mt-1">
                     Wir antworten werktags meist innerhalb von 2 Stunden.
                   </p>
                 </div>
@@ -155,7 +155,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     className={`flex-1 py-2 text-xs font-bold rounded-md transition ${
                       !formData.isApplication
                         ? "bg-white text-[#122272] shadow-sm"
-                        : "text-slate-600 hover:text-slate-900"
+                        : "text-slate-300 hover:text-slate-900"
                     }`}
                   >
                     Reinigungsanfrage
@@ -166,7 +166,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     className={`flex-1 py-2 text-xs font-bold rounded-md transition ${
                       formData.isApplication
                         ? "bg-white text-[#122272] shadow-sm"
-                        : "text-slate-600 hover:text-slate-900"
+                        : "text-slate-300 hover:text-slate-900"
                     }`}
                   >
                     Bewerbung / Lehrstelle
@@ -260,7 +260,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   />
                 </div>
 
-                <div className="flex items-center gap-2 pt-1 text-xs text-slate-600">
+                <div className="flex items-center gap-2 pt-1 text-xs text-slate-300">
                   <CheckCircle2 className="w-4 h-4 text-[#2E7D0E] shrink-0" />
                   <span>Ihre Daten werden vertraulich behandelt und nicht weitergegeben.</span>
                 </div>
@@ -285,7 +285,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
         </div>
 
         {/* Footer Bottom Bar with Legal Links */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
           <div className="flex items-center gap-3">
             <img
               src={CKR_INFO.logo}
@@ -321,7 +321,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
           <div className="bg-white rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl">
             <button
               onClick={() => setShowImpressum(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-lg font-bold"
+              className="absolute top-4 right-4 text-slate-300 hover:text-slate-800 text-lg font-bold"
             >
               ✕
             </button>
@@ -384,7 +384,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
           <div className="bg-white rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl">
             <button
               onClick={() => setShowDatenschutz(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-lg font-bold"
+              className="absolute top-4 right-4 text-slate-300 hover:text-slate-800 text-lg font-bold"
             >
               ✕
             </button>

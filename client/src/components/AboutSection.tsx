@@ -78,7 +78,7 @@ export default function AboutSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#122272]/80 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <span className="text-xs uppercase font-extrabold tracking-wider text-emerald-300">
+                  <span className="text-xs uppercase font-extrabold tracking-wider text-emerald-200">
                     Gebäudereinigung aus Leidenschaft
                   </span>
                   <h3 className="text-xl font-bold mt-1">
@@ -160,7 +160,7 @@ export default function AboutSection() {
                 <span>Jetzt bewerben</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <span className="text-xs text-slate-600">
+              <span className="text-xs text-slate-200">
                 Oder Lebenslauf an <strong className="text-white">info@ckrreinigung.at</strong>
               </span>
             </div>
