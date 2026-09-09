@@ -13,11 +13,10 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
     <section id="top" className="relative isolate overflow-hidden">
       {/* Die Aufnahme füllt die Fläche; darüber liegt ein kräftiger
           Schleier, damit die Schrift sicher lesbar bleibt. */}
-      <img
-        src={CKR_INFO.heroImage}
-        alt=""
+      <div
         aria-hidden="true"
-        className="absolute inset-0 -z-20 h-full w-full object-cover"
+        className="absolute inset-0 -z-20 bg-cover bg-center"
+        style={{ backgroundImage: `url(${CKR_INFO.heroImage})` }}
       />
       <div className="absolute inset-0 -z-10 bg-[#070d2e]/85" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070d2e] via-[#070d2e]/80 to-transparent" />
