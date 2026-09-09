@@ -14,7 +14,7 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
             {/* Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white shadow-sm border border-slate-200/80 text-xs font-semibold text-slate-800">
               <span className="w-2.5 h-2.5 rounded-full bg-[#52b719] animate-pulse" />
-              <span>Ihr Meisterpartner für Sauberkeit in Tirol</span>
+              <span>Gebäudereinigung in Kufstein &amp; Tirol</span>
               <span className="text-slate-300">|</span>
               <span className="text-[#122272] font-bold">Kufstein & Umgebung</span>
             </div>
@@ -72,11 +72,11 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
             <div className="pt-3 border-t border-slate-200/60 flex items-center gap-6 text-xs text-slate-500 font-medium">
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>Haftpflichtversichert</span>
+                <span>Kostenlose Besichtigung</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Sparkles className="w-4 h-4 text-emerald-600" />
-                <span>100% Zufriedenheitsgarantie</span>
+                <span>Festpreis nach Besichtigung</span>
               </div>
             </div>
           </div>

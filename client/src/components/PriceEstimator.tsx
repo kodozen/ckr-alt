@@ -12,32 +12,33 @@ export default function PriceEstimator() {
   const [contactPhone, setContactPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  // Basit indikatif maliyet hesabı
-  const calculateEstimate = () => {
-    let baseRatePerSqm = 1.35; // EUR / m²
-    if (serviceType === "grundreinigung") baseRatePerSqm = 2.4;
-    else if (serviceType === "hotelreinigung" || serviceType === "appartementreinigung") baseRatePerSqm = 1.6;
-    else if (serviceType === "baureinigung") baseRatePerSqm = 2.8;
-    else if (serviceType === "treppenhausreinigung") baseRatePerSqm = 0.95;
+  // Hier stand eine Rechnung mit erfundenen Sätzen pro Quadratmeter
+  // (1,35 € / 2,40 € / 2,80 €). Sie ist entfernt.
+  //
+  // Der Grund ist nicht Vorsicht, sondern Widerspruch: CKR sagt zu,
+  // erst kostenlos zu besichtigen und danach einen Festpreis zu nennen.
+  // Nennt die Website 162 Euro und das Angebot lautet 400, führt diesen
+  // Streit der Betrieb — nicht die Website, die die Zahl erfunden hat.
+  //
+  // Die Fragen bleiben alle stehen: sie sind genau das, was für die
+  // Besichtigung gebraucht wird. Rechts steht jetzt eine Zusammenfassung
+  // der Angaben statt einer Zahl.
 
-    let subtotal = areaSize * baseRatePerSqm;
-
-    // Frekans çarpanı
-    let freqMultiplier = 1;
-    if (frequency === "daily") freqMultiplier = 0.85; // Mengenrabatt
-    else if (frequency === "twice_weekly") freqMultiplier = 0.9;
-    else if (frequency === "weekly") freqMultiplier = 1.0;
-    else if (frequency === "biweekly") freqMultiplier = 1.15;
-    else if (frequency === "one_off") freqMultiplier = 1.35;
-
-    let total = subtotal * freqMultiplier;
-    if (windowCleaningAddon) total += 45;
-
-    // Minimum Einsatzpauschale
-    return Math.max(75, Math.round(total));
+  const LESBAR: Record<string, string> = {
+    unterhaltsreinigung: "Unterhaltsreinigung",
+    treppenhausreinigung: "Treppenhausreinigung",
+    grundreinigung: "Grundreinigung",
+    glasreinigung: "Glas- & Fensterreinigung",
+    hotelreinigung: "Hotelreinigung",
+    appartementreinigung: "Appartementreinigung",
+    baureinigung: "Baureinigung",
+    daily: "täglich",
+    twice_weekly: "zweimal pro Woche",
+    weekly: "wöchentlich",
+    biweekly: "14-tägig",
+    one_off: "einmalig",
   };
-
-  const estimatedPrice = calculateEstimate();
+  const lesbar = (k: string) => LESBAR[k] ?? k;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,13 +56,13 @@ export default function PriceEstimator() {
         <div className="max-w-3xl mx-auto text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4">
             <Calculator className="w-3.5 h-3.5 text-emerald-600" />
-            Transparente Richtpreise für Tirol
+            Kostenlose Besichtigung, danach Festpreis
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#122272] tracking-tight">
-            Interaktiver Online-Preiskalkulator
+            Sagen Sie uns, worum es geht
           </h2>
           <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
-            Berechnen Sie unverbindlich in wenigen Klicks Ihren geschätzten Richtpreis für Ihre Immobilie in Kufstein und Umgebung.
+            Vier Angaben genügen. Wir melden uns, sehen uns das Objekt an und nennen danach einen Festpreis — kostenlos und unverbindlich.
           </p>
         </div>
 
@@ -160,7 +161,7 @@ export default function PriceEstimator() {
               {/* Contact mini form */}
               <div className="border-t border-slate-100 pt-5 space-y-3">
                 <p className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                  4. Kontaktdaten für schriftliches Festpreisangebot
+                  4. Wie erreichen wir Sie?
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <input
@@ -197,29 +198,49 @@ export default function PriceEstimator() {
             <div>
               <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider uppercase text-emerald-400 bg-emerald-950/50 px-2.5 py-1 rounded-full border border-emerald-500/30 mb-4">
                 <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-                Indikative Kostenschätzung
+                Ihre Angaben
               </div>
 
               <div className="mt-2">
-                <span className="text-xs uppercase tracking-wider text-slate-300">
-                  Geschätzter Richtpreis ab:
-                </span>
-                <div className="text-4xl sm:text-5xl font-black text-white mt-1 tracking-tight flex items-baseline gap-1">
-                  <span>~ {estimatedPrice} €</span>
-                  <span className="text-xs text-slate-300 font-normal">
-                    {frequency === "one_off" ? "einmalig zzgl. USt" : "pro Turnus zzgl. USt"}
-                  </span>
+                <div className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
+                  Den Preis nennen wir<br />nach der Besichtigung.
                 </div>
+                <p className="mt-3 text-xs text-slate-300 leading-relaxed">
+                  Am Schreibtisch lässt sich ein Objekt nicht schätzen. Wir kommen
+                  vorbei — kostenlos und unverbindlich — und nennen danach einen
+                  Festpreis, der hält.
+                </p>
               </div>
+
+              <dl className="mt-6 space-y-2 border-t border-white/10 pt-5 text-xs">
+                <div className="flex justify-between gap-3">
+                  <dt className="text-slate-400">Leistung</dt>
+                  <dd className="text-white font-semibold text-right">{lesbar(serviceType)}</dd>
+                </div>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-slate-400">Fläche</dt>
+                  <dd className="text-white font-semibold text-right">ca. {areaSize} m²</dd>
+                </div>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-slate-400">Rhythmus</dt>
+                  <dd className="text-white font-semibold text-right">{lesbar(frequency)}</dd>
+                </div>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-slate-400">Glasreinigung</dt>
+                  <dd className="text-white font-semibold text-right">
+                    {windowCleaningAddon ? "dabei" : "nicht dabei"}
+                  </dd>
+                </div>
+              </dl>
 
               <div className="mt-6 space-y-3 border-t border-white/10 pt-5 text-xs text-slate-200">
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                  <span>Inkl. professioneller Arbeitsmittel & Spezialchemie</span>
+                  <span>Ökologische Mittel und passende Maschinen</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                  <span>Ausgebildetes & versichertes Reinigungspersonal</span>
+                  <span>Geschultes Personal, feste Objektleiter</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />

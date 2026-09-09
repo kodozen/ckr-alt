@@ -38,7 +38,7 @@ export default function AboutSection() {
                 "100% geschultes Fachpersonal",
                 "Feste Ansprechpartner & Vorarbeiter",
                 "Ökologisch abbaubare Reinigungsmittel",
-                "Haftpflichtversichert & DSGVO-konform",
+                "Feste Objektleiter, regelmäßige Kontrolle",
                 "Flexibel bei Arbeits- & Nachtzeiten",
                 "Kostenlose Vor-Ort-Besichtigung",
               ].map((item, i) => (

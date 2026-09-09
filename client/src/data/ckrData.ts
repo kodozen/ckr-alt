@@ -240,7 +240,7 @@ export const CKR_FAQ = [
     a: "Ja. Nach einer kurzen Bedarfsanalyse oder einer unverbindlichen Objektbesichtigung vor Ort erstellen wir Ihnen ein transparentes, detailliertes Festpreisangebot."
   },
   {
-    q: "Sind Ihre Mitarbeiter versichert und geschult?",
-    a: "Ausnahmslos ja. All unsere Mitarbeiter sind fest angestellt, haftpflichtversichert und werden regelmäßig in Hygiene-, Arbeitssicherheits- und Umweltstandards geschult."
+    q: "Wer kommt zu mir?",
+    a: "Festes Personal, keine wechselnden Aushilfen. Geschulte Objektleiter weisen das Team ein und kontrollieren die Arbeit regelmäßig. Weil unser Team mit Ihren Sachen in Berührung kommt, zählen bei der Auswahl Verantwortungsbewusstsein, Diskretion und Zuverlässigkeit."
   }
 ];
