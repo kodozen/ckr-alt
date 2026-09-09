@@ -49,11 +49,27 @@ jobs:
           NODE_ENV: production
         run: pnpm exec vite build
 
-      - name: Vorschau aus dem Suchindex halten
+      # ------------------------------------------------------------
+      # Indexierung: ein Schalter
+      # ------------------------------------------------------------
+      # SPERREN: "ja" hängt noindex an und sperrt robots.txt. Das ist
+      # richtig für eine reine Vorführung — aber es ist auch genau das,
+      # was eine Messung der Suchmaschinentauglichkeit auf null zieht:
+      # "Seite ist für die Indexierung gesperrt" ist dort eine der am
+      # stärksten gewichteten Prüfungen.
+      #
+      # Solange der Kunde die beiden Entwürfe vergleicht, steht der
+      # Schalter auf "nein", damit sich die Seite messen lässt. Fällt
+      # die Entscheidung gegen diesen Entwurf, gehört er wieder auf
+      # "ja" — oder das Depot wird archiviert.
+      - name: Indexierung steuern
+        env:
+          SPERREN: "nein"
         run: |
-          # Dieser Entwurf ist eine Vorführung für den Kunden, keine
-          # veröffentlichte Website. Er darf der echten Domain später
-          # keine Konkurrenz im Index machen.
+          if [ "$SPERREN" != "ja" ]; then
+            echo "Indexierung erlaubt — robots.txt aus client/public gilt."
+            exit 0
+          fi
           find dist/public -name '*.html' -exec sed -i \
             's|</head>|<meta name="robots" content="noindex, nofollow">\n</head>|' {} +
           printf 'User-agent: *\nDisallow: /\n' > dist/public/robots.txt

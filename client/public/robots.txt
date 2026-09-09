@@ -1,0 +1,5 @@
+# CKR Cleaning Services — alternativer Entwurf
+User-agent: *
+Allow: /
+
+Sitemap: https://kodozen.github.io/ckr-alt/sitemap.xml
