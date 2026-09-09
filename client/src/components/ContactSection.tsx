@@ -36,7 +36,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
       <div className="container relative z-10">
         {/* Contact Header */}
         <div className="max-w-3xl mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2E7D0E] bg-emerald-950/70 px-3 py-1 rounded-full border border-emerald-500/30">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-300 bg-emerald-950/70 px-3 py-1 rounded-full border border-emerald-500/30">
             Kontaktieren Sie uns
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold mt-4 tracking-tight text-white">
@@ -135,7 +135,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   <h3 className="text-xl sm:text-2xl font-extrabold text-[#122272]">
                     Unverbindliche Anfrage senden
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 mt-1">
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1">
                     Wir antworten werktags meist innerhalb von 2 Stunden.
                   </p>
                 </div>
@@ -155,7 +155,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     className={`flex-1 py-2 text-xs font-bold rounded-md transition ${
                       !formData.isApplication
                         ? "bg-white text-[#122272] shadow-sm"
-                        : "text-slate-300 hover:text-slate-900"
+                        : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
                     Reinigungsanfrage
@@ -260,7 +260,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   />
                 </div>
 
-                <div className="flex items-center gap-2 pt-1 text-xs text-slate-300">
+                <div className="flex items-center gap-2 pt-1 text-xs text-slate-600">
                   <CheckCircle2 className="w-4 h-4 text-[#2E7D0E] shrink-0" />
                   <span>Ihre Daten werden vertraulich behandelt und nicht weitergegeben.</span>
                 </div>
