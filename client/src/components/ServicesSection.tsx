@@ -82,7 +82,7 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
             return (
               <div
                 key={service.id}
-                className="group bg-slate-50/70 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-blue-200 p-6 sm:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
+                className="group bg-slate-50/70 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-blue-200 p-6 sm:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[#122272]"
               >
                 {/* Accent Top Border Hover */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#122272] to-[#52b719] opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -111,7 +111,6 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
                       <div className="w-8 h-8 rounded-lg bg-white/90 backdrop-blur-sm text-[#122272] flex items-center justify-center shadow-sm">
                         <Icon className="w-4 h-4 text-[#122272]" />
                       </div>
-                      <span className="text-white text-xs font-semibold bg-slate-900/75 px-2 py-0.5 rounded">Kufstein & Umgebung</span>
                     </div>
                   </div>
 
@@ -123,36 +122,22 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
                     {service.shortDesc}
                   </p>
 
-                  {/* Top Features bullets */}
-                  <div className="mt-4 pt-4 border-t border-slate-200/60 space-y-2">
-                    {service.features.slice(0, 3).map((feat, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-slate-700">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#2E7D0E] shrink-0" />
-                        <span className="truncate">{feat}</span>
-                      </div>
-                    ))}
-                  </div>
                 </div>
 
-                {/* Actions */}
-                <div className="mt-6 pt-4 flex items-center justify-between gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setActiveModal(service)}
-                    className="text-xs sm:text-sm font-bold text-[#122272] hover:text-[#2E7D0E] flex items-center gap-1.5 transition-colors group/btn"
-                  >
-                    <span>Details ansehen</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                  </button>
-
-                  <a
-                    href="#kontakt"
-                    onClick={() => onSelectService && onSelectService(service.title)}
-                    className="text-xs font-semibold bg-blue-50 hover:bg-[#122272] text-[#122272] hover:text-white px-3 py-1.5 rounded-lg transition-all"
-                  >
-                    Anfragen
-                  </a>
-                </div>
+                {/* Die Schaltfläche trägt über after:inset-0 die ganze
+                    Kachel — anzutippen ist damit die volle Fläche, in der
+                    Tabreihenfolge steht aber nur ein Element. */}
+                <button
+                  type="button"
+                  onClick={() => setActiveModal(service)}
+                  className="mt-5 text-xs sm:text-sm font-bold text-[#122272] group-hover:text-[#2E7D0E] flex items-center gap-1.5 transition-colors outline-none after:absolute after:inset-0 after:content-['']"
+                >
+                  <span>
+                    Details ansehen
+                    <span className="sr-only">: {service.title}</span>
+                  </span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                </button>
               </div>
             );
           })}
@@ -244,7 +229,10 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
                     </a>
                     <a
                       href="#kontakt"
-                      onClick={() => setActiveModal(null)}
+                      onClick={() => {
+                        onSelectService && onSelectService(activeModal.title);
+                        setActiveModal(null);
+                      }}
                       className="flex-1 sm:flex-none bg-[#122272] hover:bg-[#0c164a] text-white text-xs font-bold px-4 py-2.5 rounded-xl text-center"
                     >
                       Angebot anfordern
