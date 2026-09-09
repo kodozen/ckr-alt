@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CKR_SERVICES, ServiceItem } from "@/data/ckrData";
 import {
   Sparkles,
@@ -30,6 +30,32 @@ const ICON_MAP: Record<string, any> = {
 
 export default function ServicesSection({ onSelectService }: { onSelectService?: (serviceName: string) => void }) {
   const [activeModal, setActiveModal] = useState<ServiceItem | null>(null);
+  const fensterRef = useRef<HTMLDivElement>(null);
+  const ausloeserRef = useRef<HTMLElement | null>(null);
+
+  // Ein Fenster, das sich nicht mit Escape schließen lässt, ist für alle
+  // lästig und für Tastaturnutzer eine Sackgasse: der Fokus blieb bisher
+  // auf der Kachel dahinter stehen, und die Seite scrollte weiter.
+  useEffect(() => {
+    if (!activeModal) return;
+
+    ausloeserRef.current = document.activeElement as HTMLElement;
+    fensterRef.current?.focus();
+
+    const vorherigesOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const beiTaste = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActiveModal(null);
+    };
+    document.addEventListener("keydown", beiTaste);
+
+    return () => {
+      document.removeEventListener("keydown", beiTaste);
+      document.body.style.overflow = vorherigesOverflow;
+      ausloeserRef.current?.focus();
+    };
+  }, [activeModal]);
 
   return (
     <section id="leistungen" className="py-20 sm:py-28 bg-white relative">
@@ -132,15 +158,27 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
           })}
         </div>
 
-        {/* Modal for Service Details */}
+        {/* Fenster mit der ausführlichen Beschreibung */}
         {activeModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-            <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 relative">
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+            onClick={() => setActiveModal(null)}
+          >
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="fenster-titel"
+              ref={fensterRef}
+              tabIndex={-1}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 relative outline-none"
+            >
               <button
                 onClick={() => setActiveModal(null)}
+                aria-label="Fenster schließen"
                 className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-slate-600 flex items-center justify-center shadow-md transition-colors"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5" aria-hidden="true" />
               </button>
 
               <div className="relative h-56 sm:h-64 bg-slate-100">
@@ -159,7 +197,7 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
                       {activeModal.badge}
                     </span>
                   )}
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+                  <h3 id="fenster-titel" className="text-2xl sm:text-3xl font-extrabold text-white">
                     {activeModal.title}
                   </h3>
                 </div>
@@ -209,7 +247,7 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
                       onClick={() => setActiveModal(null)}
                       className="flex-1 sm:flex-none bg-[#122272] hover:bg-[#0c164a] text-white text-xs font-bold px-4 py-2.5 rounded-xl text-center"
                     >
-                      Preise kalkulieren
+                      Angebot anfordern
                     </a>
                   </div>
                 </div>

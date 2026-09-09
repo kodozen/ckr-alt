@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CKR_INFO, CKR_SERVICES } from "@/data/ckrData";
 import { Phone, Mail, MapPin, Send, ShieldCheck, CheckCircle2, FileText, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
@@ -18,6 +18,34 @@ export default function ContactSection({ prefilledService }: { prefilledService?
   const [submitted, setSubmitted] = useState(false);
   const [showImpressum, setShowImpressum] = useState(false);
   const [showDatenschutz, setShowDatenschutz] = useState(false);
+  const rechtsfensterRef = useRef<HTMLDivElement>(null);
+  const ausloeserRef = useRef<HTMLElement | null>(null);
+  const rechtsfensterOffen = showImpressum || showDatenschutz;
+
+  // Escape schließt, der Fokus wandert hinein und danach dorthin zurück,
+  // wo der Besucher war, und die Seite dahinter scrollt nicht mehr mit.
+  useEffect(() => {
+    if (!rechtsfensterOffen) return;
+
+    ausloeserRef.current = document.activeElement as HTMLElement;
+    rechtsfensterRef.current?.focus();
+
+    const vorherigesOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const beiTaste = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setShowImpressum(false);
+      setShowDatenschutz(false);
+    };
+    document.addEventListener("keydown", beiTaste);
+
+    return () => {
+      document.removeEventListener("keydown", beiTaste);
+      document.body.style.overflow = vorherigesOverflow;
+      ausloeserRef.current?.focus();
+    };
+  }, [rechtsfensterOffen]);
 
   // Die Seite liegt auf einem reinen Dateiserver — es gibt nichts, was
   // ein Formular entgegennehmen könnte. Bis ein Postfachdienst feststeht,
@@ -402,15 +430,27 @@ export default function ContactSection({ prefilledService }: { prefilledService?
 
       {/* Impressum Modal */}
       {showImpressum && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-slate-900">
-          <div className="bg-white rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-slate-900"
+          onClick={() => setShowImpressum(false)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="impressum-titel"
+            ref={rechtsfensterRef}
+            tabIndex={-1}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl outline-none"
+          >
             <button
               onClick={() => setShowImpressum(false)}
-              className="absolute top-4 right-4 text-slate-300 hover:text-slate-800 text-lg font-bold"
+              aria-label="Fenster schließen"
+              className="absolute top-4 right-4 text-slate-500 hover:text-slate-900 text-lg font-bold"
             >
-              ✕
+              <span aria-hidden="true">✕</span>
             </button>
-            <h3 className="text-2xl font-extrabold text-[#122272] mb-4">Impressum</h3>
+            <h3 id="impressum-titel" className="text-2xl font-extrabold text-[#122272] mb-4">Impressum</h3>
             <div className="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
               <div>
                 <strong>Angaben gemäß § 5 ECG und § 25 MedienG:</strong>
@@ -497,15 +537,27 @@ export default function ContactSection({ prefilledService }: { prefilledService?
 
       {/* Datenschutz Modal */}
       {showDatenschutz && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-slate-900">
-          <div className="bg-white rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-slate-900"
+          onClick={() => setShowDatenschutz(false)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="datenschutz-titel"
+            ref={rechtsfensterRef}
+            tabIndex={-1}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl outline-none"
+          >
             <button
               onClick={() => setShowDatenschutz(false)}
-              className="absolute top-4 right-4 text-slate-300 hover:text-slate-800 text-lg font-bold"
+              aria-label="Fenster schließen"
+              className="absolute top-4 right-4 text-slate-500 hover:text-slate-900 text-lg font-bold"
             >
-              ✕
+              <span aria-hidden="true">✕</span>
             </button>
-            <h3 className="text-2xl font-extrabold text-[#122272] mb-4">Datenschutzerklärung</h3>
+            <h3 id="datenschutz-titel" className="text-2xl font-extrabold text-[#122272] mb-4">Datenschutzerklärung</h3>
             <div className="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
               <p>
                 Wir legen großen Wert auf den Schutz Ihrer persönlichen Daten gemäß DSGVO und österreichischem Datenschutzgesetz (DSG).
