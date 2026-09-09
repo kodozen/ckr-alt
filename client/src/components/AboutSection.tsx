@@ -74,7 +74,7 @@ export default function AboutSection() {
                 <img
                   src={CKR_INFO.teamImage}
                   alt="CKR Reinigungsteam in Österreich"
-                  className="w-full h-[420px] object-cover"
+                  className="w-full aspect-[4/3] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#122272]/80 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 text-white">

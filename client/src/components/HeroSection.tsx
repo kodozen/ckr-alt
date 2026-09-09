@@ -89,7 +89,7 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
                 <img
                   src={CKR_INFO.heroImage}
                   alt="Professionelle Reinigungskraft in Österreich"
-                  className="w-full h-[460px] sm:h-[500px] object-cover"
+                  className="w-full aspect-[4/3] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                 

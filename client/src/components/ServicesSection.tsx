@@ -63,7 +63,7 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
 
                 <div>
                   {/* Image Thumbnail with Overlay */}
-                  <div className="relative h-44 rounded-xl overflow-hidden mb-5 bg-slate-200">
+                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-slate-200">
                     <img
                       src={service.image}
                       alt={service.title}

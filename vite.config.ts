@@ -224,6 +224,10 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    // Ohne Quellkarten fällt die Prüfung 'valid-source-maps' durch, und
+    // ein Fehlerbericht aus dem Browser wäre nicht lesbar. Der Quelltext
+    // liegt ohnehin offen im Depot, es wird also nichts preisgegeben.
+    sourcemap: true,
   },
   server: {
     port: 3000,
