@@ -63,9 +63,9 @@ export default function MeisterSection() {
 
             <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-200">
               <li>Denkmalreinigung</li>
-              <li aria-hidden="true" className="text-slate-500">·</li>
+              <li aria-hidden="true" className="text-slate-400">·</li>
               <li>Fassadenreinigung</li>
-              <li aria-hidden="true" className="text-slate-500">·</li>
+              <li aria-hidden="true" className="text-slate-400">·</li>
               <li>Gebäudereinigung</li>
             </ul>
           </div>
