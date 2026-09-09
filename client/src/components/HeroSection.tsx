@@ -21,9 +21,8 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
       {/* Gerichtet statt flächendeckend: links deckt der Schleier, rechts
           bleibt die Aufnahme sichtbar. Auf schmalen Geräten zusätzlich
           von unten, weil die Schrift dort die ganze Breite einnimmt. */}
-      <div className="absolute inset-0 -z-10 bg-[#070d2e]/35" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070d2e] from-10% via-[#070d2e]/75 via-55% to-[#070d2e]/10" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#070d2e]/80 via-transparent to-transparent sm:hidden" />
+      <div className="absolute inset-0 -z-10 bg-[#070d2e]/65 sm:bg-[#070d2e]/30" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070d2e] from-10% via-[#070d2e]/70 via-55% to-[#070d2e]/5" />
 
       <div className="container py-20 sm:py-28 lg:py-36">
         <div className="max-w-3xl">
