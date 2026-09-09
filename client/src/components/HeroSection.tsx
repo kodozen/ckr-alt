@@ -55,7 +55,7 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
                 onClick={onOpenCalculator}
                 className="bg-[#122272] hover:bg-[#0c164a] text-white font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl transition shadow-lg hover:shadow-xl active:scale-95 flex items-center gap-2 group"
               >
-                <span>Richtpreis jetzt berechnen</span>
+                <span>Angebot anfordern</span>
                 <ArrowRight className="w-4 h-4 text-[#52b719] group-hover:translate-x-1 transition-transform" />
               </button>
 

@@ -1,3 +1,11 @@
+// Die Bilder liegen unter /manus-storage/. Als absoluter Pfad zeigt das
+// auf die Wurzel der Domain — unter kodozen.github.io/ckr-alt/ also ins
+// Leere; deshalb waren alle dreizehn Bilder 404. BASE_URL enthält den
+// Unterordner, den Vite beim Bauen kennt; auf einer eigenen Domain ist
+// er "/" und die Pfade bleiben, wie sie sind.
+const bild = (pfad: string) =>
+  import.meta.env.BASE_URL.replace(/\/$/, "") + pfad;
+
 export interface ServiceItem {
   id: string;
   title: string;
@@ -25,13 +33,13 @@ export const CKR_INFO = {
   experienceYears: "10+",
   clientsSatisfied: "500+",
   coverageArea: "Bezirk Kufstein, Wörgl, Kitzbühel, Schwaz & Umgebung (Tirol)",
-  logo: "/manus-storage/ckr-logo-original_a1e7247c.png",
-  heroImage: "/manus-storage/G1jT57jzwtmc_8fc296a6.jpg",
-  teamImage: "/manus-storage/afgOOxPThKeo_76986f5d.jpg",
-  detailImageOffice: "/manus-storage/QPImpFF6sPNS_e1968161.jpg",
-  detailImageCare: "/manus-storage/W26I5SqCRoqZ_f8c2bf58.jpg",
-  detailImageFloor: "/manus-storage/c11Cq6dwwpAu_b39b6734.jpg",
-  detailImageModern: "/manus-storage/56GiyVpVX1CN_7c5868d9.jpg",
+  logo: bild("/manus-storage/ckr-logo-original_a1e7247c.png"),
+  heroImage: bild("/manus-storage/G1jT57jzwtmc_8fc296a6.jpg"),
+  teamImage: bild("/manus-storage/afgOOxPThKeo_76986f5d.jpg"),
+  detailImageOffice: bild("/manus-storage/QPImpFF6sPNS_e1968161.jpg"),
+  detailImageCare: bild("/manus-storage/W26I5SqCRoqZ_f8c2bf58.jpg"),
+  detailImageFloor: bild("/manus-storage/c11Cq6dwwpAu_b39b6734.jpg"),
+  detailImageModern: bild("/manus-storage/56GiyVpVX1CN_7c5868d9.jpg"),
 };
 
 export const CKR_SERVICES: ServiceItem[] = [
@@ -47,7 +55,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Mülltrennung & fachgerechte Entsorgung",
       "Küchen- und Pausenraumpflege"
     ],
-    image: "/manus-storage/QPImpFF6sPNS_e1968161.jpg",
+    image: bild("/manus-storage/QPImpFF6sPNS_e1968161.jpg"),
     badge: "Meistgefragt",
     iconName: "Sparkles"
   },
@@ -63,7 +71,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Spinnwebenbeseitigung & Glasflächen im Stiegenhaus",
       "Feste Termine & zuverlässige Ausführung"
     ],
-    image: "/manus-storage/W26I5SqCRoqZ_f8c2bf58.jpg",
+    image: bild("/manus-storage/W26I5SqCRoqZ_f8c2bf58.jpg"),
     iconName: "Building2"
   },
   {
@@ -78,7 +86,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Wand- und Deckenentstaubung",
       "Werterhaltende Pflege aller Werkstoffe"
     ],
-    image: "/manus-storage/c11Cq6dwwpAu_b39b6734.jpg",
+    image: bild("/manus-storage/c11Cq6dwwpAu_b39b6734.jpg"),
     badge: "Werterhalt",
     iconName: "ShieldCheck"
   },
@@ -94,7 +102,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Wintergärten & Glasüberdachungen",
       "Sicherheitsausrüstung für Höhenarbeiten"
     ],
-    image: "/manus-storage/G1jT57jzwtmc_8fc296a6.jpg",
+    image: bild("/manus-storage/G1jT57jzwtmc_8fc296a6.jpg"),
     iconName: "Sun"
   },
   {
@@ -109,7 +117,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Wäscheservice-Koordination & Turn-down",
       "Flexible Spitzenzeiten-Unterstützung im Tourismus"
     ],
-    image: "/manus-storage/56GiyVpVX1CN_7c5868d9.jpg",
+    image: bild("/manus-storage/56GiyVpVX1CN_7c5868d9.jpg"),
     badge: "Tiroler Tourismus",
     iconName: "BedDouble"
   },
@@ -125,7 +133,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Endkontrolle & Checklisten-Protokoll",
       "Schlüsselübergabe-Unterstützung nach Absprache"
     ],
-    image: "/manus-storage/afgOOxPThKeo_76986f5d.jpg",
+    image: bild("/manus-storage/afgOOxPThKeo_76986f5d.jpg"),
     iconName: "Home"
   },
   {
@@ -140,7 +148,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Farbfrische-Reaktivierung",
       "Schnelle Trocknungszeiten"
     ],
-    image: "/manus-storage/c11Cq6dwwpAu_b39b6734.jpg",
+    image: bild("/manus-storage/c11Cq6dwwpAu_b39b6734.jpg"),
     iconName: "Layers"
   },
   {
@@ -155,7 +163,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Reinigungsabnahme mit Bauherren & Architekten",
       "Verlässliche Termineinhaltung vor Bezug"
     ],
-    image: "/manus-storage/QPImpFF6sPNS_e1968161.jpg",
+    image: bild("/manus-storage/QPImpFF6sPNS_e1968161.jpg"),
     iconName: "HardHat"
   },
   {
@@ -170,7 +178,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Laufende Hausmeistertätigkeiten & Kontrollgänge",
       "Kleinreparaturen & Saisonpflege"
     ],
-    image: "/manus-storage/W26I5SqCRoqZ_f8c2bf58.jpg",
+    image: bild("/manus-storage/W26I5SqCRoqZ_f8c2bf58.jpg"),
     iconName: "Truck"
   }
 ];
