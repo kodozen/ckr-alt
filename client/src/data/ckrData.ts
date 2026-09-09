@@ -29,7 +29,7 @@ export const CKR_INFO = {
   uid: "ATU74543201",
   owner: "Sevgi Ay",
   hotline: "Notdienst rund um die Uhr",
-  workingHours: "Mo–Sa: 07:00–19:00 Uhr · Notdienst rund um die Uhr",
+  workingHours: "Büro: Mo–Sa 07:00–19:00 Uhr · Notdienst rund um die Uhr",
   experienceYears: "10+",
   clientsSatisfied: "500+",
   coverageArea: "Bezirk Kufstein, Wörgl, Kitzbühel, Schwaz & Umgebung (Tirol)",

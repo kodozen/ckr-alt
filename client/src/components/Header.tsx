@@ -53,7 +53,7 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
             </span>
             <span className="inline-flex items-center gap-1 text-slate-300">
               <Clock className="w-3.5 h-3.5 text-slate-300" />
-              Mo–Sa: 07:00–19:00
+              Büro: Mo–Sa 07:00–19:00
             </span>
           </div>
         </div>
