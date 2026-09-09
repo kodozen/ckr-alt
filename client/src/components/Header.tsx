@@ -51,8 +51,8 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               Kufstein & Umgebung (Tirol)
             </span>
-            <span className="inline-flex items-center gap-1 text-slate-600">
-              <Clock className="w-3.5 h-3.5 text-slate-400" />
+            <span className="inline-flex items-center gap-1 text-slate-300">
+              <Clock className="w-3.5 h-3.5 text-slate-300" />
               Mo–Sa: 07:00–19:00
             </span>
           </div>
@@ -79,7 +79,7 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
               <span className="font-extrabold text-[#122272] tracking-tight text-lg sm:text-xl leading-none">
                 CKR
               </span>
-              <span className="text-xs sm:text-xs font-semibold tracking-wider uppercase text-emerald-600">
+              <span className="text-xs sm:text-xs font-semibold tracking-wider uppercase text-emerald-700">
                 Cleaning Services
               </span>
             </div>

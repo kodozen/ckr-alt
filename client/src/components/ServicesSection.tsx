@@ -81,7 +81,7 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
                       <div className="w-8 h-8 rounded-lg bg-white/90 backdrop-blur-sm text-[#122272] flex items-center justify-center shadow-sm">
                         <Icon className="w-4 h-4 text-[#122272]" />
                       </div>
-                      <span className="text-white text-xs font-semibold drop-shadow">Kufstein & Umgebung</span>
+                      <span className="text-white text-xs font-semibold bg-slate-900/75 px-2 py-0.5 rounded">Kufstein & Umgebung</span>
                     </div>
                   </div>
 
