@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CKR_REVIEWS, CKR_FAQ } from "@/data/ckrData";
+import { CKR_REVIEWS, CKR_BEWERTUNGSQUELLEN, CKR_FAQ } from "@/data/ckrData";
 import { Star, ChevronDown, MessageSquareQuote, HelpCircle, CheckCircle2 } from "lucide-react";
 
 export default function ReviewsAndFaq() {
@@ -8,49 +8,84 @@ export default function ReviewsAndFaq() {
   return (
     <section id="bewertungen" className="py-20 sm:py-28 bg-white relative">
       <div className="container">
-        {/* Reviews Section */}
+        {/* Bewertungen — nur belegte Stimmen, jede mit Fundstelle */}
         <div className="mb-24">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold uppercase tracking-wider mb-4 border border-amber-200/60">
-              <MessageSquareQuote className="w-3.5 h-3.5 text-amber-600" />
-              Echte Kundenstimmen
+              <MessageSquareQuote className="w-3.5 h-3.5 text-amber-600" aria-hidden="true" />
+              Bewertungen
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#122272] tracking-tight">
-              Was unsere Kunden in Kufstein & Tirol über uns sagen
+              Was Kundinnen und Kunden geschrieben haben
             </h2>
+            {/* Diese Zeile ist keine Zier: wer Bewertungen zeigt, muss
+                sagen, woher sie stammen (§ 2 Abs. 6 UWG, Anhang Z23b). */}
             <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
-              Höchste Zufriedenheit bei Betrieben, Hausverwaltungen und Hotellerie durch Termintreue und meisterliche Sauberkeit.
+              Alle Zitate stammen unverändert von öffentlichen Bewertungs&shy;portalen,
+              auf denen CKR geführt wird. Wir sammeln keine Bewertungen selbst,
+              wählen nichts aus und kürzen nichts — jede Stimme ist unter der
+              angegebenen Quelle nachlesbar.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Gesamtwertungen der Portale */}
+          <ul className="flex flex-wrap justify-center gap-3 mb-12">
+            {CKR_BEWERTUNGSQUELLEN.map((q) => (
+              <li key={q.portal}>
+                <a
+                  href={q.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm transition-colors hover:border-blue-200 hover:bg-white"
+                >
+                  <Star className="h-4 w-4 fill-amber-400 text-amber-400" aria-hidden="true" />
+                  <span className="font-bold text-slate-900">{q.wertung}</span>
+                  <span className="text-slate-600">
+                    auf {q.portal} ({q.anzahl}{" "}
+                    {q.anzahl === 1 ? "Bewertung" : "Bewertungen"})
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
             {CKR_REVIEWS.map((rev, idx) => (
-              <div
+              <figure
                 key={idx}
-                className="bg-slate-50 rounded-2xl p-7 border border-slate-200/80 hover:border-blue-200 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-slate-50 p-7 transition-all duration-300 hover:border-blue-200 hover:shadow-lg"
               >
                 <div>
-                  <div className="flex items-center gap-1 mb-4 text-amber-400">
-                    {[...Array(rev.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  <div
+                    className="mb-4 flex items-center gap-1 text-amber-400"
+                    role="img"
+                    aria-label={`${rev.sterne} von 5 Sternen`}
+                  >
+                    {[...Array(rev.sterne)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" aria-hidden="true" />
                     ))}
                   </div>
 
-                  <p className="text-slate-700 text-xs sm:text-sm leading-relaxed italic mb-6">
-                    "{rev.content}"
-                  </p>
+                  <blockquote className="mb-6 text-sm leading-relaxed text-slate-700 sm:text-base">
+                    „{rev.text}“
+                  </blockquote>
                 </div>
 
-                <div className="border-t border-slate-200/60 pt-4 flex items-center justify-between">
+                <figcaption className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200/60 pt-4">
                   <div>
-                    <p className="text-sm font-bold text-slate-900">{rev.author}</p>
-                    <p className="text-xs text-slate-600">{rev.role}</p>
+                    <p className="text-sm font-bold text-slate-900">{rev.autor}</p>
+                    <p className="text-xs text-slate-600">{rev.datum}</p>
                   </div>
-                  <span className="text-xs font-semibold text-[#122272] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
-                    {rev.service}
-                  </span>
-                </div>
-              </div>
+                  <a
+                    href={rev.quelleUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full border border-blue-100 bg-blue-50 px-2.5 py-1 text-xs font-semibold text-[#122272] hover:bg-white"
+                  >
+                    Quelle: {rev.quelle}
+                  </a>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>

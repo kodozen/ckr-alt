@@ -558,19 +558,104 @@ export default function ContactSection({ prefilledService }: { prefilledService?
               <span aria-hidden="true">✕</span>
             </button>
             <h3 id="datenschutz-titel" className="text-2xl font-extrabold text-[#122272] mb-4">Datenschutzerklärung</h3>
-            <div className="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <div className="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
               <p>
-                Wir legen großen Wert auf den Schutz Ihrer persönlichen Daten gemäß DSGVO und österreichischem Datenschutzgesetz (DSG).
+                Wir verarbeiten personenbezogene Daten nach der
+                Datenschutz-Grundverordnung (DSGVO) und dem österreichischen
+                Datenschutzgesetz (DSG).
               </p>
-              <p>
-                <strong>Erhebung und Verarbeitung:</strong> Bei Kontaktaufnahme über Formular oder E-Mail werden Ihre Angaben zwecks Bearbeitung der Anfrage und möglicher Anschlussfragen bei uns gespeichert.
-              </p>
-              <p>
-                <strong>Ihre Rechte:</strong> Ihnen stehen grundsätzlich die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung und Widerspruch zu. Kontaktieren Sie uns hierzu unter info@ckrreinigung.at.
-              </p>
+
+              <div>
+                <strong>Verantwortlicher:</strong>
+                <p>{CKR_INFO.legalName}</p>
+                <p>{CKR_INFO.officialAddress}</p>
+                <p>
+                  {CKR_INFO.phone} · {CKR_INFO.email}
+                </p>
+              </div>
+
+              <div>
+                <strong>Wenn Sie das Anfrageformular benutzen:</strong>
+                <p>
+                  Das Formular überträgt nichts an uns. Es öffnet Ihr eigenes
+                  E-Mail-Programm mit einer vorbereiteten Nachricht — abgeschickt
+                  wird sie erst, wenn Sie es dort selbst tun. Bis dahin bleiben
+                  Ihre Eingaben in Ihrem Browser und erreichen uns nicht.
+                </p>
+              </div>
+
+              <div>
+                <strong>Wenn Sie uns schreiben oder anrufen:</strong>
+                <p>
+                  Wir verarbeiten Ihre Angaben, um Ihre Anfrage zu beantworten
+                  und ein Angebot zu erstellen. Rechtsgrundlage ist Art. 6 Abs. 1
+                  lit. b DSGVO (vorvertragliche Maßnahmen) beziehungsweise
+                  lit. f (unser Interesse, Anfragen zu beantworten). Wir bewahren
+                  die Nachricht auf, solange sie für die Bearbeitung und für
+                  Rückfragen nötig ist; kommt ein Auftrag zustande, gelten die
+                  gesetzlichen Aufbewahrungsfristen von sieben Jahren nach
+                  § 132 BAO.
+                </p>
+              </div>
+
+              <div>
+                <strong>Keine Cookies, keine Statistik, keine fremden Dienste:</strong>
+                <p>
+                  Diese Seite setzt keine Cookies, bindet keine Schriften,
+                  Karten, Videos oder Analysewerkzeuge von fremden Servern ein
+                  und wertet Ihr Verhalten nicht aus. Deshalb erscheint hier auch
+                  kein Zustimmungsbanner — es gibt nichts zuzustimmen.
+                </p>
+              </div>
+
+              {/* Beim Umzug auf die eigene Domain muss hier der dann
+                  tatsächliche Anbieter stehen. */}
+              <div>
+                <strong>Aufruf der Seite (Hosting):</strong>
+                <p>
+                  Die Seite wird von GitHub Inc., 88 Colin P. Kelly Jr. Street,
+                  San Francisco, CA 94107, USA über GitHub Pages ausgeliefert.
+                  Beim Aufruf verarbeitet der Anbieter technisch notwendige
+                  Verbindungsdaten, darunter Ihre IP-Adresse. Rechtsgrundlage ist
+                  Art. 6 Abs. 1 lit. f DSGVO; die Übermittlung in die USA stützt
+                  sich auf die Standardvertragsklauseln der Europäischen
+                  Kommission.
+                </p>
+              </div>
+
+              <div>
+                <strong>Ihre Rechte:</strong>
+                <p>
+                  Sie haben das Recht auf Auskunft, Berichtigung, Löschung,
+                  Einschränkung der Verarbeitung, Datenübertragbarkeit und
+                  Widerspruch. Wenden Sie sich dafür an{" "}
+                  <a href={`mailto:${CKR_INFO.email}`} className="text-[#122272] underline">
+                    {CKR_INFO.email}
+                  </a>
+                  .
+                </p>
+              </div>
+
+              <div>
+                <strong>Beschwerderecht:</strong>
+                <p>
+                  Wenn Sie glauben, dass wir Ihre Daten nicht rechtmäßig
+                  verarbeiten, können Sie sich bei der Österreichischen
+                  Datenschutzbehörde beschweren: Barichgasse 40–42, 1030 Wien,{" "}
+                  <a
+                    href="https://www.dsb.gv.at"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[#122272] underline"
+                  >
+                    www.dsb.gv.at
+                  </a>
+                  .
+                </p>
+              </div>
             </div>
-            <div className="mt-6 text-right">
-              <button
+
+            <button
                 onClick={() => setShowDatenschutz(false)}
                 className="bg-[#122272] text-white px-5 py-2 rounded-xl text-xs font-bold"
               >

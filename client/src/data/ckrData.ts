@@ -29,7 +29,6 @@ export const CKR_INFO = {
   uid: "ATU74543201",
   owner: "Sevgi Ay",
   hotline: "Notdienst rund um die Uhr",
-  workingHours: "Büro: Mo–Sa 07:00–19:00 Uhr · Notdienst rund um die Uhr",
   experienceYears: "10+",
   clientsSatisfied: "500+",
   coverageArea: "Bezirk Kufstein, Wörgl, Kitzbühel, Schwaz & Umgebung (Tirol)",
@@ -109,7 +108,7 @@ export const CKR_SERVICES: ServiceItem[] = [
   {
     id: "hotelreinigung",
     title: "Hotel- & Pensionsreinigung",
-    shortDesc: "Fünf-Sterne-Sauberkeit für Tiroler Gastronomie, Wellnessanlagen, Zimmer und Suiten.",
+    shortDesc: "Sauberkeit, wie Gäste in Tiroler Häusern sie erwarten — Zimmer, Suiten, Gastronomie und Wellnessbereich.",
     fullDesc: "Wir übernehmen alle Reinigungsleistungen von der täglichen Zimmerreinigung über topmoderne Reinigungen für Pools und Wellnessanlagen bis hin zu Sonderreinigungen.",
     features: [
       "Tägliche Hotelzimmer- und Suitenreinigung",
@@ -175,7 +174,7 @@ export const CKR_SERVICES: ServiceItem[] = [
     features: [
       "Wohnungs- & Haushaltsauflösungen",
       "Gewerbliche Räumung von Lagern & Archiven",
-      "Fachgerechte & zertifizierte Entsorgung",
+      "Fachgerechte Entsorgung über befugte Entsorgungsbetriebe",
       "Laufende Hausmeistertätigkeiten & Kontrollgänge",
       "Kleinreparaturen & Saisonpflege"
     ],
@@ -187,7 +186,7 @@ export const CKR_SERVICES: ServiceItem[] = [
 export const CKR_ADVANTAGES = [
   {
     title: "Langjährige Praxiserfahrung",
-    description: "Ausgebildete Gebäudereiniger, die seit vielen Jahren eigenständig arbeiten und höchste Qualitätsstandards in Tirol etablieren.",
+    description: "Ausgebildete Gebäudereiniger, die seit vielen Jahren eigenständig arbeiten und wissen, worauf es bei jedem Objekt ankommt.",
     icon: "Award"
   },
   {
@@ -207,28 +206,57 @@ export const CKR_ADVANTAGES = [
   }
 ];
 
-export const CKR_REVIEWS = [
+// Bewertungen: nur, was nachweislich jemand geschrieben hat.
+//
+// Hier standen drei erfundene Stimmen mit erfundenen Namen. Sie sind
+// ersatzlos gestrichen. In Österreich ist es seit der Umsetzung der
+// Omnibus-Richtlinie (§ 2 Abs. 6 UWG, Anhang Z23b) eine unlautere
+// Geschäftspraktik, Bewertungen zu zeigen, ohne sagen zu können, woher
+// sie stammen — erfundene Stimmen sind es ohnehin.
+//
+// Deshalb trägt jeder Eintrag Quelle, Datum und Fundstelle. Neue
+// Bewertungen bitte nur wortgetreu übernehmen und die Fundstelle
+// mitliefern; nichts glätten, nichts ergänzen.
+export interface Bewertung {
+  autor: string;
+  text: string;
+  datum: string;
+  quelle: string;
+  quelleUrl: string;
+  sterne: number;
+}
+
+export const CKR_REVIEWS: Bewertung[] = [
   {
-    author: "Markus Huber",
-    role: "Geschäftsführer, Kufstein",
-    content: "CKR betreut unsere Büroräume seit über zwei Jahren. Absolut verlässlich, pünktlich und blitzsauber. Auch die Glasreinigung im 3. Stock läuft immer reibungslos.",
-    rating: 5,
-    service: "Unterhalts- & Glasreinigung"
+    autor: "ferityakup",
+    text: "Sehr zuverlässig und freundlich. Immer abrufbereit und auch kurzfristige Einsätze machbar. Sehr gute Arbeit!",
+    datum: "26. April 2018",
+    quelle: "HEROLD",
+    quelleUrl: "https://www.herold.at/",
+    sterne: 5,
+  },
+];
+
+// Die Gesamtwertungen der Portale, an denen CKR geführt wird. Sie sind
+// nachprüfbar, weil jeder dem Verweis folgen kann — anders als eine Zahl,
+// die nur auf der eigenen Seite steht.
+//
+// Bewusst NICHT als aggregateRating in den strukturierten Daten: eine
+// Sternebewertung, die sich ein Betrieb auf der eigenen Seite selbst
+// ausstellt, wertet Google als Verstoß gegen seine Richtlinien.
+export const CKR_BEWERTUNGSQUELLEN = [
+  {
+    portal: "Google",
+    wertung: "5,0",
+    anzahl: 6,
+    url: "https://www.google.com/search?q=CKR+Cleaning+Services+Geb%C3%A4udereinigung+Kufstein",
   },
   {
-    author: "Claudia Eder",
-    role: "Hausverwaltung Kitzbühel-Kufstein",
-    content: "Die Treppenhausreinigung für unsere 4 Wohnanlagen funktioniert tadellos. Mieter und Eigentümer sind sehr zufrieden mit der Gründlichkeit und Höflichkeit der Mitarbeiter.",
-    rating: 5,
-    service: "Treppenhausreinigung"
+    portal: "HEROLD",
+    wertung: "5,0",
+    anzahl: 3,
+    url: "https://www.herold.at/",
   },
-  {
-    author: "Stefan Bichler",
-    role: "Hotelier im Kaiserwinkl",
-    content: "In der Hochsaison ist CKR unser Retter bei Zimmerwechseln und Sonderreinigungen der Wellnessbereiche. Schnelligkeit gepaart mit meisterlicher Sauberkeit!",
-    rating: 5,
-    service: "Hotel- & Wellnessreinigung"
-  }
 ];
 
 export const CKR_FAQ = [
@@ -246,7 +274,7 @@ export const CKR_FAQ = [
   },
   {
     q: "Erhalte ich vorab ein unverbindliches Angebot?",
-    a: "Ja. Nach einer kurzen Bedarfsanalyse oder einer unverbindlichen Objektbesichtigung vor Ort erstellen wir Ihnen ein transparentes, detailliertes Festpreisangebot."
+    a: "Ja. Nach einer kurzen Bedarfsanalyse oder einer unverbindlichen Besichtigung vor Ort erhalten Sie ein schriftliches, nach Positionen aufgeschlüsseltes Angebot. Es ist kostenlos und verpflichtet Sie zu nichts."
   },
   {
     q: "Wer kommt zu mir?",

@@ -3,7 +3,7 @@ import { CKR_INFO } from "@/data/ckrData";
 
 export default function HeroSection({ onAngebotAnfordern }: { onAngebotAnfordern: () => void }) {
   const zusagen = [
-    "Kostenlose Besichtigung, danach Festpreis",
+    "Kostenlose Besichtigung, danach ein verbindliches Angebot",
     "Rund um die Uhr erreichbar, auch bei Havarie",
     "Geschultes Personal, feste Objektleiter",
     "Ausbildungsbetrieb in Tirol",

@@ -35,7 +35,7 @@ export default function AboutSection() {
             {/* Checklist */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               {[
-                "100% geschultes Fachpersonal",
+                "Geschultes Fachpersonal",
                 "Feste Ansprechpartner & Vorarbeiter",
                 "Ökologisch abbaubare Reinigungsmittel",
                 "Feste Objektleiter, regelmäßige Kontrolle",
