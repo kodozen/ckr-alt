@@ -14,8 +14,8 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
             {/* Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white shadow-sm border border-slate-200/80 text-xs font-semibold text-slate-800">
               <span className="w-2.5 h-2.5 rounded-full bg-[#52b719] animate-pulse" />
-              <span>Gebäudereinigung in Kufstein &amp; Tirol</span>
-              <span className="text-slate-500">|</span>
+              <span>Meisterbetrieb für Gebäudereinigung in Tirol</span>
+              <span className="text-slate-600">|</span>
               <span className="text-[#122272] font-bold">Kufstein & Umgebung</span>
             </div>
 
@@ -69,10 +69,10 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
             </div>
 
             {/* Micro trust bar */}
-            <div className="pt-3 border-t border-slate-200/60 flex items-center gap-6 text-xs text-slate-500 font-medium">
+            <div className="pt-3 border-t border-slate-200/60 flex items-center gap-6 text-xs text-slate-600 font-medium">
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>Kostenlose Besichtigung</span>
+                <span>Meisterbetrieb</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Sparkles className="w-4 h-4 text-emerald-600" />
@@ -121,7 +121,7 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900 leading-tight">Jahre Erfahrung</div>
-                  <div className="text-xs text-slate-500">Geprüfte Qualität</div>
+                  <div className="text-xs text-slate-600">Geprüfte Qualität</div>
                 </div>
               </div>
 

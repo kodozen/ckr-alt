@@ -186,7 +186,7 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
                 </div>
 
                 <div className="border-t border-slate-100 pt-6 flex flex-wrap items-center justify-between gap-4">
-                  <div className="text-xs text-slate-500">
+                  <div className="text-xs text-slate-600">
                     Kostenlose Besichtigung & unverbindliches Angebot
                   </div>
                   <div className="flex items-center gap-3 w-full sm:w-auto">

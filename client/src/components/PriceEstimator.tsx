@@ -209,7 +209,7 @@ export default function PriceEstimator() {
                 <div className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
                   Den Preis nennen wir<br />nach der Besichtigung.
                 </div>
-                <p className="mt-3 text-xs text-slate-500 leading-relaxed">
+                <p className="mt-3 text-xs text-slate-300 leading-relaxed">
                   Am Schreibtisch lässt sich ein Objekt nicht schätzen. Wir kommen
                   vorbei — kostenlos und unverbindlich — und nennen danach einen
                   Festpreis, der hält.
@@ -258,7 +258,7 @@ export default function PriceEstimator() {
             </div>
 
             <div className="mt-8 pt-6 border-t border-white/10">
-              <p className="text-xs text-slate-500 mb-2">Sie wünschen eine sofortige Beratung?</p>
+              <p className="text-xs text-slate-300 mb-2">Sie wünschen eine sofortige Beratung?</p>
               <a
                 href={`tel:${CKR_INFO.phoneRaw}`}
                 className="w-full bg-[#2E7D0E] hover:bg-[#256A0B] text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md transition-colors"

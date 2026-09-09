@@ -44,7 +44,7 @@ export default function ReviewsAndFaq() {
                 <div className="border-t border-slate-200/60 pt-4 flex items-center justify-between">
                   <div>
                     <h3 className="text-sm font-bold text-slate-900">{rev.author}</h3>
-                    <p className="text-xs text-slate-500">{rev.role}</p>
+                    <p className="text-xs text-slate-600">{rev.role}</p>
                   </div>
                   <span className="text-xs font-semibold text-[#122272] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
                     {rev.service}
@@ -81,7 +81,7 @@ export default function ReviewsAndFaq() {
                   >
                     <span>{item.q}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-slate-500 transition-transform duration-200 shrink-0 ${
+                      className={`w-5 h-5 text-slate-600 transition-transform duration-200 shrink-0 ${
                         isOpen ? "rotate-180 text-[#122272]" : ""
                       }`}
                     />

@@ -42,7 +42,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
           <h2 className="text-3xl sm:text-5xl font-extrabold mt-4 tracking-tight text-white">
             Rufen Sie uns an oder senden Sie uns eine Nachricht.
           </h2>
-          <p className="mt-3 text-slate-500 text-sm sm:text-base leading-relaxed">
+          <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
             Wir kümmern uns gerne um Ihr Anliegen und freuen uns auf Ihren Besuch! Vertrauen Sie uns – wir werden uns bemühen, Ihren Auftrag exakt an Ihre Wünsche und Vorstellungen anzupassen.
           </p>
         </div>
@@ -58,7 +58,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
+                  <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold">
                     Telefon & 24h-Hotline
                   </span>
                   <div className="text-lg font-bold mt-0.5">
@@ -78,7 +78,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
+                  <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold">
                     E-Mail
                   </span>
                   <div className="text-base font-bold mt-0.5">
@@ -98,7 +98,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
+                  <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold">
                     Bürostandort Kufstein
                   </span>
                   <div className="text-sm font-bold text-white mt-0.5">
@@ -117,10 +117,10 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                 <ShieldCheck className="w-4 h-4" />
                 Österreichischer Meisterbetrieb-Anspruch
               </div>
-              <p className="text-xs text-slate-500 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Reinigungsfachkräfte nach strengen österreichischen Hygiene- und Sicherheitsrichtlinien ausgebildet.
               </p>
-              <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-500">
+              <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-600">
                 <span className="bg-white/10 px-2.5 py-1 rounded-md">UID: {CKR_INFO.uid}</span>
                 <span className="bg-white/10 px-2.5 py-1 rounded-md">Geschäftsführung: {CKR_INFO.owner}</span>
               </div>
@@ -135,7 +135,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   <h3 className="text-xl sm:text-2xl font-extrabold text-[#122272]">
                     Unverbindliche Anfrage senden
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1">
                     Wir antworten werktags meist innerhalb von 2 Stunden.
                   </p>
                 </div>
@@ -260,7 +260,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   />
                 </div>
 
-                <div className="flex items-center gap-2 pt-1 text-xs text-slate-500">
+                <div className="flex items-center gap-2 pt-1 text-xs text-slate-600">
                   <CheckCircle2 className="w-4 h-4 text-[#2E7D0E] shrink-0" />
                   <span>Ihre Daten werden vertraulich behandelt und nicht weitergegeben.</span>
                 </div>

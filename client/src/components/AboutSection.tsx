@@ -96,7 +96,7 @@ export default function AboutSection() {
                   <div className="text-base font-extrabold text-slate-900 leading-tight">
                     Jahre Erfahrung
                   </div>
-                  <div className="text-xs text-slate-500 font-medium">
+                  <div className="text-xs text-slate-600 font-medium">
                     in Kufstein & ganz Tirol
                   </div>
                 </div>
@@ -160,7 +160,7 @@ export default function AboutSection() {
                 <span>Jetzt bewerben</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <span className="text-xs text-slate-500">
+              <span className="text-xs text-slate-600">
                 Oder Lebenslauf an <strong className="text-white">info@ckrreinigung.at</strong>
               </span>
             </div>

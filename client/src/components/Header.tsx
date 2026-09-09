@@ -51,7 +51,7 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               Kufstein & Umgebung (Tirol)
             </span>
-            <span className="inline-flex items-center gap-1 text-slate-500">
+            <span className="inline-flex items-center gap-1 text-slate-600">
               <Clock className="w-3.5 h-3.5 text-slate-400" />
               Mo–Sa: 07:00–19:00
             </span>
