@@ -75,21 +75,21 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {CKR_SERVICES.map((service) => {
             const Icon = ICON_MAP[service.iconName] || Sparkles;
 
             return (
               <div
                 key={service.id}
-                className="group bg-slate-50/70 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-blue-200 p-6 sm:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[#122272]"
+                className="group bg-slate-50/70 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-blue-200 p-4 sm:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[#122272]"
               >
                 {/* Accent Top Border Hover */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#122272] to-[#52b719] opacity-0 group-hover:opacity-100 transition-opacity" />
 
                 <div>
                   {/* Image Thumbnail with Overlay */}
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-slate-200">
+                  <div className="relative aspect-[16/9] sm:aspect-[4/3] rounded-xl overflow-hidden mb-4 sm:mb-5 bg-slate-200">
                     <img
                       src={service.image}
                       alt={service.title}
