@@ -62,7 +62,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     Telefon & 24h-Hotline
                   </span>
                   <div className="text-lg font-bold mt-0.5">
-                    <a href={`tel:${CKR_INFO.phoneRaw}`} className="hover:text-[#52b719] transition-colors">
+                    <a href={`tel:${CKR_INFO.phoneRaw}`} className="hover:text-[#52b719] transition-colors" aria-label="Anrufen">
                       {CKR_INFO.phone}
                     </a>
                   </div>
@@ -120,7 +120,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
               <p className="text-xs text-slate-300 leading-relaxed">
                 Reinigungsfachkräfte nach strengen österreichischen Hygiene- und Sicherheitsrichtlinien ausgebildet.
               </p>
-              <div className="mt-4 flex flex-wrap gap-2 text-[11px] text-slate-300">
+              <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
                 <span className="bg-white/10 px-2.5 py-1 rounded-md">UID: {CKR_INFO.uid}</span>
                 <span className="bg-white/10 px-2.5 py-1 rounded-md">Geschäftsführung: {CKR_INFO.owner}</span>
               </div>
@@ -140,7 +140,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   </p>
                 </div>
                 <div className="hidden sm:block">
-                  <span className="text-[11px] font-bold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">
+                  <span className="text-xs font-bold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">
                     Kostenlos
                   </span>
                 </div>

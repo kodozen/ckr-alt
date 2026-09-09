@@ -46,7 +46,7 @@ export default function ReviewsAndFaq() {
                     <h4 className="text-sm font-bold text-slate-900">{rev.author}</h4>
                     <p className="text-xs text-slate-500">{rev.role}</p>
                   </div>
-                  <span className="text-[11px] font-semibold text-[#122272] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
+                  <span className="text-xs font-semibold text-[#122272] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
                     {rev.service}
                   </span>
                 </div>

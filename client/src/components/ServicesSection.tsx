@@ -72,7 +72,7 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     
                     {service.badge && (
-                      <span className="absolute top-3 left-3 bg-[#52b719] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">
+                      <span className="absolute top-3 left-3 bg-[#52b719] text-white text-xs font-bold px-2.5 py-0.5 rounded-full shadow-sm">
                         {service.badge}
                       </span>
                     )}
@@ -193,7 +193,7 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
                     <a
                       href={`tel:${CKR_SERVICES ? "+436508933881" : ""}`}
                       className="flex-1 sm:flex-none bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl flex items-center justify-center gap-2"
-                    >
+                     aria-label="Anrufen">
                       <Phone className="w-3.5 h-3.5" />
                       <span>Jetzt anrufen</span>
                     </a>

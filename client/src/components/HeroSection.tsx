@@ -62,7 +62,7 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
               <a
                 href={`tel:${CKR_INFO.phoneRaw}`}
                 className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 font-bold text-sm sm:text-base px-5 py-3.5 rounded-xl transition shadow-sm flex items-center gap-2"
-              >
+               aria-label="Anrufen">
                 <Phone className="w-4 h-4 text-[#52b719]" />
                 <span>24h anrufen</span>
               </a>
@@ -97,7 +97,7 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
                 <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-white/50">
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] uppercase font-bold text-emerald-700 tracking-wider">
+                      <span className="text-xs uppercase font-bold text-emerald-700 tracking-wider">
                         Einsatzbereit
                       </span>
                       <h4 className="text-sm font-extrabold text-[#122272]">
@@ -121,7 +121,7 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900 leading-tight">Jahre Erfahrung</div>
-                  <div className="text-[11px] text-slate-500">Geprüfte Qualität</div>
+                  <div className="text-xs text-slate-500">Geprüfte Qualität</div>
                 </div>
               </div>
 
@@ -131,7 +131,7 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
                   <Clock className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-[11px] uppercase tracking-wider text-emerald-400 font-bold">
+                  <div className="text-xs uppercase tracking-wider text-emerald-400 font-bold">
                     24h Notdienst
                   </div>
                   <div className="text-xs font-extrabold">{CKR_INFO.phone}</div>

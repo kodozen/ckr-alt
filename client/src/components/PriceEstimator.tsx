@@ -107,7 +107,7 @@ export default function PriceEstimator() {
                   onChange={(e) => setAreaSize(Number(e.target.value))}
                   className="w-full accent-[#122272] cursor-pointer"
                 />
-                <div className="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
+                <div className="flex justify-between text-xs text-slate-400 mt-1 font-medium">
                   <span>Kleinobjekt (30 m²)</span>
                   <span>Mittelbetrieb (250 m²)</span>
                   <span>Großanlage (800+ m²)</span>
@@ -258,7 +258,7 @@ export default function PriceEstimator() {
               <a
                 href={`tel:${CKR_INFO.phoneRaw}`}
                 className="w-full bg-[#52b719] hover:bg-[#469f15] text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md transition-colors"
-              >
+               aria-label="Anrufen">
                 <PhoneCall className="w-4 h-4" />
                 <span>Direkt anrufen: {CKR_INFO.phone}</span>
               </a>

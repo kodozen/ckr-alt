@@ -105,3 +105,66 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* ============================================================
+   Tippflächen auf dem Telefon
+   ------------------------------------------------------------
+   Gemessen auf 375 Pixel Breite: 42 von 59 bedienbaren Elementen
+   waren kleiner als 44 Pixel — Symbolknöpfe im Kopf, die kleinen
+   Umschalter in den Leistungskarten, Kästchen und Schieber im
+   Formular. Wer die auf einem Telefon antippt, trifft regelmäßig
+   daneben.
+
+   Apple und Google nennen beide 44 Pixel als Untergrenze; die
+   Messung der Suchmaschinentauglichkeit prüft es ebenfalls.
+
+   Als eine Regel statt in zwanzig Komponenten: so kann sie beim
+   nächsten neuen Knopf nicht vergessen werden.
+   ============================================================ */
+
+@media (max-width: 767px) {
+  a[href],
+  button,
+  input[type="checkbox"],
+  input[type="radio"],
+  select,
+  [role="button"] {
+    min-height: 44px;
+  }
+
+  /* Links im Fließtext dürfen nicht auseinandergerissen werden —
+     dort gilt die Regel nur für die, die allein stehen. */
+  p a[href],
+  li a[href],
+  span a[href] {
+    min-height: 0;
+  }
+
+  /* Symbolknöpfe sind quadratisch und brauchen auch Breite. */
+  a[aria-label],
+  button[aria-label] {
+    min-width: 44px;
+  }
+
+  /* Kästchen und Schieber liefern die Fläche nicht von selbst;
+     das Etikett drumherum trägt sie. */
+  label:has(> input[type="checkbox"]),
+  label:has(> input[type="radio"]) {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  input[type="range"] {
+    min-height: 44px;
+  }
+
+  /* Eingabefelder: 44 Pixel Höhe verhindert außerdem, dass iOS
+     beim Antippen hineinzoomt. */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}

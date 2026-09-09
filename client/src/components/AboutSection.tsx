@@ -60,7 +60,7 @@ export default function AboutSection() {
               <a
                 href={`tel:${CKR_INFO.phoneRaw}`}
                 className="bg-white hover:bg-slate-100 text-[#122272] border border-slate-200 text-sm font-bold px-6 py-3 rounded-xl transition shadow-sm inline-flex items-center gap-2"
-              >
+               aria-label="Anrufen">
                 <PhoneCall className="w-4 h-4 text-emerald-600" />
                 <span>{CKR_INFO.phone}</span>
               </a>
