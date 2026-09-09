@@ -36,7 +36,7 @@ export default function BandSection({
   const rechts = seite === "rechts";
 
   return (
-    <section id={id} className="relative isolate overflow-hidden">
+    <section id={id} className="relative isolate overflow-hidden bg-[#070d2e]">
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-20 bg-cover bg-center"

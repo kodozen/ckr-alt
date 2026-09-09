@@ -6,7 +6,6 @@ import MeisterSection from "@/components/MeisterSection";
 import ServicesSection from "@/components/ServicesSection";
 import { CKR_INFO } from "@/data/ckrData";
 import AboutSection from "@/components/AboutSection";
-import PriceEstimator from "@/components/PriceEstimator";
 import ReviewsAndFaq from "@/components/ReviewsAndFaq";
 import ContactSection from "@/components/ContactSection";
 import { MessageCircle, Phone } from "lucide-react";
@@ -15,8 +14,8 @@ import { CKR_INFO } from "@/data/ckrData";
 export default function Home() {
   const [prefilledService, setPrefilledService] = useState<string>("Unterhaltsreinigung");
 
-  const scrollToCalculator = () => {
-    const el = document.getElementById("kalkulator");
+  const zumFormular = () => {
+    const el = document.getElementById("kontakt");
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
@@ -33,11 +32,11 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[#fbfcfd] text-[#0f172a] selection:bg-emerald-100 selection:text-emerald-900">
       {/* Header with Navigation and 24h Topbar */}
-      <Header onOpenCalculator={scrollToCalculator} />
+      <Header onAngebotAnfordern={zumFormular} />
 
       {/* Main Content Area */}
       <main className="flex-1">
-        <HeroSection onOpenCalculator={scrollToCalculator} />
+        <HeroSection onAngebotAnfordern={zumFormular} />
         <MeisterSection />
         <ServicesSection onSelectService={handleSelectService} />
 
@@ -60,7 +59,6 @@ export default function Home() {
           seite="rechts"
         />
         <AboutSection />
-        <PriceEstimator />
         <ReviewsAndFaq />
       </main>
 
@@ -68,7 +66,7 @@ export default function Home() {
       <ContactSection prefilledService={prefilledService} />
 
       {/* Floating Action Buttons (Sticky Quick Contacts for Mobile & Desktop) */}
-      <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-2.5">
+      <nav aria-label="Schnellkontakt" className="fixed bottom-5 right-5 z-40 flex flex-col gap-2.5">
         <a
           href={`https://wa.me/436508933881?text=Hallo%20CKR%20Cleaning%20Services,%20ich%20benötige%20ein%20Angebot.`}
           target="_blank"
@@ -88,7 +86,7 @@ export default function Home() {
         >
           <Phone className="w-6 h-6 text-[#2E7D0E]" />
         </a>
-      </div>
+      </nav>
     </div>
   );
 }

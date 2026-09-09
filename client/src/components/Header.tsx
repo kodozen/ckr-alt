@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Phone, Mail, Clock, Menu, X, ArrowRight, ShieldCheck } from "lucide-react";
 import { CKR_INFO } from "@/data/ckrData";
 
-export default function Header({ onOpenCalculator }: { onOpenCalculator: () => void }) {
+export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -19,7 +19,6 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
     { name: "Leistungen", href: "#leistungen" },
     { name: "Meisterbetrieb", href: "#meisterbetrieb" },
     { name: "Über Uns", href: "#ueber-uns" },
-    { name: "Preiskalkulator", href: "#kalkulator" },
     { name: "Ausbildung & Jobs", href: "#karriere" },
     { name: "Kundenstimmen", href: "#bewertungen" },
     { name: "Kontakt", href: "#kontakt" },
@@ -62,6 +61,7 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
 
       {/* Main Navigation Bar */}
       <nav
+        aria-label="Hauptmenü"
         className={`transition-all duration-200 ${
           isScrolled
             ? "bg-[#0c164a]/95 backdrop-blur-md shadow-lg py-3"
@@ -104,7 +104,7 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
           {/* Action Button */}
           <div className="hidden sm:flex items-center gap-3">
             <button
-              onClick={onOpenCalculator}
+              onClick={onAngebotAnfordern}
               type="button"
               className="bg-[#2E7D0E] hover:bg-[#256A0B] text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition-all flex items-center gap-2 active:scale-95"
             >
@@ -161,7 +161,7 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
-                    onOpenCalculator();
+                    onAngebotAnfordern();
                   }}
                   className="w-full bg-[#122272] text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 shadow"
                 >

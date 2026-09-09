@@ -9,6 +9,8 @@ export default function ContactSection({ prefilledService }: { prefilledService?
     email: "",
     phone: "",
     service: prefilledService || "Unterhaltsreinigung",
+    flaeche: "",
+    turnus: "",
     message: "",
     isApplication: false,
   });
@@ -245,6 +247,51 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     </select>
                   </div>
                 </div>
+
+                {/* Fläche und Turnus — kamen vom früheren Rechnerabschnitt
+                    hierher. Als Auswahl statt als Freitext, weil sich damit
+                    die Besichtigung planen lässt. Bei einer Bewerbung sind
+                    sie ohne Bedeutung und bleiben weg. */}
+                {!formData.isApplication && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                        Ungefähre Fläche
+                      </label>
+                      <select
+                        aria-label="Ungefähre Fläche"
+                        value={formData.flaeche}
+                        onChange={(e) => setFormData({ ...formData, flaeche: e.target.value })}
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:ring-2 focus:ring-[#122272] outline-none"
+                      >
+                        <option value="">Bitte wählen</option>
+                        <option value="bis 100 m²">bis 100 m²</option>
+                        <option value="100 bis 300 m²">100 – 300 m²</option>
+                        <option value="300 bis 1000 m²">300 – 1000 m²</option>
+                        <option value="über 1000 m²">über 1000 m²</option>
+                        <option value="weiß ich nicht">weiß ich nicht</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                        Wie oft
+                      </label>
+                      <select
+                        aria-label="Gewünschter Turnus"
+                        value={formData.turnus}
+                        onChange={(e) => setFormData({ ...formData, turnus: e.target.value })}
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:ring-2 focus:ring-[#122272] outline-none"
+                      >
+                        <option value="">Bitte wählen</option>
+                        <option value="einmalig">einmalig</option>
+                        <option value="wöchentlich">wöchentlich</option>
+                        <option value="14-tägig">14-tägig</option>
+                        <option value="mehrmals pro Woche">mehrmals pro Woche</option>
+                        <option value="noch offen">noch offen</option>
+                      </select>
+                    </div>
+                  </div>
+                )}
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">

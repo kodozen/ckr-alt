@@ -198,7 +198,7 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
                       <span>Jetzt anrufen</span>
                     </a>
                     <a
-                      href="#kalkulator"
+                      href="#kontakt"
                       onClick={() => setActiveModal(null)}
                       className="flex-1 sm:flex-none bg-[#122272] hover:bg-[#0c164a] text-white text-xs font-bold px-4 py-2.5 rounded-xl text-center"
                     >

@@ -1,7 +1,7 @@
 import { ArrowRight, Phone, CheckCircle2 } from "lucide-react";
 import { CKR_INFO } from "@/data/ckrData";
 
-export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: () => void }) {
+export default function HeroSection({ onAngebotAnfordern }: { onAngebotAnfordern: () => void }) {
   const zusagen = [
     "Kostenlose Besichtigung, danach Festpreis",
     "24h erreichbar, auch bei Havarie",
@@ -10,7 +10,7 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
   ];
 
   return (
-    <section id="top" className="relative isolate overflow-hidden">
+    <section id="top" className="relative isolate overflow-hidden bg-[#070d2e]">
       {/* Die Aufnahme füllt die Fläche; darüber liegt ein kräftiger
           Schleier, damit die Schrift sicher lesbar bleibt. */}
       <div
@@ -53,7 +53,7 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <button
-              onClick={onOpenCalculator}
+              onClick={onAngebotAnfordern}
               type="button"
               className="inline-flex items-center gap-2 rounded-lg bg-[#2E7D0E] px-6 py-3.5 text-sm sm:text-base font-semibold text-white transition hover:bg-[#256A0B] active:scale-95"
             >
