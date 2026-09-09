@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import MeisterSection from "@/components/MeisterSection";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import PriceEstimator from "@/components/PriceEstimator";
@@ -35,6 +36,7 @@ export default function Home() {
       {/* Main Content Area */}
       <main className="flex-1">
         <HeroSection onOpenCalculator={scrollToCalculator} />
+        <MeisterSection />
         <ServicesSection onSelectService={handleSelectService} />
         <AboutSection />
         <PriceEstimator />

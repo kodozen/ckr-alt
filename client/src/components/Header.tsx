@@ -17,6 +17,7 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
   const navLinks = [
     { name: "Startseite", href: "#top" },
     { name: "Leistungen", href: "#leistungen" },
+    { name: "Meisterbetrieb", href: "#meisterbetrieb" },
     { name: "Über Uns", href: "#ueber-uns" },
     { name: "Preiskalkulator", href: "#kalkulator" },
     { name: "Ausbildung & Jobs", href: "#karriere" },
