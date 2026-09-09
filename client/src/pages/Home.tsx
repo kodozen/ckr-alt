@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#fbfcfd] text-[#0f172a] selection:bg-emerald-100 selection:text-emerald-900">
-      {/* Header with Navigation and 24h Topbar */}
+      {/* Header with Navigation and Obere Leiste */}
       <Header onAngebotAnfordern={zumFormular} />
 
       {/* Main Content Area */}
@@ -81,7 +81,7 @@ export default function Home() {
         <a
           href={`tel:${CKR_INFO.phoneRaw}`}
           className="w-13 h-13 rounded-full bg-[#122272] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform"
-          title="24h-Hotline sofort anrufen"
+          title="24-Stunden-Hotline sofort anrufen"
           aria-label="24-Stunden-Hotline anrufen"
         >
           <Phone className="w-6 h-6 text-[#2E7D0E]" />

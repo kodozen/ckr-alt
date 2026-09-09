@@ -61,7 +61,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                 </div>
                 <div>
                   <span className="text-xs uppercase tracking-wider text-slate-300 font-semibold">
-                    Telefon & 24h-Hotline
+                    Telefon & 24-Stunden-Hotline
                   </span>
                   <div className="text-lg font-bold mt-0.5">
                     <a href={`tel:${CKR_INFO.phoneRaw}`} className="inline-flex items-center min-h-[44px] hover:text-[#2E7D0E] transition-colors" aria-label="Anrufen">

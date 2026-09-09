@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
  * Ganzflächiges Band mit Aufnahme.
  *
  * Vorbild sind die beiden großen Blöcke bei starclean ("Weil es für uns
- * mehr als Reinigung ist", "Drive your clean car."): eine Aufnahme über
+ * mehr als Reinigung ist"): eine Aufnahme über
  * die volle Breite, darüber eine Aussage, ein kurzer Satz, ein Weg
  * weiter. Kein Raster, keine Kacheln.
  *

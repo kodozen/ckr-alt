@@ -28,8 +28,8 @@ export const CKR_INFO = {
   officialAddress: "Bartl Lechner-Straße 17, 6330 Kufstein, Österreich",
   uid: "ATU74543201",
   owner: "Sevgi Ay",
-  hotline: "24h Notfall- & Kundenservice",
-  workingHours: "Mo - Sa: 07:00 - 19:00 Uhr | 24/7 Notdienst bei Notfällen",
+  hotline: "Notdienst rund um die Uhr",
+  workingHours: "Mo–Sa: 07:00–19:00 Uhr · Notdienst rund um die Uhr",
   experienceYears: "10+",
   clientsSatisfied: "500+",
   coverageArea: "Bezirk Kufstein, Wörgl, Kitzbühel, Schwaz & Umgebung (Tirol)",
@@ -113,10 +113,10 @@ export const CKR_SERVICES: ServiceItem[] = [
     fullDesc: "Wir übernehmen alle Reinigungsleistungen von der täglichen Zimmerreinigung über topmoderne Reinigungen für Pools und Wellnessanlagen bis hin zu Sonderreinigungen.",
     features: [
       "Tägliche Hotelzimmer- und Suitenreinigung",
-      "Wellness-, Spa- und Saunabereich-Hygiene",
-      "Öffentliche Bereiche, Lobby & Konferenzräume",
+      "Wellness-, Sauna- und Poolbereich",
+      "Empfangsbereich, Gänge und Konferenzräume",
       "Wäscheservice-Koordination & Turn-down",
-      "Flexible Spitzenzeiten-Unterstützung im Tourismus"
+      "Zusätzliche Kräfte in der Hochsaison"
     ],
     image: bild("/manus-storage/56GiyVpVX1CN_7c5868d9.jpg"),
     badge: "Tiroler Tourismus",
@@ -128,7 +128,7 @@ export const CKR_SERVICES: ServiceItem[] = [
     shortDesc: "Pünktlicher Wechseltag-Service für Chalets und Ferienwohnungen mit höchstem Komfort.",
     fullDesc: "Im Urlaub sollte man sich wie zu Hause fühlen, selbstverständlich gehört hierzu eine saubere Wohnung. Teamgeist, Qualität und bestes Know-how machen uns zu Ihrem starken Partner.",
     features: [
-      "Schneller Turnaround zwischen Gästewechseln",
+      "Schneller Wechsel zwischen zwei Gästen",
       "Küchenausstattung desinfizieren & prüfen",
       "Bettwäsche- & Handtuchwechsel",
       "Endkontrolle & Checklisten-Protokoll",
@@ -196,7 +196,7 @@ export const CKR_ADVANTAGES = [
     icon: "Clock"
   },
   {
-    title: "24h Notfall-Hotline",
+    title: "24-Stunden-Notdienst",
     description: "Bei Havariefällen, Wasserschäden oder dringenden Einsätzen sind wir rund um die Uhr direkt für Sie erreichbar.",
     icon: "PhoneCall"
   },
@@ -234,7 +234,7 @@ export const CKR_REVIEWS = [
 export const CKR_FAQ = [
   {
     q: "Wie schnell kann ein Reinigungsteam in Kufstein und Umgebung vor Ort sein?",
-    a: "Bei regelmäßigen Verträgen starten wir flexibel nach Absprache. Für dringende Einsätze und Notfälle steht Ihnen unsere 24h-Hotline unter +43 650 8933881 zur Verfügung."
+    a: "Bei regelmäßigen Verträgen starten wir flexibel nach Absprache. Für dringende Einsätze und Notfälle steht Ihnen unsere 24-Stunden-Hotline unter +43 650 8933881 zur Verfügung."
   },
   {
     q: "Bringen Sie Reinigungsmittel und professionelle Geräte selbst mit?",

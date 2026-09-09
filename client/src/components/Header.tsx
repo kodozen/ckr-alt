@@ -19,14 +19,14 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
     { name: "Leistungen", href: "#leistungen" },
     { name: "Meisterbetrieb", href: "#meisterbetrieb" },
     { name: "Über Uns", href: "#ueber-uns" },
-    { name: "Ausbildung & Jobs", href: "#karriere" },
+    { name: "Ausbildung & Stellen", href: "#karriere" },
     { name: "Kundenstimmen", href: "#bewertungen" },
     { name: "Kontakt", href: "#kontakt" },
   ];
 
   return (
     <header className="sticky top-0 z-50 transition-all duration-300">
-      {/* Top Banner (Contact & 24h Hotline) */}
+      {/* Top Banner (Contact & Notdienst) */}
       <div className="bg-[#070d2e] text-white/90 text-xs sm:text-sm py-2 px-4 border-b border-white/10">
         <div className="container flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-6">
@@ -35,7 +35,7 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
               className="flex items-center gap-1.5 font-medium hover:text-[#2E7D0E] transition-colors"
              aria-label="Anrufen">
               <Phone className="w-3.5 h-3.5 text-[#2E7D0E]" />
-              <span>24h-Hotline: {CKR_INFO.phone}</span>
+              <span>24-Stunden-Hotline: {CKR_INFO.phone}</span>
             </a>
             <a
               href={`mailto:${CKR_INFO.email}`}
@@ -173,7 +173,7 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
                   className="w-full bg-emerald-600 text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2"
                  aria-label="Anrufen">
                   <Phone className="w-4 h-4" />
-                  <span>24h-Hotline anrufen</span>
+                  <span>24-Stunden-Hotline anrufen</span>
                 </a>
               </div>
             </div>

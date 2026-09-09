@@ -74,6 +74,13 @@ jobs:
             's|</head>|<meta name="robots" content="noindex, nofollow">\n</head>|' {} +
           printf 'User-agent: *\nDisallow: /\n' > dist/public/robots.txt
 
+      # GitHub Pages liefert bei unbekannten Adressen seine eigene,
+      # englische Fehlerseite aus. Eine Kopie der index.html als 404.html
+      # gibt stattdessen die Anwendung aus, die dann ihre deutsche
+      # 404-Seite zeigt.
+      - name: Fehlerseite
+        run: cp dist/public/index.html dist/public/404.html
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

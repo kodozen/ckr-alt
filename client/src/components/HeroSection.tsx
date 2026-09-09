@@ -4,7 +4,7 @@ import { CKR_INFO } from "@/data/ckrData";
 export default function HeroSection({ onAngebotAnfordern }: { onAngebotAnfordern: () => void }) {
   const zusagen = [
     "Kostenlose Besichtigung, danach Festpreis",
-    "24h erreichbar, auch bei Havarie",
+    "Rund um die Uhr erreichbar, auch bei Havarie",
     "Geschultes Personal, feste Objektleiter",
     "Ausbildungsbetrieb in Tirol",
   ];
@@ -39,7 +39,7 @@ export default function HeroSection({ onAngebotAnfordern }: { onAngebotAnfordern
           <p className="mt-6 max-w-xl text-base sm:text-lg text-slate-200 leading-relaxed">
             Professionelle Gebäudereinigung für Betriebe, Hausverwaltungen und
             Privathaushalte. Mit geschulten Fachkräften und einer
-            <strong className="text-white"> 24h-Hotline</strong>, auch bei Havarie.
+            <strong className="text-white"> 24-Stunden-Hotline</strong>, auch bei Havarie.
           </p>
 
           <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
@@ -67,7 +67,7 @@ export default function HeroSection({ onAngebotAnfordern }: { onAngebotAnfordern
               className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-5 py-3.5 text-sm sm:text-base font-semibold text-white transition hover:bg-white/10"
             >
               <Phone className="w-4 h-4 text-emerald-300" />
-              <span>24h anrufen</span>
+              <span>Jetzt anrufen</span>
             </a>
           </div>
         </div>

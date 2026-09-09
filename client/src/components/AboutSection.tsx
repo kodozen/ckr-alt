@@ -102,12 +102,12 @@ export default function AboutSection() {
                 </div>
               </div>
 
-              {/* Floating 24h Hotline Badge */}
+              {/* Floating Notdienst-Plakette */}
               <div className="absolute -top-6 -right-2 sm:right-4 bg-gradient-to-br from-[#122272] to-[#0c164a] text-white rounded-2xl p-4 shadow-xl border border-white/20">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
                   <span className="text-xs font-bold uppercase tracking-wider text-emerald-300">
-                    24h Notdienst
+                    Notdienst rund um die Uhr
                   </span>
                 </div>
                 <div className="text-sm font-extrabold mt-1">
