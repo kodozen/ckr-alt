@@ -27,7 +27,7 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
   return (
     <header className="sticky top-0 z-50 transition-all duration-300">
       {/* Top Banner (Contact & 24h Hotline) */}
-      <div className="bg-[#0c164a] text-white/90 text-xs sm:text-sm py-2 px-4 border-b border-white/10">
+      <div className="bg-[#070d2e] text-white/90 text-xs sm:text-sm py-2 px-4 border-b border-white/10">
         <div className="container flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-6">
             <a
@@ -63,35 +63,37 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
       <nav
         className={`transition-all duration-200 ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-md py-3"
-            : "bg-white shadow-sm py-4"
+            ? "bg-[#0c164a]/95 backdrop-blur-md shadow-lg py-3"
+            : "bg-[#0c164a] py-4"
         }`}
       >
         <div className="container flex items-center justify-between">
           {/* Logo Area */}
           <a href="#top" className="flex items-center gap-3 group">
-            <img
-              src={CKR_INFO.logo}
-              alt="CKR Cleaning Services Logo"
-              className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
-            />
+            <span className="bg-white rounded-lg px-2 py-1.5 flex items-center">
+              <img
+                src={CKR_INFO.logo}
+                alt="CKR Cleaning Services Logo"
+                className="h-8 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
+              />
+            </span>
             <div className="flex flex-col">
-              <span className="font-extrabold text-[#122272] tracking-tight text-lg sm:text-xl leading-none">
+              <span className="font-extrabold text-white tracking-tight text-lg sm:text-xl leading-none">
                 CKR
               </span>
-              <span className="text-xs sm:text-xs font-semibold tracking-wider uppercase text-emerald-700">
+              <span className="text-xs sm:text-xs font-semibold tracking-wider uppercase text-emerald-300">
                 Cleaning Services
               </span>
             </div>
           </a>
 
           {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700">
+          <div className="hidden lg:flex items-center gap-7 text-sm font-semibold text-white/80">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="hover:text-[#122272] transition-colors py-1 relative hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#52b719] after:transition-all after:duration-200"
+                className="hover:text-white transition-colors py-1 relative hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#52b719] after:transition-all after:duration-200"
               >
                 {link.name}
               </a>
@@ -103,10 +105,10 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
             <button
               onClick={onOpenCalculator}
               type="button"
-              className="bg-[#122272] hover:bg-[#0c164a] text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition-all flex items-center gap-2 active:scale-95"
+              className="bg-[#2E7D0E] hover:bg-[#256A0B] text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition-all flex items-center gap-2 active:scale-95"
             >
               <span>Angebot berechnen</span>
-              <ArrowRight className="w-4 h-4 text-[#2E7D0E]" />
+              <ArrowRight className="w-4 h-4 text-white/80" />
             </button>
             <a
               href={`https://wa.me/436508933881?text=Hallo%20CKR%20Cleaning%20Services,%20ich%20habe%20eine%20Anfrage%20zu%20einer%20Reinigung.`}
@@ -125,14 +127,14 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
           <div className="flex items-center gap-2 lg:hidden">
             <a
               href={`tel:${CKR_INFO.phoneRaw}`}
-              className="p-2 text-[#122272] bg-blue-50 rounded-lg"
+              className="p-2 text-white bg-white/10 rounded-lg"
               title="Anrufen"
              aria-label="Anrufen">
               <Phone className="w-5 h-5" />
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-700 hover:text-[#122272] rounded-lg"
+              className="p-2 text-white hover:text-emerald-300 rounded-lg"
               aria-label="Menü öffnen"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -142,7 +144,7 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-6 mt-3 shadow-xl">
+          <div className="lg:hidden border-t border-white/10 bg-white px-4 pt-3 pb-6 mt-3 shadow-xl">
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <a
