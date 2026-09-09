@@ -165,6 +165,9 @@ html {
   input[type="tel"],
   textarea,
   select {
+    /* 16 Pixel Schrift verhindert, dass iOS beim Antippen hineinzoomt;
+       44 Pixel Höhe sind die Untergrenze für eine Tippfläche. */
     font-size: 16px;
+    min-height: 44px;
   }
 }

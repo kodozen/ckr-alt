@@ -52,6 +52,7 @@ export default function Home() {
           rel="noopener noreferrer"
           className="w-13 h-13 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform"
           title="WhatsApp Chat starten"
+          aria-label="Über WhatsApp schreiben"
         >
           <MessageCircle className="w-7 h-7" />
         </a>
@@ -60,6 +61,7 @@ export default function Home() {
           href={`tel:${CKR_INFO.phoneRaw}`}
           className="w-13 h-13 rounded-full bg-[#122272] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform"
           title="24h-Hotline sofort anrufen"
+          aria-label="24-Stunden-Hotline anrufen"
         >
           <Phone className="w-6 h-6 text-[#52b719]" />
         </a>

@@ -62,7 +62,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     Telefon & 24h-Hotline
                   </span>
                   <div className="text-lg font-bold mt-0.5">
-                    <a href={`tel:${CKR_INFO.phoneRaw}`} className="hover:text-[#52b719] transition-colors" aria-label="Anrufen">
+                    <a href={`tel:${CKR_INFO.phoneRaw}`} className="inline-flex items-center min-h-[44px] hover:text-[#52b719] transition-colors" aria-label="Anrufen">
                       {CKR_INFO.phone}
                     </a>
                   </div>
@@ -82,7 +82,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     E-Mail
                   </span>
                   <div className="text-base font-bold mt-0.5">
-                    <a href={`mailto:${CKR_INFO.email}`} className="hover:text-[#52b719] transition-colors">
+                    <a href={`mailto:${CKR_INFO.email}`} className="inline-flex items-center min-h-[44px] hover:text-[#52b719] transition-colors" aria-label="E-Mail schreiben">
                       {CKR_INFO.email}
                     </a>
                   </div>
