@@ -38,8 +38,9 @@ export default function HeroSection({ onAngebotAnfordern }: { onAngebotAnfordern
 
           <p className="mt-6 max-w-xl text-base sm:text-lg text-slate-200 leading-relaxed">
             Professionelle Gebäudereinigung für Betriebe, Hausverwaltungen und
-            Privathaushalte. Mit geschulten Fachkräften und einer
-            <strong className="text-white"> 24-Stunden-Hotline</strong>, auch bei Havarie.
+            Privathaushalte — in
+            <strong className="text-white"> Kufstein, Wörgl, Kitzbühel</strong> und
+            im übrigen Tirol.
           </p>
 
           <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">

@@ -75,6 +75,8 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
               <img
                 src={CKR_INFO.logo}
                 alt="CKR Cleaning Services Logo"
+                width={1360}
+                height={682}
                 className="h-8 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
               />
             </span>

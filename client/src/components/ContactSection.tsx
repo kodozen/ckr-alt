@@ -19,14 +19,43 @@ export default function ContactSection({ prefilledService }: { prefilledService?
   const [showImpressum, setShowImpressum] = useState(false);
   const [showDatenschutz, setShowDatenschutz] = useState(false);
 
+  // Die Seite liegt auf einem reinen Dateiserver — es gibt nichts, was
+  // ein Formular entgegennehmen könnte. Bis ein Postfachdienst feststeht,
+  // wird die Anfrage im E-Mail-Programm des Besuchers vorbereitet und an
+  // CKR adressiert. Das ist der einzige Weg, der ohne fremden Anbieter
+  // auskommt — und vor allem der einzige, bei dem die Nachricht wirklich
+  // ankommt.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) {
       toast.error("Bitte geben Sie Ihren Namen und eine Telefonnummer an.");
       return;
     }
+
+    const betreff = formData.isApplication
+      ? `Bewerbung: ${formData.service}`
+      : `Anfrage: ${formData.service}`;
+
+    const zeilen = [
+      `Name: ${formData.name}`,
+      `Telefon: ${formData.phone}`,
+      formData.email ? `E-Mail: ${formData.email}` : null,
+      formData.isApplication
+        ? `Gewünschte Stelle: ${formData.service}`
+        : `Gewünschte Leistung: ${formData.service}`,
+      !formData.isApplication && formData.flaeche ? `Fläche: ${formData.flaeche}` : null,
+      !formData.isApplication && formData.turnus ? `Turnus: ${formData.turnus}` : null,
+      "",
+      formData.message || "(keine weitere Nachricht)",
+    ].filter(Boolean);
+
+    window.location.href =
+      `mailto:${CKR_INFO.email}` +
+      `?subject=${encodeURIComponent(betreff)}` +
+      `&body=${encodeURIComponent(zeilen.join("\n"))}`;
+
     setSubmitted(true);
-    toast.success("Vielen Dank! Ihre Nachricht wurde übermittelt. Das CKR-Team meldet sich schnellstmöglich bei Ihnen.");
+    toast.success("Ihre Anfrage ist im E-Mail-Programm vorbereitet — bitte nur noch absenden.");
   };
 
   return (
@@ -183,6 +212,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     <input
                       type="text"
                       required
+                      autoComplete="name"
                       placeholder="Vor- und Nachname"
                       aria-label="Vor- und Nachname"
                       value={formData.name}
@@ -197,6 +227,8 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     <input
                       type="tel"
                       required
+                      autoComplete="tel"
+                      inputMode="tel"
                       placeholder="+43 650 ..."
                       aria-label="Ihre Telefonnummer"
                       value={formData.phone}
@@ -213,6 +245,8 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     </label>
                     <input
                       type="email"
+                      autoComplete="email"
+                      inputMode="email"
                       placeholder="ihre.adresse@beispiel.at"
                       aria-label="Ihre E-Mail-Adresse"
                       value={formData.email}
@@ -312,15 +346,16 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   <span>Ihre Daten werden vertraulich behandelt und nicht weitergegeben.</span>
                 </div>
 
+                {/* Nicht dauerhaft sperren: öffnet sich das E-Mail-Programm
+                    nicht, muss der Besucher es erneut versuchen können. */}
                 <button
                   type="submit"
-                  disabled={submitted}
                   className="w-full bg-[#122272] hover:bg-[#0c164a] text-white font-bold py-3.5 rounded-xl transition shadow-lg flex items-center justify-center gap-2 text-sm active:scale-[0.99]"
                 >
                   <Send className="w-4 h-4 text-[#2E7D0E]" />
                   <span>
                     {submitted
-                      ? "Erfolgreich gesendet!"
+                      ? "Im E-Mail-Programm geöffnet"
                       : formData.isApplication
                       ? "Bewerbung absenden"
                       : "Unverbindliche Anfrage absenden"}
@@ -337,6 +372,9 @@ export default function ContactSection({ prefilledService }: { prefilledService?
             <img
               src={CKR_INFO.logo}
               alt="CKR Logo"
+              loading="lazy"
+              width={1360}
+              height={682}
               className="h-7 w-auto object-contain brightness-200 contrast-50"
             />
             <span>© {new Date().getFullYear()} CKR Cleaning Services. Alle Rechte vorbehalten.</span>
@@ -375,7 +413,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
             <h3 className="text-2xl font-extrabold text-[#122272] mb-4">Impressum</h3>
             <div className="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
               <div>
-                <strong>Angaben gemäß § 5 TMG / ECG:</strong>
+                <strong>Angaben gemäß § 5 ECG und § 25 MedienG:</strong>
                 <p>{CKR_INFO.owner}</p>
                 <p>{CKR_INFO.legalName}</p>
                 <p>{CKR_INFO.officialAddress}</p>
@@ -390,12 +428,44 @@ export default function ContactSection({ prefilledService }: { prefilledService?
 
               <div>
                 <strong>Umsatzsteuer-Identifikationsnummer:</strong>
-                <p>UID gemäß § 27 a UStG: <strong>{CKR_INFO.uid}</strong></p>
+                <p>UID-Nummer: <strong>{CKR_INFO.uid}</strong></p>
               </div>
 
               <div>
                 <strong>Geschäftsführung:</strong>
                 <p>{CKR_INFO.owner}</p>
+              </div>
+
+              <div>
+                <strong>Unternehmensgegenstand:</strong>
+                <p>Gebäudereinigung (Denkmal-, Fassaden- und Gebäudereinigung)</p>
+              </div>
+
+              <div>
+                <strong>Gewerbebehörde:</strong>
+                <p>Bezirkshauptmannschaft Kufstein</p>
+              </div>
+
+              <div>
+                <strong>Kammerzugehörigkeit:</strong>
+                <p>
+                  Wirtschaftskammer Tirol, Landesinnung der Gebäudereiniger
+                </p>
+              </div>
+
+              <div>
+                <strong>Anwendbare Rechtsvorschrift:</strong>
+                <p>
+                  Gewerbeordnung 1994, abrufbar unter
+                  <a
+                    href="https://www.ris.bka.gv.at"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[#122272] underline ml-1"
+                  >
+                    www.ris.bka.gv.at
+                  </a>
+                </p>
               </div>
 
               <div>
@@ -406,7 +476,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     href="https://ec.europa.eu/consumers/odr/"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-blue-600 underline ml-1"
+                    className="text-[#122272] underline ml-1"
                   >
                     https://ec.europa.eu/consumers/odr/
                   </a>

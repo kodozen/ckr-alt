@@ -74,6 +74,10 @@ export default function AboutSection() {
                 <img
                   src={CKR_INFO.teamImage}
                   alt="CKR Reinigungsteam in Österreich"
+                  loading="lazy"
+                  decoding="async"
+                  width={1200}
+                  height={900}
                   className="w-full aspect-[4/3] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#122272]/80 via-transparent to-transparent" />
@@ -111,7 +115,7 @@ export default function AboutSection() {
                   </span>
                 </div>
                 <div className="text-sm font-extrabold mt-1">
-                  Rund um die Uhr einsatzbereit
+                  Bei Havarie und Wasserschaden
                 </div>
               </div>
             </div>

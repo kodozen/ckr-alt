@@ -197,7 +197,7 @@ export const CKR_ADVANTAGES = [
   },
   {
     title: "24-Stunden-Notdienst",
-    description: "Bei Havariefällen, Wasserschäden oder dringenden Einsätzen sind wir rund um die Uhr direkt für Sie erreichbar.",
+    description: "Rohrbruch, Wasserschaden, ein Termin, der morgen früh stehen muss: Sie erreichen uns direkt unter der angegebenen Nummer, ohne Warteschleife.",
     icon: "PhoneCall"
   },
   {

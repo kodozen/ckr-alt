@@ -40,7 +40,13 @@ function App() {
         // switchable
       >
         <TooltipProvider>
-          <Toaster />
+          {/* sonner beschriftet seinen Meldungsbereich sonst englisch
+              ("Notifications alt+T") — auf einer deutschen Seite hört das
+              ein Screenreader-Nutzer als Fremdkörper. */}
+          <Toaster
+            containerAriaLabel="Meldungen"
+            toastOptions={{ closeButton: false }}
+          />
           <Router />
         </TooltipProvider>
       </ThemeProvider>

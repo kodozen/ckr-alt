@@ -43,7 +43,7 @@ export default function ReviewsAndFaq() {
 
                 <div className="border-t border-slate-200/60 pt-4 flex items-center justify-between">
                   <div>
-                    <h3 className="text-sm font-bold text-slate-900">{rev.author}</h3>
+                    <p className="text-sm font-bold text-slate-900">{rev.author}</p>
                     <p className="text-xs text-slate-600">{rev.role}</p>
                   </div>
                   <span className="text-xs font-semibold text-[#122272] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
@@ -62,9 +62,9 @@ export default function ReviewsAndFaq() {
               <HelpCircle className="w-3.5 h-3.5 text-[#2E7D0E]" />
               Häufige Fragen (FAQ)
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#122272] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#122272] tracking-tight">
               Alles Wichtige rund um unsere Reinigungsdienste
-            </h3>
+            </h2>
           </div>
 
           <div className="space-y-4">
