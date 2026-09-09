@@ -608,18 +608,21 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                 </p>
               </div>
 
-              {/* Beim Umzug auf die eigene Domain muss hier der dann
-                  tatsächliche Anbieter stehen. */}
+              {/* Anbieter aus den Daten der laufenden Seite bestimmt:
+                  ckrreinigung.at liegt auf ns01/ns02.one.com, die Postfächer
+                  auf mailpod10-cph3.one.com. Die Angaben stammen aus dem
+                  Impressum von one.com. Wechselt der Kunde den Anbieter,
+                  gehört dieser Absatz geändert. */}
               <div>
                 <strong>Aufruf der Seite (Hosting):</strong>
                 <p>
-                  Die Seite wird von GitHub Inc., 88 Colin P. Kelly Jr. Street,
-                  San Francisco, CA 94107, USA über GitHub Pages ausgeliefert.
-                  Beim Aufruf verarbeitet der Anbieter technisch notwendige
-                  Verbindungsdaten, darunter Ihre IP-Adresse. Rechtsgrundlage ist
-                  Art. 6 Abs. 1 lit. f DSGVO; die Übermittlung in die USA stützt
-                  sich auf die Standardvertragsklauseln der Europäischen
-                  Kommission.
+                  Diese Seite wird bei One.com Group AB, Carlsgatan 3, 211 20
+                  Malmö, Schweden gehostet. Beim Aufruf verarbeitet der Anbieter
+                  technisch notwendige Verbindungsdaten, darunter Ihre
+                  IP-Adresse, um die Seite ausliefern und den Betrieb absichern
+                  zu können. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Die
+                  Daten bleiben innerhalb der Europäischen Union; eine
+                  Übermittlung in ein Drittland findet nicht statt.
                 </p>
               </div>
 
