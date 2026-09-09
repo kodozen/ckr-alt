@@ -1,8 +1,10 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import BandSection from "@/components/BandSection";
 import MeisterSection from "@/components/MeisterSection";
 import ServicesSection from "@/components/ServicesSection";
+import { CKR_INFO } from "@/data/ckrData";
 import AboutSection from "@/components/AboutSection";
 import PriceEstimator from "@/components/PriceEstimator";
 import ReviewsAndFaq from "@/components/ReviewsAndFaq";
@@ -38,6 +40,25 @@ export default function Home() {
         <HeroSection onOpenCalculator={scrollToCalculator} />
         <MeisterSection />
         <ServicesSection onSelectService={handleSelectService} />
+
+        <BandSection
+          bild={CKR_INFO.detailImageCare}
+          augenbraue="Gebäude & Unterhalt"
+          titel="Was jeden Tag gleich aussehen muss."
+          text="Stiegenhäuser, Büros, Hotelzimmer, Appartements. Die laufende Reinigung fällt niemandem auf, solange sie stimmt — und genau das ist die Aufgabe. Wir arbeiten nach Ihrem Betriebsablauf, nicht nach unserem."
+          linkText="Zu den Leistungen"
+          href="#leistungen"
+        />
+
+        <BandSection
+          bild={CKR_INFO.teamImage}
+          augenbraue="Glas, Fassade & Denkmal"
+          titel="Was von außen gesehen wird."
+          text="Ein Gebäude wird beurteilt, bevor jemand hineingeht. Fassaden, Fenster und historische Substanz vertragen sehr Unterschiedliches — hier entscheidet das Verfahren, nicht die Leistung des Geräts."
+          linkText="Meisterbetrieb ansehen"
+          href="#meisterbetrieb"
+          seite="rechts"
+        />
         <AboutSection />
         <PriceEstimator />
         <ReviewsAndFaq />
