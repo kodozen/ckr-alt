@@ -1,0 +1,74 @@
+# Baut den React-Entwurf und veröffentlicht ihn auf GitHub Pages.
+#
+# Gebaut wird hier, weil auf dem Rechner der Agentur kein Node liegt —
+# und weil so jeder Push dieselbe Fassung erzeugt, unabhängig davon, wer
+# ihn auslöst.
+#
+# WICHTIG: Settings → Pages → Build and deployment → Source muss auf
+# "GitHub Actions" stehen.
+
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  bauen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.4.1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Abhängigkeiten
+        run: pnpm install --frozen-lockfile
+
+      - name: Bauen
+        env:
+          # Unterordner der Vorschauadresse. Für eine eigene Domain
+          # diesen Wert auf "/" setzen.
+          BASIS_PFAD: /ckr-alt/
+          NODE_ENV: production
+        run: pnpm exec vite build
+
+      - name: Vorschau aus dem Suchindex halten
+        run: |
+          # Dieser Entwurf ist eine Vorführung für den Kunden, keine
+          # veröffentlichte Website. Er darf der echten Domain später
+          # keine Konkurrenz im Index machen.
+          find dist/public -name '*.html' -exec sed -i \
+            's|</head>|<meta name="robots" content="noindex, nofollow">\n</head>|' {} +
+          printf 'User-agent: *\nDisallow: /\n' > dist/public/robots.txt
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/public
+
+  veroeffentlichen:
+    needs: bauen
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}
+    steps:
+      - id: pages
+        uses: actions/deploy-pages@v4
