@@ -203,7 +203,28 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+// Vier dieser Erweiterungen gehören zum Werkzeug, in dem der Entwurf
+// entstanden ist, und haben auf einer veröffentlichten Seite nichts zu
+// suchen:
+//
+//   vitePluginManusRuntime      meldet Ereignisse an den Editor —
+//                               registriert dafür einen unload-Zuhörer
+//   vitePluginManusDebugCollector  schickt Browserprotokolle an den Editor
+//   vitePluginStorageProxy      Zwischenschicht für den Bilderspeicher
+//   jsxLocPlugin                hängt data-loc an jedes Element
+//
+// Der unload-Zuhörer war der Grund für die Beanstandung "Uses deprecated
+// APIs": unload ist abgekündigt und schaltet nebenbei den Vor-und-zurück-
+// Zwischenspeicher des Browsers ab, was auch die Ladezeit trifft.
+//
+// Im Entwicklungsbetrieb bleiben sie an, damit sich der Entwurf im
+// ursprünglichen Werkzeug weiter öffnen lässt.
+const istProduktion = process.env.NODE_ENV === "production";
+
+const plugins = istProduktion
+  ? [react(), tailwindcss()]
+  : [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(),
+     vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
 export default defineConfig({
   // Unter kodozen.github.io/ckr-alt/ liegt die Seite in einem
