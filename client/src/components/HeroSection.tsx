@@ -15,7 +15,7 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white shadow-sm border border-slate-200/80 text-xs font-semibold text-slate-800">
               <span className="w-2.5 h-2.5 rounded-full bg-[#52b719] animate-pulse" />
               <span>Gebäudereinigung in Kufstein &amp; Tirol</span>
-              <span className="text-slate-300">|</span>
+              <span className="text-slate-500">|</span>
               <span className="text-[#122272] font-bold">Kufstein & Umgebung</span>
             </div>
 
@@ -41,8 +41,8 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
                 "Anerkannter Ausbildungsbetrieb in Tirol",
               ].map((bullet, i) => (
                 <div key={i} className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-slate-800">
-                  <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#52b719]" />
+                  <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2E7D0E]" />
                   </div>
                   <span>{bullet}</span>
                 </div>
@@ -56,14 +56,14 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
                 className="bg-[#122272] hover:bg-[#0c164a] text-white font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl transition shadow-lg hover:shadow-xl active:scale-95 flex items-center gap-2 group"
               >
                 <span>Angebot anfordern</span>
-                <ArrowRight className="w-4 h-4 text-[#52b719] group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-[#2E7D0E] group-hover:translate-x-1 transition-transform" />
               </button>
 
               <a
                 href={`tel:${CKR_INFO.phoneRaw}`}
                 className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 font-bold text-sm sm:text-base px-5 py-3.5 rounded-xl transition shadow-sm flex items-center gap-2"
                aria-label="Anrufen">
-                <Phone className="w-4 h-4 text-[#52b719]" />
+                <Phone className="w-4 h-4 text-[#2E7D0E]" />
                 <span>24h anrufen</span>
               </a>
             </div>
@@ -97,14 +97,14 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
                 <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-white/50">
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-xs uppercase font-bold text-emerald-700 tracking-wider">
+                      <span className="text-xs uppercase font-bold text-emerald-800 tracking-wider">
                         Einsatzbereit
                       </span>
-                      <h4 className="text-sm font-extrabold text-[#122272]">
+                      <h2 className="text-sm font-extrabold text-[#122272]">
                         Bezirk Kufstein & Tirol
-                      </h4>
+                      </h2>
                     </div>
-                    <span className="text-xs font-bold text-[#52b719] bg-emerald-50 px-2.5 py-1 rounded-full">
+                    <span className="text-xs font-bold text-[#2E7D0E] bg-emerald-50 px-2.5 py-1 rounded-full">
                       Aktiv vor Ort
                     </span>
                   </div>
@@ -127,11 +127,11 @@ export default function HeroSection({ onOpenCalculator }: { onOpenCalculator: ()
 
               {/* Floating 24h Hotlink */}
               <div className="absolute -bottom-4 -right-3 sm:-right-4 bg-gradient-to-r from-[#122272] to-[#0c164a] text-white rounded-2xl py-3 px-4 shadow-xl border border-white/20 flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-[#52b719] text-white flex items-center justify-center font-bold">
+                <div className="w-8 h-8 rounded-lg bg-[#2E7D0E] text-white flex items-center justify-center font-bold">
                   <Clock className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-xs uppercase tracking-wider text-emerald-400 font-bold">
+                  <div className="text-xs uppercase tracking-wider text-emerald-300 font-bold">
                     24h Notdienst
                   </div>
                   <div className="text-xs font-extrabold">{CKR_INFO.phone}</div>

@@ -36,13 +36,13 @@ export default function ContactSection({ prefilledService }: { prefilledService?
       <div className="container relative z-10">
         {/* Contact Header */}
         <div className="max-w-3xl mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#52b719] bg-emerald-950/70 px-3 py-1 rounded-full border border-emerald-500/30">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#2E7D0E] bg-emerald-950/70 px-3 py-1 rounded-full border border-emerald-500/30">
             Kontaktieren Sie uns
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold mt-4 tracking-tight text-white">
             Rufen Sie uns an oder senden Sie uns eine Nachricht.
           </h2>
-          <p className="mt-3 text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="mt-3 text-slate-500 text-sm sm:text-base leading-relaxed">
             Wir kümmern uns gerne um Ihr Anliegen und freuen uns auf Ihren Besuch! Vertrauen Sie uns – wir werden uns bemühen, Ihren Auftrag exakt an Ihre Wünsche und Vorstellungen anzupassen.
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm space-y-6">
               {/* Phone */}
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-[#52b719] flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-[#2E7D0E] flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
@@ -62,7 +62,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     Telefon & 24h-Hotline
                   </span>
                   <div className="text-lg font-bold mt-0.5">
-                    <a href={`tel:${CKR_INFO.phoneRaw}`} className="inline-flex items-center min-h-[44px] hover:text-[#52b719] transition-colors" aria-label="Anrufen">
+                    <a href={`tel:${CKR_INFO.phoneRaw}`} className="inline-flex items-center min-h-[44px] hover:text-[#2E7D0E] transition-colors" aria-label="Anrufen">
                       {CKR_INFO.phone}
                     </a>
                   </div>
@@ -82,7 +82,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     E-Mail
                   </span>
                   <div className="text-base font-bold mt-0.5">
-                    <a href={`mailto:${CKR_INFO.email}`} className="inline-flex items-center min-h-[44px] hover:text-[#52b719] transition-colors" aria-label="E-Mail schreiben">
+                    <a href={`mailto:${CKR_INFO.email}`} className="inline-flex items-center min-h-[44px] hover:text-[#2E7D0E] transition-colors" aria-label="E-Mail schreiben">
                       {CKR_INFO.email}
                     </a>
                   </div>
@@ -113,14 +113,14 @@ export default function ContactSection({ prefilledService }: { prefilledService?
 
             {/* Quality Commitment Box */}
             <div className="bg-gradient-to-r from-emerald-950/40 to-blue-950/40 border border-emerald-500/30 rounded-2xl p-6">
-              <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <div className="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-2">
                 <ShieldCheck className="w-4 h-4" />
                 Österreichischer Meisterbetrieb-Anspruch
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-slate-500 leading-relaxed">
                 Reinigungsfachkräfte nach strengen österreichischen Hygiene- und Sicherheitsrichtlinien ausgebildet.
               </p>
-              <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
+              <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-500">
                 <span className="bg-white/10 px-2.5 py-1 rounded-md">UID: {CKR_INFO.uid}</span>
                 <span className="bg-white/10 px-2.5 py-1 rounded-md">Geschäftsführung: {CKR_INFO.owner}</span>
               </div>
@@ -182,6 +182,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                       type="text"
                       required
                       placeholder="Vor- und Nachname"
+                      aria-label="Vor- und Nachname"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:ring-2 focus:ring-[#122272] outline-none"
@@ -195,6 +196,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                       type="tel"
                       required
                       placeholder="+43 650 ..."
+                      aria-label="Ihre Telefonnummer"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:ring-2 focus:ring-[#122272] outline-none"
@@ -210,6 +212,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     <input
                       type="email"
                       placeholder="ihre.adresse@beispiel.at"
+                      aria-label="Ihre E-Mail-Adresse"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:ring-2 focus:ring-[#122272] outline-none"
@@ -220,6 +223,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                       {formData.isApplication ? "Gewünschte Stelle" : "Gewünschte Leistung"}
                     </label>
                     <select
+                      aria-label="Ihr Anliegen"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:ring-2 focus:ring-[#122272] outline-none"
@@ -249,6 +253,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   <textarea
                     rows={4}
                     placeholder="Beschreiben Sie kurz Ihr Objekt (Fläche, Turnus, Besonderheiten) oder Ihre Qualifikation..."
+                    aria-label="Ihre Nachricht"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:ring-2 focus:ring-[#122272] outline-none resize-none"
@@ -256,7 +261,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                 </div>
 
                 <div className="flex items-center gap-2 pt-1 text-xs text-slate-500">
-                  <CheckCircle2 className="w-4 h-4 text-[#52b719] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#2E7D0E] shrink-0" />
                   <span>Ihre Daten werden vertraulich behandelt und nicht weitergegeben.</span>
                 </div>
 
@@ -265,7 +270,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   disabled={submitted}
                   className="w-full bg-[#122272] hover:bg-[#0c164a] text-white font-bold py-3.5 rounded-xl transition shadow-lg flex items-center justify-center gap-2 text-sm active:scale-[0.99]"
                 >
-                  <Send className="w-4 h-4 text-[#52b719]" />
+                  <Send className="w-4 h-4 text-[#2E7D0E]" />
                   <span>
                     {submitted
                       ? "Erfolgreich gesendet!"
@@ -303,7 +308,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
             >
               Datenschutzerklärung
             </button>
-            <a href="#top" className="hover:text-[#52b719] transition">
+            <a href="#top" className="hover:text-[#2E7D0E] transition">
               Nach oben ↑
             </a>
           </div>

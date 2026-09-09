@@ -76,6 +76,7 @@ export default function PriceEstimator() {
                   1. Gewünschte Reinigungsleistung
                 </label>
                 <select
+                  aria-label="Gewünschte Reinigungsleistung"
                   value={serviceType}
                   onChange={(e) => setServiceType(e.target.value)}
                   className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 font-medium focus:ring-2 focus:ring-[#122272] focus:bg-white outline-none transition"
@@ -100,6 +101,7 @@ export default function PriceEstimator() {
                 </div>
                 <input
                   type="range"
+                  aria-label="Ungefähre Fläche in Quadratmetern"
                   min={30}
                   max={800}
                   step={10}
@@ -150,7 +152,7 @@ export default function PriceEstimator() {
                     type="checkbox"
                     checked={windowCleaningAddon}
                     onChange={(e) => setWindowCleaningAddon(e.target.checked)}
-                    className="w-4 h-4 rounded text-[#52b719] accent-[#52b719] focus:ring-[#52b719]"
+                    className="w-4 h-4 rounded text-[#2E7D0E] accent-[#52b719] focus:ring-[#52b719]"
                   />
                   <span className="text-xs sm:text-sm text-slate-700 font-medium">
                     Inklusive Fenster- & Glasreinigung (streifenfrei)
@@ -168,6 +170,7 @@ export default function PriceEstimator() {
                     type="text"
                     required
                     placeholder="Ihr Name / Ansprechpartner"
+                    aria-label="Ihr Name oder Ansprechpartner"
                     value={contactName}
                     onChange={(e) => setContactName(e.target.value)}
                     className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-[#122272] focus:bg-white outline-none"
@@ -176,6 +179,7 @@ export default function PriceEstimator() {
                     type="tel"
                     required
                     placeholder="Telefonnummer (z.B. +43...)"
+                    aria-label="Ihre Telefonnummer"
                     value={contactPhone}
                     onChange={(e) => setContactPhone(e.target.value)}
                     className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-[#122272] focus:bg-white outline-none"
@@ -186,7 +190,7 @@ export default function PriceEstimator() {
                   disabled={submitted}
                   className="w-full bg-[#122272] hover:bg-[#0c164a] text-white font-bold py-3 rounded-xl transition shadow-md flex items-center justify-center gap-2 text-sm"
                 >
-                  <Send className="w-4 h-4 text-[#52b719]" />
+                  <Send className="w-4 h-4 text-[#2E7D0E]" />
                   <span>{submitted ? "Angebot angefordert!" : "Kostenloses Angebot anfordern"}</span>
                 </button>
               </div>
@@ -196,8 +200,8 @@ export default function PriceEstimator() {
           {/* Pricing Summary Side */}
           <div className="lg:col-span-5 bg-gradient-to-br from-[#122272] to-[#0c164a] p-6 sm:p-8 text-white flex flex-col justify-between">
             <div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider uppercase text-emerald-400 bg-emerald-950/50 px-2.5 py-1 rounded-full border border-emerald-500/30 mb-4">
-                <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider uppercase text-emerald-300 bg-emerald-950/50 px-2.5 py-1 rounded-full border border-emerald-500/30 mb-4">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-300" />
                 Ihre Angaben
               </div>
 
@@ -205,7 +209,7 @@ export default function PriceEstimator() {
                 <div className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
                   Den Preis nennen wir<br />nach der Besichtigung.
                 </div>
-                <p className="mt-3 text-xs text-slate-300 leading-relaxed">
+                <p className="mt-3 text-xs text-slate-500 leading-relaxed">
                   Am Schreibtisch lässt sich ein Objekt nicht schätzen. Wir kommen
                   vorbei — kostenlos und unverbindlich — und nennen danach einen
                   Festpreis, der hält.
@@ -235,29 +239,29 @@ export default function PriceEstimator() {
 
               <div className="mt-6 space-y-3 border-t border-white/10 pt-5 text-xs text-slate-200">
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0 mt-0.5" />
                   <span>Ökologische Mittel und passende Maschinen</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0 mt-0.5" />
                   <span>Geschultes Personal, feste Objektleiter</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0 mt-0.5" />
                   <span>Keine versteckten Anfahrtskosten im Bezirk Kufstein</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0 mt-0.5" />
                   <span>Kostenlose Vor-Ort-Besichtigung zur exakten Abstimmung</span>
                 </div>
               </div>
             </div>
 
             <div className="mt-8 pt-6 border-t border-white/10">
-              <p className="text-xs text-slate-300 mb-2">Sie wünschen eine sofortige Beratung?</p>
+              <p className="text-xs text-slate-500 mb-2">Sie wünschen eine sofortige Beratung?</p>
               <a
                 href={`tel:${CKR_INFO.phoneRaw}`}
-                className="w-full bg-[#52b719] hover:bg-[#469f15] text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md transition-colors"
+                className="w-full bg-[#2E7D0E] hover:bg-[#256A0B] text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md transition-colors"
                aria-label="Anrufen">
                 <PhoneCall className="w-4 h-4" />
                 <span>Direkt anrufen: {CKR_INFO.phone}</span>

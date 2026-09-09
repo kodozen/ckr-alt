@@ -32,26 +32,26 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
           <div className="flex items-center gap-6">
             <a
               href={`tel:${CKR_INFO.phoneRaw}`}
-              className="flex items-center gap-1.5 font-medium hover:text-[#52b719] transition-colors"
+              className="flex items-center gap-1.5 font-medium hover:text-[#2E7D0E] transition-colors"
              aria-label="Anrufen">
-              <Phone className="w-3.5 h-3.5 text-[#52b719]" />
+              <Phone className="w-3.5 h-3.5 text-[#2E7D0E]" />
               <span>24h-Hotline: {CKR_INFO.phone}</span>
             </a>
             <a
               href={`mailto:${CKR_INFO.email}`}
-              className="hidden md:flex items-center gap-1.5 hover:text-[#52b719] transition-colors"
+              className="hidden md:flex items-center gap-1.5 hover:text-[#2E7D0E] transition-colors"
             >
-              <Mail className="w-3.5 h-3.5 text-[#52b719]" />
+              <Mail className="w-3.5 h-3.5 text-[#2E7D0E]" />
               <span>{CKR_INFO.email}</span>
             </a>
           </div>
 
           <div className="flex items-center gap-4 text-xs">
-            <span className="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 font-semibold bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-500/30">
+            <span className="hidden sm:inline-flex items-center gap-1.5 text-emerald-300 font-semibold bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-500/30">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               Kufstein & Umgebung (Tirol)
             </span>
-            <span className="inline-flex items-center gap-1 text-slate-300">
+            <span className="inline-flex items-center gap-1 text-slate-500">
               <Clock className="w-3.5 h-3.5 text-slate-400" />
               Mo–Sa: 07:00–19:00
             </span>
@@ -106,7 +106,7 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
               className="bg-[#122272] hover:bg-[#0c164a] text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition-all flex items-center gap-2 active:scale-95"
             >
               <span>Angebot berechnen</span>
-              <ArrowRight className="w-4 h-4 text-[#52b719]" />
+              <ArrowRight className="w-4 h-4 text-[#2E7D0E]" />
             </button>
             <a
               href={`https://wa.me/436508933881?text=Hallo%20CKR%20Cleaning%20Services,%20ich%20habe%20eine%20Anfrage%20zu%20einer%20Reinigung.`}
@@ -163,7 +163,7 @@ export default function Header({ onOpenCalculator }: { onOpenCalculator: () => v
                   className="w-full bg-[#122272] text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 shadow"
                 >
                   <span>Kostenloses Angebot berechnen</span>
-                  <ArrowRight className="w-4 h-4 text-[#52b719]" />
+                  <ArrowRight className="w-4 h-4 text-[#2E7D0E]" />
                 </button>
                 <a
                   href={`tel:${CKR_INFO.phoneRaw}`}

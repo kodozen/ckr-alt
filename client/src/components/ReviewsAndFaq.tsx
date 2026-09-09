@@ -43,7 +43,7 @@ export default function ReviewsAndFaq() {
 
                 <div className="border-t border-slate-200/60 pt-4 flex items-center justify-between">
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">{rev.author}</h4>
+                    <h3 className="text-sm font-bold text-slate-900">{rev.author}</h3>
                     <p className="text-xs text-slate-500">{rev.role}</p>
                   </div>
                   <span className="text-xs font-semibold text-[#122272] bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
@@ -59,7 +59,7 @@ export default function ReviewsAndFaq() {
         <div id="faq" className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#122272] text-xs font-bold uppercase tracking-wider mb-4 border border-blue-100">
-              <HelpCircle className="w-3.5 h-3.5 text-[#52b719]" />
+              <HelpCircle className="w-3.5 h-3.5 text-[#2E7D0E]" />
               Häufige Fragen (FAQ)
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[#122272] tracking-tight">

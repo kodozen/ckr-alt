@@ -63,7 +63,7 @@ export default function Home() {
           title="24h-Hotline sofort anrufen"
           aria-label="24-Stunden-Hotline anrufen"
         >
-          <Phone className="w-6 h-6 text-[#52b719]" />
+          <Phone className="w-6 h-6 text-[#2E7D0E]" />
         </a>
       </div>
     </div>

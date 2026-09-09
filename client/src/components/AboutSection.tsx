@@ -43,7 +43,7 @@ export default function AboutSection() {
                 "Kostenlose Vor-Ort-Besichtigung",
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-800">
-                  <CheckCircle className="w-4 h-4 text-[#52b719] shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-[#2E7D0E] shrink-0" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -55,7 +55,7 @@ export default function AboutSection() {
                 className="bg-[#122272] hover:bg-[#0c164a] text-white text-sm font-bold px-6 py-3 rounded-xl transition shadow-sm inline-flex items-center gap-2"
               >
                 <span>Jetzt Kontakt aufnehmen</span>
-                <ArrowRight className="w-4 h-4 text-[#52b719]" />
+                <ArrowRight className="w-4 h-4 text-[#2E7D0E]" />
               </a>
               <a
                 href={`tel:${CKR_INFO.phoneRaw}`}
@@ -78,7 +78,7 @@ export default function AboutSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#122272]/80 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <span className="text-xs uppercase font-extrabold tracking-wider text-emerald-400">
+                  <span className="text-xs uppercase font-extrabold tracking-wider text-emerald-300">
                     Gebäudereinigung aus Leidenschaft
                   </span>
                   <h3 className="text-xl font-bold mt-1">
@@ -106,7 +106,7 @@ export default function AboutSection() {
               <div className="absolute -top-6 -right-2 sm:right-4 bg-gradient-to-br from-[#122272] to-[#0c164a] text-white rounded-2xl p-4 shadow-xl border border-white/20">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-300">
                     24h Notdienst
                   </span>
                 </div>
@@ -127,8 +127,8 @@ export default function AboutSection() {
                 key={idx}
                 className="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6 text-[#52b719]" />
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center mb-4">
+                  <Icon className="w-6 h-6 text-[#2E7D0E]" />
                 </div>
                 <h3 className="text-base font-bold text-slate-900 mb-2">{adv.title}</h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -143,7 +143,7 @@ export default function AboutSection() {
         <div id="karriere" className="rounded-3xl bg-gradient-to-r from-[#122272] via-[#1a2d8a] to-[#0e3b1c] p-8 sm:p-12 text-white relative overflow-hidden shadow-xl">
           <div className="relative z-10 max-w-2xl">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4 border border-white/15">
-              <GraduationCap className="w-4 h-4 text-emerald-400" />
+              <GraduationCap className="w-4 h-4 text-emerald-300" />
               Zukunftsperspektive in Tirol
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
@@ -155,12 +155,12 @@ export default function AboutSection() {
             <div className="mt-6 flex flex-wrap gap-4 items-center">
               <a
                 href="#kontakt"
-                className="bg-[#52b719] hover:bg-[#469f15] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition shadow flex items-center gap-2"
+                className="bg-[#2E7D0E] hover:bg-[#256A0B] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition shadow flex items-center gap-2"
               >
                 <span>Jetzt bewerben</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <span className="text-xs text-slate-300">
+              <span className="text-xs text-slate-500">
                 Oder Lebenslauf an <strong className="text-white">info@ckrreinigung.at</strong>
               </span>
             </div>

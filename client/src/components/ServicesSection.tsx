@@ -37,7 +37,7 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#122272] text-xs font-bold uppercase tracking-wider mb-4 border border-blue-100">
-            <Sparkles className="w-3.5 h-3.5 text-[#52b719]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#2E7D0E]" />
             Unsere Leistungen im Überblick
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-[#122272] tracking-tight">
@@ -72,7 +72,7 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     
                     {service.badge && (
-                      <span className="absolute top-3 left-3 bg-[#52b719] text-white text-xs font-bold px-2.5 py-0.5 rounded-full shadow-sm">
+                      <span className="absolute top-3 left-3 bg-[#2E7D0E] text-white text-xs font-bold px-2.5 py-0.5 rounded-full shadow-sm">
                         {service.badge}
                       </span>
                     )}
@@ -97,7 +97,7 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
                   <div className="mt-4 pt-4 border-t border-slate-200/60 space-y-2">
                     {service.features.slice(0, 3).map((feat, i) => (
                       <div key={i} className="flex items-center gap-2 text-xs text-slate-700">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#52b719] shrink-0" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#2E7D0E] shrink-0" />
                         <span className="truncate">{feat}</span>
                       </div>
                     ))}
@@ -109,7 +109,7 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
                   <button
                     type="button"
                     onClick={() => setActiveModal(service)}
-                    className="text-xs sm:text-sm font-bold text-[#122272] hover:text-[#52b719] flex items-center gap-1.5 transition-colors group/btn"
+                    className="text-xs sm:text-sm font-bold text-[#122272] hover:text-[#2E7D0E] flex items-center gap-1.5 transition-colors group/btn"
                   >
                     <span>Details ansehen</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
@@ -148,7 +148,7 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   {activeModal.badge && (
-                    <span className="bg-[#52b719] text-white text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">
+                    <span className="bg-[#2E7D0E] text-white text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">
                       {activeModal.badge}
                     </span>
                   )}
@@ -160,25 +160,25 @@ export default function ServicesSection({ onSelectService }: { onSelectService?:
 
               <div className="p-6 sm:p-8 space-y-6">
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
                     Leistungsbeschreibung
-                  </h4>
+                  </h3>
                   <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
                     {activeModal.fullDesc}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
                     Im Serviceumfang enthalten:
-                  </h4>
+                  </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {activeModal.features.map((f, idx) => (
                       <div
                         key={idx}
                         className="flex items-start gap-2.5 bg-slate-50 p-3 rounded-xl border border-slate-200/60 text-xs sm:text-sm text-slate-800"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-[#52b719] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#2E7D0E] shrink-0 mt-0.5" />
                         <span>{f}</span>
                       </div>
                     ))}
