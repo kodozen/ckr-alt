@@ -166,7 +166,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     className={`flex-1 py-2 text-xs font-bold rounded-md transition ${
                       formData.isApplication
                         ? "bg-white text-[#122272] shadow-sm"
-                        : "text-slate-300 hover:text-slate-900"
+                        : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
                     Bewerbung / Lehrstelle
