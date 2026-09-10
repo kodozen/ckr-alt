@@ -24,18 +24,23 @@ export function useKopf(seite: SeitenEintrag) {
     setzen('meta[property="og:title"]', "content", seite.titel);
     setzen('meta[property="og:description"]', "content", seite.beschreibung);
 
+    // Der Grundpfad gehört in die Adresse.
+    //
+    // Vorher stand hier new URL(seite.pfad, origin + BASE_URL). Weil
+    // seite.pfad mit einem Schrägstrich beginnt, wirft der URL-Aufbau den
+    // Unterordner weg: aus "/ckr-alt/" und "/kontakt/" wurde "/kontakt/".
+    // Das Vorrendern schrieb die richtige Adresse in die Datei, und der
+    // Browser überschrieb sie eine Zehntelsekunde später mit einer, die es
+    // nicht gibt. Eine Messung liest den Zustand danach — und wertete das
+    // canonical als ungültig.
+    const grundpfad = import.meta.env.BASE_URL.replace(/\/$/, "");
     const kanonisch = document.head.querySelector('link[rel="canonical"]');
-    if (kanonisch) {
-      const wurzel = kanonisch.getAttribute("href")?.replace(/\/[^/]*$/, "") ?? "";
-      // Nur der Pfad wechselt, die Domain bleibt, wie sie beim Bauen
-      // gesetzt wurde.
-      try {
-        const url = new URL(kanonisch.getAttribute("href") ?? "", location.href);
-        url.pathname = new URL(seite.pfad, location.origin + import.meta.env.BASE_URL).pathname;
-        kanonisch.setAttribute("href", url.toString());
-      } catch {
-        void wurzel;
-      }
-    }
+    const adresse = kanonisch
+      ? new URL(grundpfad + seite.pfad, kanonisch.getAttribute("href") ?? location.href).toString()
+      : null;
+
+    if (kanonisch && adresse) kanonisch.setAttribute("href", adresse);
+    if (adresse) setzen('meta[property="og:url"]', "content", adresse);
+
   }, [seite]);
 }
