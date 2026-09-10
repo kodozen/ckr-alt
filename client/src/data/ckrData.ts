@@ -55,6 +55,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Schreibtisch- & Oberflächenreinigung",
       "Sanitäranlagen-Hygieneservice",
       "Bodenpflege (Saugen & Wischen)",
+      "Werkstätten und Betriebsräume",
       "Mülltrennung & fachgerechte Entsorgung",
       "Küchen- und Pausenraumpflege"
     ],
@@ -117,7 +118,8 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Fassadenreinigung nach Werkstoff und Verschmutzung",
       "Glasfronten und Eingangsbereiche",
       "Entfernung von Algen, Moos und Grauschleier",
-      "Reinigung von Vordächern und Außenanlagen",
+      "Dach- und Solaranlagenreinigung",
+      "Balkone, Geländer und Vordächer",
       "Gesicherte Höhenarbeit mit geeigneter Ausrüstung"
     ],
     image: bild("/manus-storage/G1jT57jzwtmc_8fc296a6.jpg"),
@@ -184,6 +186,38 @@ export const CKR_SERVICES: ServiceItem[] = [
     ],
     image: bild("/manus-storage/QPImpFF6sPNS_e1968161.jpg"),
     iconName: "HardHat"
+  },
+  {
+    id: "verkehrsmittelreinigung",
+    title: "Verkehrsmittelreinigung",
+    shortDesc: "Straßenbahnen, Züge und Busse — gereinigt im Umlauf oder nachts im Depot, nach Ihrem Fahrplan.",
+    fullDesc: "Verkehrsmittel sind die Arbeit mit dem engsten Zeitfenster: zwischen zwei Umläufen bleiben oft wenige Minuten, nachts steht dafür das ganze Depot zur Verfügung. Beides verlangt eine andere Planung als ein Bürogebäude. Wir arbeiten nach Ihrem Dienstplan — Unterhaltsreinigung im Umlauf, Grundreinigung in der Nacht oder an Standtagen.",
+    features: [
+      "Innenreinigung im Umlauf",
+      "Grundreinigung nachts und an Standtagen",
+      "Sitze, Polster und Haltestangen",
+      "Böden und Einstiegsbereiche",
+      "Scheiben innen und außen",
+      "Sonderreinigung nach Vorfällen"
+    ],
+    image: bild("/manus-storage/W26I5SqCRoqZ_f8c2bf58.jpg"),
+    iconName: "Truck"
+  },
+  {
+    id: "denkmalreinigung",
+    title: "Denkmalreinigung",
+    shortDesc: "Historische Substanz verträgt keine Routine — geprüft, getestet, dann erst gereinigt.",
+    fullDesc: "An denkmalgeschützter Substanz ist der stärkste Reiniger immer der falsche: Was einmal abgetragen ist, kommt nicht zurück. Jede Fläche wird vorher geprüft und das Verfahren an einer unauffälligen Stelle getestet, bevor großflächig gearbeitet wird. Wo Auflagen der Denkmalbehörde bestehen, richten wir uns danach und stimmen uns mit den Verantwortlichen ab. Das dauert länger — bei einem Gebäude, das seit dreihundert Jahren steht, ist das die richtige Reihenfolge.",
+    features: [
+      "Naturstein und historischer Putz",
+      "Sichtziegel und Sichtbeton",
+      "Schonende Verfahren mit geringem Druck",
+      "Probefläche vor der Ausführung",
+      "Grünbelag- und Krustenentfernung",
+      "Abstimmung mit den Auflagen der Behörde"
+    ],
+    image: bild("/manus-storage/c11Cq6dwwpAu_b39b6734.jpg"),
+    iconName: "ShieldCheck"
   },
   {
     id: "entruempelung-hausbetreuung",

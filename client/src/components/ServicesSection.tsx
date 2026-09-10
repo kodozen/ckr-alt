@@ -47,7 +47,7 @@ export default function ServicesSection() {
             Was wir für Sie reinigen
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
-            Zehn Bereiche, ein Ansprechpartner. Öffnen Sie einen Bereich, um
+            Zwölf Bereiche, ein Ansprechpartner. Öffnen Sie einen Bereich, um
             zu sehen, was dazugehört.
           </p>
         </div>
