@@ -74,7 +74,7 @@ export default function AboutSection() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-200">
                 <img
                   src={CKR_INFO.teamImage}
-                  alt="Verkaufsraum eines Autohauses nach der Unterhaltsreinigung"
+                  alt="Aufgeräumter Betriebsraum eines Optikers nach der Reinigung"
                   loading="lazy"
                   decoding="async"
                   width={1200}
