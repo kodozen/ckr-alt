@@ -27,9 +27,17 @@ const GRUNDPFAD = import.meta.env.BASE_URL.replace(/\/$/, "");
 // Beim Vorrendern gibt es keine Adresszeile, aus der der Router lesen
 // könnte. wouter nimmt dafür ssrPath; im Browser bleibt der Parameter
 // leer und es gilt wieder window.location.
+//
+// ssrPath ist die vollständige Adresse, so wie sie in der Adresszeile
+// stünde — der Grundpfad gehört also davor. Ohne ihn liegt "/kontakt/"
+// für den Router außerhalb von base, keine Route greift, und
+// herausgerendert wird eine leere Hülle.
 function Router({ ssrPfad }: { ssrPfad?: string }) {
   return (
-    <WouterRouter base={GRUNDPFAD} ssrPath={ssrPfad}>
+    <WouterRouter
+      base={GRUNDPFAD}
+      ssrPath={ssrPfad ? GRUNDPFAD + ssrPfad : undefined}
+    >
       <Switch>
         <Route path="/" component={Home} />
 

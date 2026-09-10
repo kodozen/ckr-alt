@@ -43,6 +43,16 @@ let anzahl = 0;
 
 for (const seite of ALLE_SEITEN) {
   const rumpf = rendern(seite.pfad);
+
+  // Ein leerer Rumpf ist der gefährliche Fall: der Bau läuft durch, die
+  // Dateien entstehen, und erst Wochen später fällt auf, dass siebzehn
+  // Seiten nichts enthalten. Also hier abbrechen statt still ausliefern.
+  if (rumpf.replace(/<[^>]*>/g, "").trim().length < 200) {
+    throw new Error(
+      `${seite.pfad} rendert praktisch nichts (${rumpf.length} Zeichen Auszeichnung). ` +
+        `Meist stimmt der Grundpfad in ssrPath nicht mit base überein.`,
+    );
+  }
   const adresse = BASIS_URL + (seite.pfad === "/" ? "/" : seite.pfad);
   const titel = maskieren(seite.titel);
   const beschreibung = maskieren(seite.beschreibung);
