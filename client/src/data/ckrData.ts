@@ -134,7 +134,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Wäscheservice-Koordination & Turn-down",
       "Zusätzliche Kräfte in der Hochsaison"
     ],
-    image: bild("/manus-storage/56GiyVpVX1CN_7c5868d9.jpg"),
+    image: bild("/fotos/hotelreinigung.jpg"),
     bildSeite: bild("/fotos/hotel-kopf.jpg"),
     badge: "Tiroler Tourismus",
     iconName: "BedDouble"
