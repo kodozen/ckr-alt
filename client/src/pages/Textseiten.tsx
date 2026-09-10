@@ -19,7 +19,7 @@ function Aufschlag({ titel, text }: { titel: string; text?: string }) {
         <nav aria-label="Brotkrumen" className="mb-5 text-xs text-slate-300">
           <ol className="flex flex-wrap items-center gap-1.5">
             <li>
-              <Link href="/" className="hover:text-white">
+              <Link href="/" className="inline-flex min-h-[44px] items-center hover:text-white">
                 Startseite
               </Link>
             </li>
