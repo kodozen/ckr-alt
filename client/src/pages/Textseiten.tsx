@@ -1,6 +1,9 @@
 import { Link } from "wouter";
 import { ArrowRight, ChevronRight, GraduationCap, Mail, MapPin, Phone } from "lucide-react";
 import Seitenrahmen from "@/components/Seitenrahmen";
+import ServicesSection from "@/components/ServicesSection";
+import AboutSection from "@/components/AboutSection";
+import ReviewsAndFaq from "@/components/ReviewsAndFaq";
 import { DatenschutzText, ImpressumText } from "@/components/Rechtstexte";
 import { CKR_INFO } from "@/data/ckrData";
 import { TEXTSEITEN } from "@/seiten";
@@ -220,6 +223,48 @@ export function BewerbungSeite() {
           </p>
         </div>
       </section>
+    </Seitenrahmen>
+  );
+}
+
+/**
+ * Die drei Seiten, auf die die Startseite ausgelagert hat.
+ *
+ * Sie zeigen jeweils denselben Abschnitt wie vorher, nur vollständig:
+ * die Startseite reicht nur noch einen Ausschnitt und einen Verweis.
+ */
+export function LeistungenSeite() {
+  const s = seite("/leistungen/");
+  return (
+    <Seitenrahmen seite={s}>
+      <Aufschlag
+        titel="Alle Leistungen"
+        text="Zwölf Bereiche, ein Ansprechpartner. Öffnen Sie einen Bereich, um zu sehen, was dazugehört."
+      />
+      <ServicesSection />
+    </Seitenrahmen>
+  );
+}
+
+export function UeberUnsSeite() {
+  const s = seite("/ueber-uns/");
+  return (
+    <Seitenrahmen seite={s}>
+      <Aufschlag titel="Über uns" />
+      <AboutSection />
+    </Seitenrahmen>
+  );
+}
+
+export function FragenSeite() {
+  const s = seite("/haeufige-fragen/");
+  return (
+    <Seitenrahmen seite={s}>
+      <Aufschlag
+        titel="Häufige Fragen"
+        text="Die Fragen, die uns am häufigsten gestellt werden — und die Antworten darauf."
+      />
+      <ReviewsAndFaq ohneBewertungen />
     </Seitenrahmen>
   );
 }

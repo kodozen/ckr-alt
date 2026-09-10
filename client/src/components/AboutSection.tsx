@@ -9,7 +9,14 @@ const ICON_MAP: Record<string, any> = {
   GraduationCap
 };
 
-export default function AboutSection() {
+export default function AboutSection({
+  kurz = false,
+}: {
+  /** Auf der Startseite steht nur der erste Block; die vier Säulen und
+      der Ausbildungskasten stehen unter /ueber-uns/. Der Abschnitt war
+      hier drei Bildschirme lang. */
+  kurz?: boolean;
+} = {}) {
   return (
     <section id="ueber-uns" className="py-20 sm:py-28 bg-slate-50 relative overflow-hidden">
       <div className="container relative z-10">
@@ -123,7 +130,7 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* 4 Pillars Grid */}
+        {!kurz && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {CKR_ADVANTAGES.map((adv, idx) => {
             const Icon = ICON_MAP[adv.icon] || Award;
@@ -143,10 +150,24 @@ export default function AboutSection() {
             );
           })}
         </div>
+        )}
 
         {/* Career & Apprenticeship Banner (Wir bilden Lehrlinge aus!) */}
+        {kurz && (
+          <p className="mt-10 text-center">
+            <Link
+              href="/ueber-uns/"
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-bold text-[#122272] transition-colors hover:border-blue-200 hover:text-[#2E7D0E]"
+            >
+              Mehr über CKR
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </p>
+        )}
+
         {/* Ausbildung: der ausführliche Text steht auf /stellenanzeigen/.
             Auf der Startseite genügt der Hinweis, dass es ihn gibt. */}
+        {!kurz && (
         <div className="rounded-3xl bg-gradient-to-r from-[#122272] via-[#1a2d8a] to-[#0e3b1c] p-6 text-white shadow-xl sm:p-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
@@ -164,6 +185,7 @@ export default function AboutSection() {
             </Link>
           </div>
         </div>
+        )}
       </div>
     </section>
   );

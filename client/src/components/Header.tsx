@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Phone, Mail, Menu, X, ArrowRight, ShieldCheck } from "lucide-react";
 import { CKR_INFO } from "@/data/ckrData";
-import { pfad, startAnker } from "@/lib/pfade";
+import { pfad } from "@/lib/pfade";
 
 export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,8 +20,8 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
   // jetzt Adressen, die von überall aus gelten.
   const navLinks = [
     { name: "Startseite", href: pfad("/") },
-    { name: "Leistungen", href: startAnker("leistungen") },
-    { name: "Meisterbetrieb", href: startAnker("meisterbetrieb") },
+    { name: "Leistungen", href: pfad("/leistungen/") },
+    { name: "Über uns", href: pfad("/ueber-uns/") },
     { name: "Ausbildung & Stellen", href: pfad("/stellenanzeigen/") },
     { name: "Kontakt", href: pfad("/kontakt/") },
   ];

@@ -8,6 +8,9 @@ import Home from "./pages/Home";
 import Leistung from "./pages/Leistung";
 import {
   AngebotSeite,
+  FragenSeite,
+  LeistungenSeite,
+  UeberUnsSeite,
   BewerbungSeite,
   DatenschutzSeite,
   ImpressumSeite,
@@ -53,6 +56,9 @@ function Router({ ssrPfad }: { ssrPfad?: string }) {
           );
         })}
 
+        <Route path="/leistungen/" component={LeistungenSeite} />
+        <Route path="/ueber-uns/" component={UeberUnsSeite} />
+        <Route path="/haeufige-fragen/" component={FragenSeite} />
         <Route path="/kontakt/" component={KontaktSeite} />
         <Route path="/angebot-anfordern/" component={AngebotSeite} />
         <Route path="/stellenanzeigen/" component={StellenSeite} />

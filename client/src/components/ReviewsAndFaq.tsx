@@ -1,14 +1,27 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { CKR_REVIEWS, CKR_BEWERTUNGSQUELLEN, CKR_FAQ } from "@/data/ckrData";
 import { Star, ChevronDown, MessageSquareQuote, HelpCircle, CheckCircle2 } from "lucide-react";
 
-export default function ReviewsAndFaq() {
+export default function ReviewsAndFaq({
+  ohneFragen = false,
+  ohneVerweis = false,
+  ohneBewertungen = false,
+}: {
+  /** Auf der Startseite stehen die Fragen nicht mehr — sie haben
+      eine eigene Adresse. */
+  ohneFragen?: boolean;
+  ohneVerweis?: boolean;
+  /** Auf der Fragenseite stehen nur die Fragen. */
+  ohneBewertungen?: boolean;
+} = {}) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
     <section id="bewertungen" className="py-20 sm:py-28 bg-white relative">
       <div className="container">
         {/* Bewertungen — nur belegte Stimmen, jede mit Fundstelle */}
+        {!ohneBewertungen && (
         <div className="mb-24">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold uppercase tracking-wider mb-4 border border-amber-200/60">
@@ -89,8 +102,9 @@ export default function ReviewsAndFaq() {
             ))}
           </div>
         </div>
+        )}
 
-        {/* FAQ Section */}
+        {!ohneFragen && (
         <div id="faq" className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#122272] text-xs font-bold uppercase tracking-wider mb-4 border border-blue-100">
@@ -131,6 +145,18 @@ export default function ReviewsAndFaq() {
             })}
           </div>
         </div>
+        )}
+        {ohneFragen && !ohneVerweis && (
+          <p className="mt-4 text-center">
+            <Link
+              href="/haeufige-fragen/"
+              className="inline-flex items-center gap-1.5 text-sm font-bold text-[#122272] hover:text-[#2E7D0E]"
+            >
+              Häufige Fragen ansehen
+              <ChevronDown className="h-4 w-4 -rotate-90" aria-hidden="true" />
+            </Link>
+          </p>
+        )}
       </div>
     </section>
   );

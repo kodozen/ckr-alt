@@ -34,7 +34,15 @@ const ICON_MAP: Record<string, any> = {
  * der Leistung, unter der Adresse, unter der die laufende Seite sie seit
  * Jahren führt.
  */
-export default function ServicesSection() {
+export default function ServicesSection({
+  anzahl,
+}: {
+  /** Auf der Startseite stehen nur die ersten sechs; die übrigen stehen
+      unter /leistungen/. Zwölf Kacheln waren dort ein Drittel der
+      gesamten Höhe. */
+  anzahl?: number;
+} = {}) {
+  const gezeigt = anzahl ? CKR_SERVICES.slice(0, anzahl) : CKR_SERVICES;
   return (
     <section id="leistungen" className="relative bg-white py-16 sm:py-24">
       <div className="container">
@@ -53,7 +61,7 @@ export default function ServicesSection() {
         </div>
 
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-          {CKR_SERVICES.map((service) => {
+          {gezeigt.map((service) => {
             const Icon = ICON_MAP[service.iconName] || Sparkles;
             return (
               <li key={service.id}>
@@ -106,6 +114,18 @@ export default function ServicesSection() {
             );
           })}
         </ul>
+
+        {anzahl && anzahl < CKR_SERVICES.length ? (
+          <p className="mt-8 text-center sm:mt-10">
+            <Link
+              href="/leistungen/"
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-bold text-[#122272] transition-colors hover:border-blue-200 hover:text-[#2E7D0E]"
+            >
+              Alle {CKR_SERVICES.length} Leistungen ansehen
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </p>
+        ) : null}
       </div>
     </section>
   );

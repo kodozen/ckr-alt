@@ -26,7 +26,7 @@ export default function Home() {
     <Seitenrahmen seite={STARTSEITE}>
       <HeroSection onAngebotAnfordern={zumFormular} />
       <MeisterSection />
-      <ServicesSection />
+      <ServicesSection anzahl={6} />
 
       <BandSection
         bild={CKR_INFO.detailImageCare}
@@ -37,8 +37,8 @@ export default function Home() {
         href="#leistungen"
       />
 
-      <AboutSection />
-      <ReviewsAndFaq />
+      <AboutSection kurz />
+      <ReviewsAndFaq ohneFragen />
     </Seitenrahmen>
   );
 }

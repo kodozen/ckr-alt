@@ -33,6 +33,24 @@ export const LEISTUNGSSEITEN: SeitenEintrag[] = CKR_SERVICES.map((l) => ({
 
 export const TEXTSEITEN: SeitenEintrag[] = [
   {
+    pfad: "/leistungen/",
+    titel: `Alle Leistungen im Überblick · ${MARKE}`,
+    beschreibung:
+      "Zwölf Bereiche der Gebäudereinigung in Kufstein und Tirol: Unterhalt, Treppenhaus, Glas, Fassade, Hotel, Bau, Entrümpelung und mehr.",
+  },
+  {
+    pfad: "/ueber-uns/",
+    titel: `Über uns · ${MARKE} Kufstein`,
+    beschreibung:
+      "Wer hinter CKR steht: ausgebildete Gebäudereiniger, feste Ansprechpartner, Ausbildungsbetrieb im Tiroler Unterland.",
+  },
+  {
+    pfad: "/haeufige-fragen/",
+    titel: `Häufige Fragen · ${MARKE}`,
+    beschreibung:
+      "Antworten auf die Fragen, die uns am häufigsten gestellt werden: Anfahrt, Geräte, Einsatzgebiet, Angebot und Ansprechpartner.",
+  },
+  {
     pfad: "/kontakt/",
     titel: `Kontakt · ${MARKE} Kufstein`,
     beschreibung:
