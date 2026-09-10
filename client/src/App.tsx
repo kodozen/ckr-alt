@@ -25,11 +25,11 @@ import { LEISTUNGSSEITEN } from "./seiten";
 const GRUNDPFAD = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 // Beim Vorrendern gibt es keine Adresszeile, aus der der Router lesen
-// könnte. Dann wird ihm die Adresse als Haken hereingereicht; im Browser
-// bleibt der Parameter leer und wouter nimmt wie bisher window.location.
-function Router({ hook }: { hook?: any }) {
+// könnte. wouter nimmt dafür ssrPath; im Browser bleibt der Parameter
+// leer und es gilt wieder window.location.
+function Router({ ssrPfad }: { ssrPfad?: string }) {
   return (
-    <WouterRouter base={GRUNDPFAD} hook={hook}>
+    <WouterRouter base={GRUNDPFAD} ssrPath={ssrPfad}>
       <Switch>
         <Route path="/" component={Home} />
 
@@ -64,7 +64,7 @@ function Router({ hook }: { hook?: any }) {
 //   to keep consistent foreground/background color across components
 // - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
-function App({ hook }: { hook?: any } = {}) {
+function App({ ssrPfad }: { ssrPfad?: string } = {}) {
   return (
     <ErrorBoundary>
       <ThemeProvider
@@ -79,7 +79,7 @@ function App({ hook }: { hook?: any } = {}) {
             containerAriaLabel="Meldungen"
             toastOptions={{ closeButton: false }}
           />
-          <Router hook={hook} />
+          <Router ssrPfad={ssrPfad} />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
