@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Phone, Mail, Menu, X, ArrowRight, ShieldCheck } from "lucide-react";
 import { CKR_INFO } from "@/data/ckrData";
+import { pfad, startAnker } from "@/lib/pfade";
 
 export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,14 +15,15 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Sprungmarken funktionieren nur auf der Startseite. Von einer
+  // Unterseite aus zeigte "#leistungen" ins Leere — deshalb stehen hier
+  // jetzt Adressen, die von überall aus gelten.
   const navLinks = [
-    { name: "Startseite", href: "#top" },
-    { name: "Leistungen", href: "#leistungen" },
-    { name: "Meisterbetrieb", href: "#meisterbetrieb" },
-    { name: "Über Uns", href: "#ueber-uns" },
-    { name: "Ausbildung & Stellen", href: "#karriere" },
-    { name: "Kundenstimmen", href: "#bewertungen" },
-    { name: "Kontakt", href: "#kontakt" },
+    { name: "Startseite", href: pfad("/") },
+    { name: "Leistungen", href: startAnker("leistungen") },
+    { name: "Meisterbetrieb", href: startAnker("meisterbetrieb") },
+    { name: "Ausbildung & Stellen", href: pfad("/stellenanzeigen/") },
+    { name: "Kontakt", href: pfad("/kontakt/") },
   ];
 
   return (
@@ -66,7 +68,7 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
       >
         <div className="container flex items-center justify-between">
           {/* Logo Area */}
-          <a href="#top" className="flex items-center gap-3 group">
+          <a href={pfad("/")} className="flex items-center gap-3 group">
             <span className="bg-white rounded-lg px-2 py-1.5 flex items-center">
               <img
                 src={CKR_INFO.logo}

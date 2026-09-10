@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { CKR_ADVANTAGES, CKR_INFO } from "@/data/ckrData";
 import { Award, Clock, PhoneCall, GraduationCap, CheckCircle, ArrowRight, ShieldCheck } from "lucide-react";
 
@@ -144,30 +145,23 @@ export default function AboutSection() {
         </div>
 
         {/* Career & Apprenticeship Banner (Wir bilden Lehrlinge aus!) */}
-        <div id="karriere" className="rounded-3xl bg-gradient-to-r from-[#122272] via-[#1a2d8a] to-[#0e3b1c] p-8 sm:p-12 text-white relative overflow-hidden shadow-xl">
-          <div className="relative z-10 max-w-2xl">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4 border border-white/15">
-              <GraduationCap className="w-4 h-4 text-emerald-300" />
-              Zukunftsperspektive in Tirol
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-              Wir bilden Lehrlinge aus! Starte deine Karriere bei CKR.
-            </h3>
-            <p className="mt-3 text-sm sm:text-base text-slate-200 leading-relaxed">
-              Starte deine Karriere bei der CKR Reinigungsfirma! Wir bieten dir eine fundierte Ausbildung in der Reinigungsbranche, bei der du von erfahrenen Profis lernen kannst. Werde Teil unseres Teams und sichere dir eine Zukunft mit Perspektive.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-4 items-center">
-              <a
-                href="#kontakt"
-                className="bg-[#2E7D0E] hover:bg-[#256A0B] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition shadow flex items-center gap-2"
-              >
-                <span>Jetzt bewerben</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <span className="text-xs text-slate-200">
-                Oder Lebenslauf an <strong className="text-white">info@ckrreinigung.at</strong>
-              </span>
+        {/* Ausbildung: der ausführliche Text steht auf /stellenanzeigen/.
+            Auf der Startseite genügt der Hinweis, dass es ihn gibt. */}
+        <div className="rounded-3xl bg-gradient-to-r from-[#122272] via-[#1a2d8a] to-[#0e3b1c] p-6 text-white shadow-xl sm:p-8">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <GraduationCap className="h-6 w-6 shrink-0 text-emerald-300" aria-hidden="true" />
+              <p className="text-sm font-bold sm:text-base">
+                Wir bilden aus und suchen laufend Verstärkung.
+              </p>
             </div>
+            <Link
+              href="/stellenanzeigen/"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#2E7D0E] px-5 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#256A0B] sm:text-sm"
+            >
+              Ausbildung &amp; Stellen
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </div>

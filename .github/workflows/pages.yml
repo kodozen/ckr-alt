@@ -49,6 +49,23 @@ jobs:
           NODE_ENV: production
         run: pnpm exec vite build
 
+      # Zweiter Bau: dasselbe Programm, aber für Node statt für den
+      # Browser. Daraus entsteht kein Auslieferbares, sondern das
+      # Werkzeug, mit dem der nächste Schritt HTML erzeugt.
+      - name: Bündel zum Vorrendern
+        env:
+          BASIS_PFAD: /ckr-alt/
+          NODE_ENV: production
+        run: pnpm exec vite build --config vite.ssr.config.ts
+
+      # Aus jeder Adresse eine echte Datei. Ohne diesen Schritt hätten
+      # alle siebzehn Seiten denselben Titel und dasselbe canonical.
+      - name: Seiten vorrendern
+        env:
+          BASIS_PFAD: /ckr-alt/
+          BASIS_URL: https://kodozen.github.io/ckr-alt
+        run: node tools/vorrendern.mjs
+
       # ------------------------------------------------------------
       # Indexierung: ein Schalter
       # ------------------------------------------------------------
@@ -73,13 +90,6 @@ jobs:
           find dist/public -name '*.html' -exec sed -i \
             's|</head>|<meta name="robots" content="noindex, nofollow">\n</head>|' {} +
           printf 'User-agent: *\nDisallow: /\n' > dist/public/robots.txt
-
-      # GitHub Pages liefert bei unbekannten Adressen seine eigene,
-      # englische Fehlerseite aus. Eine Kopie der index.html als 404.html
-      # gibt stattdessen die Anwendung aus, die dann ihre deutsche
-      # 404-Seite zeigt.
-      - name: Fehlerseite
-        run: cp dist/public/index.html dist/public/404.html
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

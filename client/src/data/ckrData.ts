@@ -106,6 +106,21 @@ export const CKR_SERVICES: ServiceItem[] = [
     iconName: "Sun"
   },
   {
+    id: "fenster-und-fassadenreinigung",
+    title: "Fenster- & Fassadenreinigung",
+    shortDesc: "Fassaden, Glasfronten und Außenanlagen — gereinigt mit dem Verfahren, das der jeweilige Werkstoff verträgt.",
+    fullDesc: "Eine Fassade wird von außen beurteilt, lange bevor jemand das Gebäude betritt. Putz, Klinker, Glas, Metall und beschichtete Flächen vertragen sehr Unterschiedliches: Was den einen Werkstoff säubert, trägt beim nächsten die Oberfläche ab. Wir wählen Druck, Temperatur und Mittel nach dem Untergrund und arbeiten bei Höhen mit gesicherter Ausrüstung.",
+    features: [
+      "Fassadenreinigung nach Werkstoff und Verschmutzung",
+      "Glasfronten und Eingangsbereiche",
+      "Entfernung von Algen, Moos und Grauschleier",
+      "Reinigung von Vordächern und Außenanlagen",
+      "Gesicherte Höhenarbeit mit geeigneter Ausrüstung"
+    ],
+    image: bild("/manus-storage/G1jT57jzwtmc_8fc296a6.jpg"),
+    iconName: "Building2"
+  },
+  {
     id: "hotelreinigung",
     title: "Hotel- & Pensionsreinigung",
     shortDesc: "Sauberkeit, wie Gäste in Tiroler Häusern sie erwarten — Zimmer, Suiten, Gastronomie und Wellnessbereich.",
@@ -152,7 +167,7 @@ export const CKR_SERVICES: ServiceItem[] = [
     iconName: "Layers"
   },
   {
-    id: "baureinigung",
+    id: "baureinigung-endreinigung",
     title: "Bau- & Endreinigung",
     shortDesc: "Baugrobreinigung und schlüsselfertige Baufeinreinigung vor der finalen Übergabe.",
     fullDesc: "Vom Neubau bis zur Sanierung: Wir befreien Baustellen von Grobschmutz, Farbspritzern, Zementschleiern und Feinstaub, sodass Ihr Objekt bezugsfertig glänzt.",
@@ -167,7 +182,7 @@ export const CKR_SERVICES: ServiceItem[] = [
     iconName: "HardHat"
   },
   {
-    id: "entruempelung",
+    id: "entruempelung-hausbetreuung",
     title: "Entrümpelungen & Hausbetreuung",
     shortDesc: "Besenreine Räumung von Keller bis Dachboden sowie ganzheitliche Hausmeisterdienste.",
     fullDesc: "Unser Unternehmen ist Ihr kompetenter Partner für diskrete, termintreue Entrümpelungen und fortlaufende Hausbetreuung im Tiroler Unterland.",

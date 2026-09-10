@@ -5,6 +5,16 @@ import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Leistung from "./pages/Leistung";
+import {
+  AngebotSeite,
+  BewerbungSeite,
+  DatenschutzSeite,
+  ImpressumSeite,
+  KontaktSeite,
+  StellenSeite,
+} from "./pages/Textseiten";
+import { LEISTUNGSSEITEN } from "./seiten";
 
 
 // Die Vorschau liegt unter kodozen.github.io/ckr-alt/. Ohne diesen
@@ -14,15 +24,37 @@ import Home from "./pages/Home";
 // wie base in vite.config.ts; für eine eigene Domain fällt er weg.
 const GRUNDPFAD = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-function Router() {
+// Beim Vorrendern gibt es keine Adresszeile, aus der der Router lesen
+// könnte. Dann wird ihm die Adresse als Haken hereingereicht; im Browser
+// bleibt der Parameter leer und wouter nimmt wie bisher window.location.
+function Router({ hook }: { hook?: any }) {
   return (
-    <WouterRouter base={GRUNDPFAD}>
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <WouterRouter base={GRUNDPFAD} hook={hook}>
+      <Switch>
+        <Route path="/" component={Home} />
+
+        {/* Die Leistungsseiten kommen aus dem Verzeichnis, nicht aus einer
+            zweiten Liste hier — sonst gäbe es irgendwann eine Seite, die
+            gebaut wird, aber keine Route hat. */}
+        {LEISTUNGSSEITEN.map((s) => {
+          const id = s.pfad.replace(/\//g, "");
+          return (
+            <Route key={s.pfad} path={s.pfad}>
+              <Leistung id={id} />
+            </Route>
+          );
+        })}
+
+        <Route path="/kontakt/" component={KontaktSeite} />
+        <Route path="/angebot-anfordern/" component={AngebotSeite} />
+        <Route path="/stellenanzeigen/" component={StellenSeite} />
+        <Route path="/ihre-bewerbung/" component={BewerbungSeite} />
+        <Route path="/impressum/" component={ImpressumSeite} />
+        <Route path="/datenschutzerklaerung/" component={DatenschutzSeite} />
+
+        <Route path="/404" component={NotFound} />
+        <Route component={NotFound} />
+      </Switch>
     </WouterRouter>
   );
 }
@@ -32,7 +64,7 @@ function Router() {
 //   to keep consistent foreground/background color across components
 // - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
-function App() {
+function App({ hook }: { hook?: any } = {}) {
   return (
     <ErrorBoundary>
       <ThemeProvider
@@ -47,7 +79,7 @@ function App() {
             containerAriaLabel="Meldungen"
             toastOptions={{ closeButton: false }}
           />
-          <Router />
+          <Router hook={hook} />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

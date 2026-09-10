@@ -1,20 +1,17 @@
-import { useEffect, useRef, useState } from "react";
-import { CKR_SERVICES, ServiceItem } from "@/data/ckrData";
+import { Link } from "wouter";
 import {
-  Sparkles,
-  Building2,
-  ShieldCheck,
-  Sun,
+  ArrowRight,
   BedDouble,
+  Building2,
+  HardHat,
   Home,
   Layers,
-  HardHat,
+  ShieldCheck,
+  Sparkles,
+  Sun,
   Truck,
-  ArrowRight,
-  CheckCircle2,
-  X,
-  Phone
 } from "lucide-react";
+import { CKR_SERVICES } from "@/data/ckrData";
 
 const ICON_MAP: Record<string, any> = {
   Sparkles,
@@ -28,221 +25,87 @@ const ICON_MAP: Record<string, any> = {
   Truck,
 };
 
-export default function ServicesSection({ onSelectService }: { onSelectService?: (serviceName: string) => void }) {
-  const [activeModal, setActiveModal] = useState<ServiceItem | null>(null);
-  const fensterRef = useRef<HTMLDivElement>(null);
-  const ausloeserRef = useRef<HTMLElement | null>(null);
-
-  // Ein Fenster, das sich nicht mit Escape schließen lässt, ist für alle
-  // lästig und für Tastaturnutzer eine Sackgasse: der Fokus blieb bisher
-  // auf der Kachel dahinter stehen, und die Seite scrollte weiter.
-  useEffect(() => {
-    if (!activeModal) return;
-
-    ausloeserRef.current = document.activeElement as HTMLElement;
-    fensterRef.current?.focus();
-
-    const vorherigesOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    const beiTaste = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setActiveModal(null);
-    };
-    document.addEventListener("keydown", beiTaste);
-
-    return () => {
-      document.removeEventListener("keydown", beiTaste);
-      document.body.style.overflow = vorherigesOverflow;
-      ausloeserRef.current?.focus();
-    };
-  }, [activeModal]);
-
+/**
+ * Die Leistungen auf der Startseite — als Übersicht, nicht als Lexikon.
+ *
+ * Vorher hing an jeder Kachel ein Fenster mit der vollständigen
+ * Beschreibung. Das machte die Startseite lang und den Text unauffindbar:
+ * ein Fenster hat keine Adresse. Jetzt führt jede Kachel auf die Seite
+ * der Leistung, unter der Adresse, unter der die laufende Seite sie seit
+ * Jahren führt.
+ */
+export default function ServicesSection() {
   return (
-    <section id="leistungen" className="py-20 sm:py-28 bg-white relative">
+    <section id="leistungen" className="relative bg-white py-16 sm:py-24">
       <div className="container">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#122272] text-xs font-bold uppercase tracking-wider mb-4 border border-blue-100">
-            <Sparkles className="w-3.5 h-3.5 text-[#2E7D0E]" />
-            Unsere Leistungen im Überblick
+        <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#122272]">
+            <Sparkles className="h-3.5 w-3.5 text-[#2E7D0E]" aria-hidden="true" />
+            Leistungen
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#122272] tracking-tight">
-            Maßgeschneiderte Reinigungsdienste für Privat & Gewerbe
+          <h2 className="text-3xl font-extrabold tracking-tight text-[#122272] sm:text-5xl">
+            Was wir für Sie reinigen
           </h2>
-          <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
-            Unsere Leistungen werden stets von hochqualifizierten Fachkräften durchgeführt und an Ihre individuellen Anforderungen angepasst.
+          <p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
+            Zehn Bereiche, ein Ansprechpartner. Öffnen Sie einen Bereich, um
+            zu sehen, was dazugehört.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {CKR_SERVICES.map((service) => {
             const Icon = ICON_MAP[service.iconName] || Sparkles;
-
             return (
-              <div
-                key={service.id}
-                className="group bg-slate-50/70 hover:bg-white rounded-2xl border border-slate-200/80 hover:border-blue-200 p-4 sm:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[#122272]"
-              >
-                {/* Accent Top Border Hover */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#122272] to-[#52b719] opacity-0 group-hover:opacity-100 transition-opacity" />
+              <li key={service.id}>
+                <Link
+                  href={`/${service.id}/`}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4 transition-all duration-300 hover:border-blue-200 hover:bg-white hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#122272] sm:p-6"
+                >
+                  <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-[#122272] to-[#52b719] opacity-0 transition-opacity group-hover:opacity-100" />
 
-                <div>
-                  {/* Image Thumbnail with Overlay */}
-                  <div className="relative aspect-[16/9] sm:aspect-[4/3] rounded-xl overflow-hidden mb-4 sm:mb-5 bg-slate-200">
+                  <div className="relative mb-4 aspect-[16/9] overflow-hidden rounded-xl bg-slate-200 sm:aspect-[4/3]">
                     <img
                       src={service.image}
-                      alt={service.title}
+                      alt=""
                       loading="lazy"
                       decoding="async"
                       width={1200}
                       height={900}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      aria-hidden="true"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    
+
                     {service.badge && (
-                      <span className="absolute top-3 left-3 bg-[#2E7D0E] text-white text-xs font-bold px-2.5 py-0.5 rounded-full shadow-sm">
+                      <span className="absolute left-3 top-3 rounded-full bg-[#2E7D0E] px-2.5 py-0.5 text-xs font-bold text-white shadow-sm">
                         {service.badge}
                       </span>
                     )}
 
-                    <div className="absolute bottom-3 left-3 flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-lg bg-white/90 backdrop-blur-sm text-[#122272] flex items-center justify-center shadow-sm">
-                        <Icon className="w-4 h-4 text-[#122272]" />
-                      </div>
+                    <div className="absolute bottom-3 left-3 flex h-8 w-8 items-center justify-center rounded-lg bg-white/90 text-[#122272] shadow-sm backdrop-blur-sm">
+                      <Icon className="h-4 w-4 text-[#122272]" aria-hidden="true" />
                     </div>
                   </div>
 
-                  {/* Title & Short Description */}
-                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#122272] transition-colors">
+                  <h3 className="text-lg font-bold text-slate-900 transition-colors group-hover:text-[#122272] sm:text-xl">
                     {service.title}
                   </h3>
-                  <p className="mt-2 text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                  <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-slate-600 sm:text-sm">
                     {service.shortDesc}
                   </p>
 
-                </div>
-
-                {/* Die Schaltfläche trägt über after:inset-0 die ganze
-                    Kachel — anzutippen ist damit die volle Fläche, in der
-                    Tabreihenfolge steht aber nur ein Element. */}
-                <button
-                  type="button"
-                  onClick={() => setActiveModal(service)}
-                  className="mt-5 text-xs sm:text-sm font-bold text-[#122272] group-hover:text-[#2E7D0E] flex items-center gap-1.5 transition-colors outline-none after:absolute after:inset-0 after:content-['']"
-                >
-                  <span>
-                    Details ansehen
-                    <span className="sr-only">: {service.title}</span>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#122272] transition-colors group-hover:text-[#2E7D0E] sm:text-sm">
+                    Ansehen
+                    <ArrowRight
+                      className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
                   </span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                </button>
-              </div>
+                </Link>
+              </li>
             );
           })}
-        </div>
-
-        {/* Fenster mit der ausführlichen Beschreibung */}
-        {activeModal && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
-            onClick={() => setActiveModal(null)}
-          >
-            <div
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="fenster-titel"
-              ref={fensterRef}
-              tabIndex={-1}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 relative outline-none"
-            >
-              <button
-                onClick={() => setActiveModal(null)}
-                aria-label="Fenster schließen"
-                className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-slate-600 flex items-center justify-center shadow-md transition-colors"
-              >
-                <X className="w-5 h-5" aria-hidden="true" />
-              </button>
-
-              <div className="relative h-56 sm:h-64 bg-slate-100">
-                <img
-                  src={activeModal.image}
-                  alt={activeModal.title}
-                  decoding="async"
-                  width={1200}
-                  height={900}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  {activeModal.badge && (
-                    <span className="bg-[#2E7D0E] text-white text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">
-                      {activeModal.badge}
-                    </span>
-                  )}
-                  <h3 id="fenster-titel" className="text-2xl sm:text-3xl font-extrabold text-white">
-                    {activeModal.title}
-                  </h3>
-                </div>
-              </div>
-
-              <div className="p-6 sm:p-8 space-y-6">
-                <div>
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
-                    Leistungsbeschreibung
-                  </h3>
-                  <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                    {activeModal.fullDesc}
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
-                    Im Serviceumfang enthalten:
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {activeModal.features.map((f, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-start gap-2.5 bg-slate-50 p-3 rounded-xl border border-slate-200/60 text-xs sm:text-sm text-slate-800"
-                      >
-                        <CheckCircle2 className="w-4 h-4 text-[#2E7D0E] shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="border-t border-slate-100 pt-6 flex flex-wrap items-center justify-between gap-4">
-                  <div className="text-xs text-slate-600">
-                    Kostenlose Besichtigung & unverbindliches Angebot
-                  </div>
-                  <div className="flex items-center gap-3 w-full sm:w-auto">
-                    <a
-                      href={`tel:${CKR_SERVICES ? "+436508933881" : ""}`}
-                      className="flex-1 sm:flex-none bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl flex items-center justify-center gap-2"
-                     aria-label="Anrufen">
-                      <Phone className="w-3.5 h-3.5" />
-                      <span>Jetzt anrufen</span>
-                    </a>
-                    <a
-                      href="#kontakt"
-                      onClick={() => {
-                        onSelectService && onSelectService(activeModal.title);
-                        setActiveModal(null);
-                      }}
-                      className="flex-1 sm:flex-none bg-[#122272] hover:bg-[#0c164a] text-white text-xs font-bold px-4 py-2.5 rounded-xl text-center"
-                    >
-                      Angebot anfordern
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        </ul>
       </div>
     </section>
   );
