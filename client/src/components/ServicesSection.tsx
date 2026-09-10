@@ -63,7 +63,7 @@ export default function ServicesSection() {
                 >
                   <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-[#122272] to-[#52b719] opacity-0 transition-opacity group-hover:opacity-100" />
 
-                  <div className="relative mb-4 aspect-[16/9] overflow-hidden rounded-xl bg-slate-200 sm:aspect-[4/3]">
+                  <div className="relative mb-4 aspect-[16/9] overflow-hidden rounded-xl bg-slate-200 sm:aspect-[3/2]">
                     <img
                       src={service.image}
                       alt=""
