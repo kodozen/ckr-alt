@@ -33,10 +33,21 @@ export default function Leistung({ id }: { id: string }) {
           alt=""
           width={1200}
           height={900}
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
+          className="absolute inset-0 h-full w-full object-cover"
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#070d2e] via-[#070d2e]/85 to-[#070d2e]/40" />
+        {/* Vorher lag über der Aufnahme zweierlei: opacity-40 auf dem Bild
+            und darüber ein fast deckender Verlauf. Zusammen war vom Motiv
+            kaum etwas übrig — blau, und darunter zu ahnen, was gemeint war.
+            Jetzt trägt nur noch der Verlauf, und der ist gerichtet: dicht
+            links, wo die Schrift steht, offen rechts, wo das Bild zu sehen
+            sein soll.
+
+            Auf schmalen Bildschirmen läuft die Schrift über die volle
+            Breite; dort liegt zusätzlich eine gleichmäßige Decke, die ab
+            sm wieder verschwindet. */}
+        <div className="absolute inset-0 bg-[#070d2e]/55 sm:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070d2e]/95 via-[#070d2e]/70 to-[#070d2e]/15" />
 
         <div className="container relative z-10 py-16 sm:py-24">
           <nav aria-label="Brotkrumen" className="mb-6 text-xs text-slate-300">
