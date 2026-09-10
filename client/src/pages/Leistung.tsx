@@ -29,7 +29,7 @@ export default function Leistung({ id }: { id: string }) {
       {/* Aufmacher mit der Aufnahme der Leistung */}
       <section className="relative isolate overflow-hidden bg-[#070d2e]">
         <img
-          src={leistung.image}
+          src={leistung.bildSeite ?? leistung.image}
           alt=""
           width={1200}
           height={900}

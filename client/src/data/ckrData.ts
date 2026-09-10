@@ -13,6 +13,9 @@ export interface ServiceItem {
   fullDesc: string;
   features: string[];
   image: string;
+  /** Nur wenn der Kopf der Leistungsseite eine andere Aufnahme trägt als
+      die Kachel auf der Startseite. */
+  bildSeite?: string;
   badge?: string;
   iconName: string;
 }
@@ -37,7 +40,7 @@ export const CKR_INFO = {
   heroImage: bild("/manus-storage/G1jT57jzwtmc_8fc296a6.jpg"),
   teamImage: bild("/manus-storage/afgOOxPThKeo_76986f5d.jpg"),
   detailImageOffice: bild("/manus-storage/QPImpFF6sPNS_e1968161.jpg"),
-  detailImageCare: bild("/manus-storage/W26I5SqCRoqZ_f8c2bf58.jpg"),
+  detailImageCare: bild("/fotos/band-unterhalt.jpg"),
   detailImageFloor: bild("/manus-storage/c11Cq6dwwpAu_b39b6734.jpg"),
   detailImageModern: bild("/manus-storage/56GiyVpVX1CN_7c5868d9.jpg"),
 };
@@ -55,7 +58,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Mülltrennung & fachgerechte Entsorgung",
       "Küchen- und Pausenraumpflege"
     ],
-    image: bild("/manus-storage/QPImpFF6sPNS_e1968161.jpg"),
+    image: bild("/fotos/unterhaltsreinigung.jpg"),
     badge: "Meistgefragt",
     iconName: "Sparkles"
   },
@@ -71,7 +74,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Spinnwebenbeseitigung & Glasflächen im Stiegenhaus",
       "Feste Termine & zuverlässige Ausführung"
     ],
-    image: bild("/manus-storage/W26I5SqCRoqZ_f8c2bf58.jpg"),
+    image: bild("/fotos/treppenhausreinigung.jpg"),
     iconName: "Building2"
   },
   {
@@ -86,7 +89,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Wand- und Deckenentstaubung",
       "Werterhaltende Pflege aller Werkstoffe"
     ],
-    image: bild("/manus-storage/c11Cq6dwwpAu_b39b6734.jpg"),
+    image: bild("/fotos/grundreinigung.jpg"),
     badge: "Werterhalt",
     iconName: "ShieldCheck"
   },
@@ -133,6 +136,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Zusätzliche Kräfte in der Hochsaison"
     ],
     image: bild("/manus-storage/56GiyVpVX1CN_7c5868d9.jpg"),
+    bildSeite: bild("/fotos/hotel-kopf.jpg"),
     badge: "Tiroler Tourismus",
     iconName: "BedDouble"
   },
@@ -163,7 +167,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Farbfrische-Reaktivierung",
       "Schnelle Trocknungszeiten"
     ],
-    image: bild("/manus-storage/c11Cq6dwwpAu_b39b6734.jpg"),
+    image: bild("/fotos/teppichreinigung.jpg"),
     iconName: "Layers"
   },
   {
@@ -193,7 +197,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Laufende Hausmeistertätigkeiten & Kontrollgänge",
       "Kleinreparaturen & Saisonpflege"
     ],
-    image: bild("/manus-storage/W26I5SqCRoqZ_f8c2bf58.jpg"),
+    image: bild("/fotos/entruempelung-hausbetreuung.jpg"),
     iconName: "Truck"
   }
 ];
