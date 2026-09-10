@@ -113,7 +113,7 @@ export default function Leistung({ id }: { id: string }) {
             </ul>
           </div>
 
-          <aside className="lg:pt-2">
+          <div className="lg:pt-2">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
               <p className="text-sm font-bold text-[#122272]">
                 Kostenlose Besichtigung
@@ -146,7 +146,7 @@ export default function Leistung({ id }: { id: string }) {
                 Rund um die Uhr erreichbar, auch bei Havarie.
               </p>
             </div>
-          </aside>
+          </div>
         </div>
       </section>
 
