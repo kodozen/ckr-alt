@@ -38,11 +38,8 @@ export const CKR_INFO = {
   logo: bild("/manus-storage/ckr-logo-original_a1e7247c.png"),
   meisterSiegel: bild("/meisterbetrieb-siegel.jpg"),
   heroImage: bild("/manus-storage/G1jT57jzwtmc_8fc296a6.jpg"),
-  teamImage: bild("/manus-storage/afgOOxPThKeo_76986f5d.jpg"),
-  detailImageOffice: bild("/manus-storage/QPImpFF6sPNS_e1968161.jpg"),
+  teamImage: bild("/fotos/betrieb-gewerbe.jpg"),
   detailImageCare: bild("/fotos/band-unterhalt.jpg"),
-  detailImageFloor: bild("/manus-storage/c11Cq6dwwpAu_b39b6734.jpg"),
-  detailImageModern: bild("/manus-storage/56GiyVpVX1CN_7c5868d9.jpg"),
 };
 
 export const CKR_SERVICES: ServiceItem[] = [
@@ -106,7 +103,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Wintergärten & Glasüberdachungen",
       "Sicherheitsausrüstung für Höhenarbeiten"
     ],
-    image: bild("/manus-storage/G1jT57jzwtmc_8fc296a6.jpg"),
+    image: bild("/fotos/glasreinigung.jpg"),
     iconName: "Sun"
   },
   {
@@ -122,7 +119,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Balkone, Geländer und Vordächer",
       "Gesicherte Höhenarbeit mit geeigneter Ausrüstung"
     ],
-    image: bild("/manus-storage/G1jT57jzwtmc_8fc296a6.jpg"),
+    image: bild("/fotos/fenster-und-fassadenreinigung.jpg"),
     iconName: "Building2"
   },
   {
@@ -154,7 +151,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Endkontrolle & Checklisten-Protokoll",
       "Schlüsselübergabe-Unterstützung nach Absprache"
     ],
-    image: bild("/manus-storage/afgOOxPThKeo_76986f5d.jpg"),
+    image: bild("/fotos/appartementreinigung.jpg"),
     iconName: "Home"
   },
   {
@@ -184,7 +181,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Reinigungsabnahme mit Bauherren & Architekten",
       "Verlässliche Termineinhaltung vor Bezug"
     ],
-    image: bild("/manus-storage/QPImpFF6sPNS_e1968161.jpg"),
+    image: bild("/fotos/baureinigung-endreinigung.jpg"),
     iconName: "HardHat"
   },
   {
@@ -200,7 +197,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Scheiben innen und außen",
       "Sonderreinigung nach Vorfällen"
     ],
-    image: bild("/manus-storage/W26I5SqCRoqZ_f8c2bf58.jpg"),
+    image: bild("/fotos/verkehrsmittelreinigung.jpg"),
     iconName: "Truck"
   },
   {
@@ -216,7 +213,7 @@ export const CKR_SERVICES: ServiceItem[] = [
       "Grünbelag- und Krustenentfernung",
       "Abstimmung mit den Auflagen der Behörde"
     ],
-    image: bild("/manus-storage/c11Cq6dwwpAu_b39b6734.jpg"),
+    image: bild("/fotos/denkmalreinigung.jpg"),
     iconName: "ShieldCheck"
   },
   {
