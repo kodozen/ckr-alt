@@ -140,10 +140,20 @@ html {
     min-height: 0;
   }
 
-  /* Symbolknöpfe sind quadratisch und brauchen auch Breite. */
+  /* Symbolknöpfe sind quadratisch und brauchen auch Breite.
+     Nur die Breite reicht aber nicht: wird ein Element von 36 auf 44
+     Punkte aufgezogen, während sein Inhalt im Blockfluss liegt, landet
+     der ganze Zuwachs rechts und unten — das Symbol sitzt dann sichtbar
+     aus der Mitte. Deshalb wird der Inhalt hier gleich mit zentriert. */
   a[aria-label],
   button[aria-label] {
     min-width: 44px;
+  }
+  a[aria-label]:not(:has(> :not(svg))),
+  button[aria-label]:not(:has(> :not(svg))) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Kästchen und Schieber liefern die Fläche nicht von selbst;

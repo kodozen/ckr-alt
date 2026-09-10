@@ -128,17 +128,17 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
           <div className="flex items-center gap-2 lg:hidden">
             <a
               href={`tel:${CKR_INFO.phoneRaw}`}
-              className="p-2 text-white bg-white/10 rounded-lg"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white/10 text-white"
               title="Anrufen"
              aria-label="Anrufen">
-              <Phone className="w-5 h-5" />
+              <Phone className="h-5 w-5" aria-hidden="true" />
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-white hover:text-emerald-300 rounded-lg"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-white hover:text-emerald-300"
               aria-label="Menü öffnen"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
             </button>
           </div>
         </div>
