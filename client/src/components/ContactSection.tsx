@@ -3,6 +3,7 @@ import { CKR_INFO, CKR_SERVICES } from "@/data/ckrData";
 import { Phone, Mail, MapPin, Send, ShieldCheck, CheckCircle2, FileText, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import { DatenschutzText, ImpressumText } from "./Rechtstexte";
+import SozialeKanaele from "./SozialeKanaele";
 
 export default function ContactSection({ prefilledService }: { prefilledService?: string }) {
   const [formData, setFormData] = useState({
@@ -168,6 +169,14 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     Einsatzgebiet: Kufstein, Wörgl, Kitzbühel & ganz Tirol
                   </p>
                 </div>
+              </div>
+
+              {/* Die Konten standen bisher nur in den strukturierten Daten. */}
+              <div className="flex items-center justify-between gap-4 border-t border-white/10 pt-5">
+                <span className="text-xs uppercase tracking-wider text-slate-300 font-semibold">
+                  Folgen Sie uns
+                </span>
+                <SozialeKanaele />
               </div>
             </div>
 
@@ -422,9 +431,13 @@ export default function ContactSection({ prefilledService }: { prefilledService?
             >
               Datenschutzerklärung
             </button>
-            <a href="#top" className="hover:text-[#2E7D0E] transition">
+            {/* "#top" gab es nur auf der Startseite; auf den übrigen
+                einundzwanzig Seiten tat der Verweis nichts. "#" führt
+                überall an den Anfang. */}
+            <a href="#" className="hover:text-[#2E7D0E] transition">
               Nach oben ↑
             </a>
+            <SozialeKanaele className="hidden sm:flex" />
           </div>
         </div>
       </div>

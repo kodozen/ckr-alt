@@ -27,6 +27,8 @@ export const CKR_INFO = {
   phone: "+43 650 8933881",
   phoneRaw: "+436508933881",
   email: "info@ckrreinigung.at",
+  instagram: "https://www.instagram.com/ckr.cleaningservices/",
+  facebook: "https://www.facebook.com/ckrkufstein",
   officeAddress: "Weckaufstraße 10, 6330 Kufstein, Österreich",
   officialAddress: "Bartl Lechner-Straße 17, 6330 Kufstein, Österreich",
   uid: "ATU74543201",
