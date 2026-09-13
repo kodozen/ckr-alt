@@ -31,7 +31,7 @@ export const CKR_INFO = {
   facebook: "https://www.facebook.com/ckrkufstein",
   // Seit der Klärung durch den Kunden gibt es nur noch eine Adresse;
   // vorher liefen Büro und Firmensitz getrennt.
-  adresse: "Oskar Pirlo Straße 42b, 6330 Kufstein, Österreich",
+  adresse: "Oskar Pirlo-Straße 42b, 6330 Kufstein, Österreich",
   uid: "ATU74543201",
   // Der Name der Inhaberin steht nur noch im Impressum: § 5 ECG und
   // § 25 MedienG verlangen ihn bei einem Einzelunternehmen, sonst ist
