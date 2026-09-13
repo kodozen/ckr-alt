@@ -22,17 +22,22 @@ export interface ServiceItem {
 
 export const CKR_INFO = {
   name: "CKR Cleaning Services",
-  legalName: "CKR – Cleaning Services (Inh. Sevgi Ay)",
+  legalName: "CKR – Cleaning Services",
   tagline: "Ihre verlässliche Reinigungsfirma in Kufstein & Tirol",
   phone: "+43 650 8933881",
   phoneRaw: "+436508933881",
   email: "info@ckrreinigung.at",
   instagram: "https://www.instagram.com/ckr.cleaningservices/",
   facebook: "https://www.facebook.com/ckrkufstein",
-  officeAddress: "Weckaufstraße 10, 6330 Kufstein, Österreich",
-  officialAddress: "Bartl Lechner-Straße 17, 6330 Kufstein, Österreich",
+  // Seit der Klärung durch den Kunden gibt es nur noch eine Adresse;
+  // vorher liefen Büro und Firmensitz getrennt.
+  adresse: "Oskar Pirlo Straße 42b, 6330 Kufstein, Österreich",
   uid: "ATU74543201",
-  owner: "Sevgi Ay",
+  // Der Name der Inhaberin steht nur noch im Impressum: § 5 ECG und
+  // § 25 MedienG verlangen ihn bei einem Einzelunternehmen, sonst ist
+  // das Impressum unvollständig. Auf der übrigen Seite kommt er nicht
+  // mehr vor.
+  inhaberin: "Sevgi Ay",
   hotline: "Notdienst rund um die Uhr",
   experienceYears: "10+",
   clientsSatisfied: "500+",

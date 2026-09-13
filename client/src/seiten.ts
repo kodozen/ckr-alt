@@ -60,7 +60,7 @@ export const TEXTSEITEN: SeitenEintrag[] = [
     pfad: "/angebot-anfordern/",
     titel: `Angebot anfordern · ${MARKE}`,
     beschreibung:
-      "Kostenlose Besichtigung, danach ein verbindliches Angebot. Beschreiben Sie kurz Ihr Objekt — wir melden uns.",
+      "Kostenlose Besichtigung, danach ein unverbindliches Angebot. Beschreiben Sie kurz Ihr Objekt — wir melden uns.",
   },
   {
     pfad: "/stellenanzeigen/",
@@ -78,7 +78,7 @@ export const TEXTSEITEN: SeitenEintrag[] = [
     pfad: "/impressum/",
     titel: `Impressum · ${MARKE}`,
     beschreibung:
-      "Angaben gemäß § 5 ECG und § 25 MedienG zu CKR – Cleaning Services, Inhaberin Sevgi Ay, Kufstein.",
+      "Angaben gemäß § 5 ECG und § 25 MedienG zu CKR – Cleaning Services in Kufstein.",
   },
   {
     pfad: "/datenschutzerklaerung/",
@@ -92,7 +92,7 @@ export const STARTSEITE: SeitenEintrag = {
   pfad: "/",
   titel: `${MARKE} · Meisterbetrieb für Gebäudereinigung in Kufstein`,
   beschreibung:
-    "Gebäudereinigung in Kufstein und ganz Tirol: Unterhalt, Glas, Hotel, Bau und Entrümpelung. Rund um die Uhr erreichbar.",
+    "Gebäudereinigung in Kufstein und ganz Tirol: Unterhalt, Glas, Hotel, Bau und Entrümpelung. 24 Stunden am Tag erreichbar.",
 };
 
 export const ALLE_SEITEN: SeitenEintrag[] = [

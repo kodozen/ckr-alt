@@ -106,7 +106,7 @@ export function KontaktSeite() {
             <p className="mt-3 text-xs font-bold uppercase tracking-wider text-slate-500">
               Büro
             </p>
-            <p className="mt-1 text-sm text-slate-700">{CKR_INFO.officeAddress}</p>
+            <p className="mt-1 text-sm text-slate-700">{CKR_INFO.adresse}</p>
           </div>
         </div>
       </section>
@@ -120,7 +120,7 @@ export function AngebotSeite() {
     <Seitenrahmen seite={s}>
       <Aufschlag
         titel="Angebot anfordern"
-        text="Sagen Sie uns, um welches Objekt es geht. Wir sehen es uns kostenlos an und schreiben danach ein verbindliches Angebot."
+        text="Sagen Sie uns, um welches Objekt es geht. Wir sehen es uns kostenlos an und schreiben danach ein unverbindliches Angebot."
       />
       <section className="bg-white py-14">
         <div className="container max-w-2xl">

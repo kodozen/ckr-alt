@@ -131,7 +131,7 @@ export default function Leistung({ id }: { id: string }) {
               </p>
               <p className="mt-2 text-sm leading-relaxed text-slate-700">
                 Wir sehen uns Ihr Objekt an und schreiben danach ein
-                verbindliches Angebot. Die Besichtigung kostet nichts und
+                unverbindliches Angebot. Die Besichtigung kostet nichts und
                 verpflichtet Sie zu nichts.
               </p>
               <Link
@@ -154,7 +154,7 @@ export default function Leistung({ id }: { id: string }) {
                 {CKR_INFO.phone}
               </a>
               <p className="mt-1 text-xs text-slate-600">
-                Rund um die Uhr erreichbar, auch bei Havarie.
+                24 Stunden am Tag erreichbar.
               </p>
             </div>
           </div>

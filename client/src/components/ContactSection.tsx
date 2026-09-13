@@ -163,7 +163,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     Bürostandort Kufstein
                   </span>
                   <div className="text-sm font-bold text-white mt-0.5">
-                    {CKR_INFO.officeAddress}
+                    {CKR_INFO.adresse}
                   </div>
                   <p className="text-xs text-slate-300 mt-1">
                     Einsatzgebiet: Kufstein, Wörgl, Kitzbühel & ganz Tirol
@@ -191,7 +191,6 @@ export default function ContactSection({ prefilledService }: { prefilledService?
               </p>
               <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
                 <span className="bg-white/10 px-2.5 py-1 rounded-md">UID: {CKR_INFO.uid}</span>
-                <span className="bg-white/10 px-2.5 py-1 rounded-md">Geschäftsführung: {CKR_INFO.owner}</span>
               </div>
             </div>
           </div>

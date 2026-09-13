@@ -15,14 +15,13 @@ export function ImpressumText() {
     <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-slate-700">
       <div>
         <strong>Angaben gemäß § 5 ECG und § 25 MedienG:</strong>
-        <p>{CKR_INFO.owner}</p>
         <p>{CKR_INFO.legalName}</p>
-        <p>{CKR_INFO.officialAddress}</p>
+        <p>Inhaberin: {CKR_INFO.inhaberin}</p>
+        <p>{CKR_INFO.adresse}</p>
       </div>
 
       <div>
         <strong>Büro & Kundenkontakt:</strong>
-        <p>{CKR_INFO.officeAddress}</p>
         <p>Telefon: {CKR_INFO.phone}</p>
         <p>E-Mail: {CKR_INFO.email}</p>
       </div>
@@ -30,11 +29,6 @@ export function ImpressumText() {
       <div>
         <strong>Umsatzsteuer-Identifikationsnummer:</strong>
         <p>UID-Nummer: <strong>{CKR_INFO.uid}</strong></p>
-      </div>
-
-      <div>
-        <strong>Geschäftsführung:</strong>
-        <p>{CKR_INFO.owner}</p>
       </div>
 
       <div>
@@ -99,7 +93,7 @@ export function DatenschutzText() {
       <div>
         <strong>Verantwortlicher:</strong>
         <p>{CKR_INFO.legalName}</p>
-        <p>{CKR_INFO.officialAddress}</p>
+        <p>{CKR_INFO.adresse}</p>
         <p>
           {CKR_INFO.phone} · {CKR_INFO.email}
         </p>
