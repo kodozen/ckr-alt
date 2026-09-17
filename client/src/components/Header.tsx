@@ -108,7 +108,7 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
               type="button"
               className="bg-[#2E7D0E] hover:bg-[#256A0B] text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition-all flex items-center gap-2 active:scale-95"
             >
-              <span>Angebot berechnen</span>
+              <span>Angebot anfordern</span>
               <ArrowRight className="w-4 h-4 text-white/80" />
             </button>
             <a
@@ -165,8 +165,8 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
                   }}
                   className="w-full bg-[#122272] text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 shadow"
                 >
-                  <span>Kostenloses Angebot berechnen</span>
-                  <ArrowRight className="w-4 h-4 text-[#2E7D0E]" />
+                  <span>Kostenloses Angebot anfordern</span>
+                  <ArrowRight className="w-4 h-4 text-[#5CBC1A]" aria-hidden="true" />
                 </button>
                 <a
                   href={`tel:${CKR_INFO.phoneRaw}`}
