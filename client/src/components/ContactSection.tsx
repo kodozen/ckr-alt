@@ -433,7 +433,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
             {/* "#top" gab es nur auf der Startseite; auf den übrigen
                 einundzwanzig Seiten tat der Verweis nichts. "#" führt
                 überall an den Anfang. */}
-            <a href="#" className="hover:text-[#2E7D0E] transition">
+            <a href="#" className="inline-flex items-center hover:text-[#2E7D0E] transition">
               Nach oben ↑
             </a>
             <SozialeKanaele className="hidden sm:flex" />

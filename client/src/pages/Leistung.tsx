@@ -149,7 +149,7 @@ export default function Leistung({ id }: { id: string }) {
               </p>
               <a
                 href={`tel:${CKR_INFO.phoneRaw}`}
-                className="mt-2 block text-lg font-extrabold text-[#122272] hover:text-[#2E7D0E]"
+                className="mt-2 flex items-center text-lg font-extrabold text-[#122272] hover:text-[#2E7D0E]"
               >
                 {CKR_INFO.phone}
               </a>
