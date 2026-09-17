@@ -115,7 +115,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm space-y-6">
               {/* Phone */}
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-[#2E7D0E] flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-[#5CBC1A] flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
@@ -123,7 +123,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     Telefon & 24-Stunden-Hotline
                   </span>
                   <div className="text-lg font-bold mt-0.5">
-                    <a href={`tel:${CKR_INFO.phoneRaw}`} className="inline-flex items-center min-h-[44px] hover:text-[#2E7D0E] transition-colors" aria-label="Anrufen">
+                    <a href={`tel:${CKR_INFO.phoneRaw}`} className="inline-flex items-center min-h-[44px] hover:text-[#5CBC1A] transition-colors" aria-label="Anrufen">
                       {CKR_INFO.phone}
                     </a>
                   </div>
@@ -143,7 +143,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     E-Mail
                   </span>
                   <div className="text-base font-bold mt-0.5">
-                    <a href={`mailto:${CKR_INFO.email}`} className="inline-flex items-center min-h-[44px] hover:text-[#2E7D0E] transition-colors" aria-label="E-Mail schreiben">
+                    <a href={`mailto:${CKR_INFO.email}`} className="inline-flex items-center min-h-[44px] hover:text-[#5CBC1A] transition-colors" aria-label="E-Mail schreiben">
                       {CKR_INFO.email}
                     </a>
                   </div>
@@ -389,7 +389,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                   type="submit"
                   className="w-full bg-[#122272] hover:bg-[#0c164a] text-white font-bold py-3.5 rounded-xl transition shadow-lg flex items-center justify-center gap-2 text-sm active:scale-[0.99]"
                 >
-                  <Send className="w-4 h-4 text-[#2E7D0E]" />
+                  <Send className="w-4 h-4 text-[#5CBC1A]" aria-hidden="true" />
                   <span>
                     {submitted
                       ? "Im E-Mail-Programm geöffnet"
@@ -433,7 +433,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
             {/* "#top" gab es nur auf der Startseite; auf den übrigen
                 einundzwanzig Seiten tat der Verweis nichts. "#" führt
                 überall an den Anfang. */}
-            <a href="#" className="inline-flex items-center hover:text-[#2E7D0E] transition">
+            <a href="#" className="inline-flex items-center hover:text-[#5CBC1A] transition">
               Nach oben ↑
             </a>
             <SozialeKanaele className="hidden sm:flex" />

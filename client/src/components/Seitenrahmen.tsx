@@ -55,7 +55,7 @@ export default function Seitenrahmen({
           href="https://wa.me/436508933881?text=Hallo%20CKR%20Cleaning%20Services,%20ich%20ben%C3%B6tige%20ein%20Angebot."
           target="_blank"
           rel="noopener noreferrer"
-          className="w-13 h-13 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform"
+          className="w-13 h-13 rounded-full bg-[#128C7E] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform"
           title="WhatsApp Chat starten"
           aria-label="Über WhatsApp schreiben"
         >
@@ -68,7 +68,7 @@ export default function Seitenrahmen({
           title="24-Stunden-Hotline sofort anrufen"
           aria-label="24-Stunden-Hotline anrufen"
         >
-          <Phone className="w-6 h-6 text-[#2E7D0E]" aria-hidden="true" />
+          <Phone className="w-6 h-6 text-[#5CBC1A]" aria-hidden="true" />
         </a>
       </nav>
     </div>

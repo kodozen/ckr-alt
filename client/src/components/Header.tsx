@@ -34,16 +34,16 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
           <div className="flex items-center gap-6">
             <a
               href={`tel:${CKR_INFO.phoneRaw}`}
-              className="flex items-center gap-1.5 font-medium hover:text-[#2E7D0E] transition-colors"
+              className="flex items-center gap-1.5 font-medium hover:text-[#5CBC1A] transition-colors"
              aria-label="Anrufen">
-              <Phone className="w-3.5 h-3.5 text-[#2E7D0E]" />
+              <Phone className="w-3.5 h-3.5 text-[#5CBC1A]" aria-hidden="true" />
               <span>24-Stunden-Hotline: {CKR_INFO.phone}</span>
             </a>
             <a
               href={`mailto:${CKR_INFO.email}`}
-              className="hidden md:flex items-center gap-1.5 hover:text-[#2E7D0E] transition-colors"
+              className="hidden md:flex items-center gap-1.5 hover:text-[#5CBC1A] transition-colors"
             >
-              <Mail className="w-3.5 h-3.5 text-[#2E7D0E]" />
+              <Mail className="w-3.5 h-3.5 text-[#5CBC1A]" aria-hidden="true" />
               <span>{CKR_INFO.email}</span>
             </a>
           </div>
@@ -115,7 +115,7 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
               href={`https://wa.me/436508933881?text=Hallo%20CKR%20Cleaning%20Services,%20ich%20habe%20eine%20Anfrage%20zu%20einer%20Reinigung.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#25D366] hover:bg-[#1EBE5D] text-white p-2.5 rounded-lg shadow-sm transition-all"
+              className="bg-[#128C7E] hover:bg-[#075E54] text-white p-2.5 rounded-lg shadow-sm transition-all"
               title="Per WhatsApp anfragen"
              aria-label="Über WhatsApp schreiben">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -170,7 +170,7 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
                 </button>
                 <a
                   href={`tel:${CKR_INFO.phoneRaw}`}
-                  className="w-full bg-emerald-600 text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2"
+                  className="w-full bg-[#2E7D0E] text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2"
                  aria-label="Anrufen">
                   <Phone className="w-4 h-4" />
                   <span>24-Stunden-Hotline anrufen</span>

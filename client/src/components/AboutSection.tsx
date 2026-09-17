@@ -63,7 +63,7 @@ export default function AboutSection({
                 className="bg-[#122272] hover:bg-[#0c164a] text-white text-sm font-bold px-6 py-3 rounded-xl transition shadow-sm inline-flex items-center gap-2"
               >
                 <span>Jetzt Kontakt aufnehmen</span>
-                <ArrowRight className="w-4 h-4 text-[#2E7D0E]" />
+                <ArrowRight className="w-4 h-4 text-[#5CBC1A]" aria-hidden="true" />
               </a>
               <a
                 href={`tel:${CKR_INFO.phoneRaw}`}
