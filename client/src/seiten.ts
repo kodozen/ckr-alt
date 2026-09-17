@@ -78,7 +78,7 @@ export const TEXTSEITEN: SeitenEintrag[] = [
     pfad: "/impressum/",
     titel: `Impressum · ${MARKE}`,
     beschreibung:
-      "Angaben gemäß § 5 ECG und § 25 MedienG zu CKR – Cleaning Services in Kufstein.",
+      "Angaben gemäß § 5 ECG und § 25 MedienG zu CKR Cleaning Services in Kufstein.",
   },
   {
     pfad: "/datenschutzerklaerung/",

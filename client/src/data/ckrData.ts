@@ -22,7 +22,7 @@ export interface ServiceItem {
 
 export const CKR_INFO = {
   name: "CKR Cleaning Services",
-  legalName: "CKR – Cleaning Services",
+  legalName: "CKR Cleaning Services",
   tagline: "Ihre verlässliche Reinigungsfirma in Kufstein & Tirol",
   phone: "+43 650 8933881",
   phoneRaw: "+436508933881",
@@ -31,8 +31,13 @@ export const CKR_INFO = {
   facebook: "https://www.facebook.com/ckrkufstein",
   // Seit der Klärung durch den Kunden gibt es nur noch eine Adresse;
   // vorher liefen Büro und Firmensitz getrennt.
-  adresse: "Oskar Pirlo-Straße 42b, 6330 Kufstein, Österreich",
+  // Schreibweise aus dem Impressum des Kunden (Stand September 2026).
+  strasse: "Oskar-Pirlo-Straße 42b",
+  ort: "6330 Kufstein",
+  adresse: "Oskar-Pirlo-Straße 42b, 6330 Kufstein, Österreich",
   uid: "ATU74543201",
+  gisa: "33515779",
+  web: "www.ckrreinigung.at",
   // Der Name der Inhaberin steht nur noch im Impressum: § 5 ECG und
   // § 25 MedienG verlangen ihn bei einem Einzelunternehmen, sonst ist
   // das Impressum unvollständig. Auf der übrigen Seite kommt er nicht

@@ -10,71 +10,81 @@ import { CKR_INFO } from "@/data/ckrData";
  * teure. Deshalb: eine Quelle, zwei Verwendungen.
  */
 
+/**
+ * Wortlaut und Reihenfolge folgen dem Impressum, das der Kunde geliefert
+ * hat (PDF, September 2026). Nicht übernommen ist der frühere Hinweis auf
+ * die EU-Plattform zur Online-Streitbeilegung: die Plattform wurde am
+ * 20. Juli 2025 eingestellt, der Verweis zeigte ins Leere.
+ */
 export function ImpressumText() {
+  const link = "text-[#122272] underline";
   return (
     <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-slate-700">
       <div>
-        <strong>Angaben gemäß § 5 ECG und § 25 MedienG:</strong>
-        <p>{CKR_INFO.legalName}</p>
-        <p>Inhaberin: {CKR_INFO.inhaberin}</p>
-        <p>{CKR_INFO.adresse}</p>
+        <p><strong>{CKR_INFO.legalName}</strong></p>
+        <p>{CKR_INFO.strasse}</p>
+        <p>{CKR_INFO.ort}</p>
+        <p>Österreich</p>
       </div>
 
       <div>
-        <strong>Büro & Kundenkontakt:</strong>
-        <p>Telefon: {CKR_INFO.phone}</p>
-        <p>E-Mail: {CKR_INFO.email}</p>
+        <p><strong>Telefon:</strong>{" "}
+          <a href={`tel:${CKR_INFO.phoneRaw}`} className={link}>{CKR_INFO.phone}</a>
+        </p>
+        <p><strong>E-Mail:</strong>{" "}
+          <a href={`mailto:${CKR_INFO.email}`} className={link}>{CKR_INFO.email}</a>
+        </p>
+        <p><strong>Web:</strong> {CKR_INFO.web}</p>
       </div>
 
       <div>
-        <strong>Umsatzsteuer-Identifikationsnummer:</strong>
-        <p>UID-Nummer: <strong>{CKR_INFO.uid}</strong></p>
+        <p><strong>UID-Nummer:</strong> {CKR_INFO.uid}</p>
+        <p><strong>GISA-Zahl:</strong> {CKR_INFO.gisa}</p>
       </div>
 
       <div>
-        <strong>Unternehmensgegenstand:</strong>
-        <p>Gebäudereinigung (Denkmal-, Fassaden- und Gebäudereinigung)</p>
+        <strong>Gewerbe:</strong>
+        <p>Denkmal-, Fassaden- und Gebäudereinigung (Handwerk)</p>
       </div>
 
       <div>
-        <strong>Gewerbebehörde:</strong>
+        <strong>Zuständige Gewerbebehörde:</strong>
         <p>Bezirkshauptmannschaft Kufstein</p>
       </div>
 
       <div>
-        <strong>Kammerzugehörigkeit:</strong>
-        <p>
-          Wirtschaftskammer Tirol, Landesinnung der Gebäudereiniger
-        </p>
+        <strong>Mitgliedschaft:</strong>
+        <p>Wirtschaftskammer Tirol</p>
+        <p>Landesinnung Chemische Gewerbe und der Denkmal-, Fassaden- und Gebäudereiniger</p>
       </div>
 
       <div>
-        <strong>Anwendbare Rechtsvorschrift:</strong>
+        <strong>Anwendbare Rechtsvorschriften:</strong>
+        <p>Gewerbeordnung (GewO)</p>
         <p>
-          Gewerbeordnung 1994, abrufbar unter
-          <a
-            href="https://www.ris.bka.gv.at"
-            target="_blank"
-            rel="noreferrer"
-            className="text-[#122272] underline ml-1"
-          >
+          Abrufbar über das Rechtsinformationssystem des Bundes unter{" "}
+          <a href="https://www.ris.bka.gv.at" target="_blank" rel="noreferrer" className={link}>
             www.ris.bka.gv.at
           </a>
         </p>
       </div>
 
       <div>
-        <strong>EU-Streitschlichtung:</strong>
+        <strong>Medieninhaber:</strong>
+        <p>{CKR_INFO.legalName}, {CKR_INFO.inhaberin}</p>
+        <p>{CKR_INFO.ort}, Österreich</p>
+      </div>
+
+      <div>
+        <strong>Unternehmensgegenstand:</strong>
+        <p>Denkmal-, Fassaden- und Gebäudereinigung (Handwerk)</p>
+      </div>
+
+      <div>
+        <strong>Grundlegende Richtung der Website:</strong>
         <p>
-          Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
-          <a
-            href="https://ec.europa.eu/consumers/odr/"
-            target="_blank"
-            rel="noreferrer"
-            className="text-[#122272] underline ml-1"
-          >
-            https://ec.europa.eu/consumers/odr/
-          </a>
+          Information über CKR Cleaning Services sowie über die angebotenen
+          Dienstleistungen im Bereich der Denkmal-, Fassaden- und Gebäudereinigung.
         </p>
       </div>
     </div>
