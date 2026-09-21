@@ -49,11 +49,12 @@ export const CKR_INFO = {
   coverageArea: "Bezirk Kufstein, Wörgl, Kitzbühel, Schwaz & Umgebung (Tirol)",
   logo: bild("/manus-storage/ckr-logo-original_a1e7247c.png"),
   heroImage: bild("/manus-storage/G1jT57jzwtmc_8fc296a6.jpg"),
-  // Das Filmband auf der Startseite. Solange kein Film da ist, bleibt
-  // bandFilm leer — dann wird gar kein Video geladen und das Standbild
-  // trägt die Fläche allein.
-  bandFilm: "",
-  bandStandbild: bild("/fotos/treppenhausreinigung.jpg"),
+  // Das Filmband auf der Startseite. Das Standbild ist das erste Bild
+  // des Films — so gibt es beim Einblenden keinen Sprung. Bleibt
+  // bandFilm leer, wird gar kein Video geladen und das Standbild trägt
+  // die Fläche allein.
+  bandFilm: bild("/video/ckr-band.mp4"),
+  bandStandbild: bild("/fotos/band-standbild.jpg"),
   teamImage: bild("/fotos/betrieb-gewerbe.jpg"),
   detailImageCare: bild("/fotos/band-unterhalt.jpg"),
 };

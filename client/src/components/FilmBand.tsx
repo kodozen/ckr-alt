@@ -46,7 +46,7 @@ export default function FilmBand() {
     const el = band.current;
     if (!darf || !el) return;
     const beobachter = new IntersectionObserver(
-      ([eintrag]) => setImBild(eintrag.isIntersecting),
+      (eintraege) => setImBild(eintraege[eintraege.length - 1].isIntersecting),
       { rootMargin: "200px 0px", threshold: 0.01 },
     );
     beobachter.observe(el);
@@ -81,10 +81,23 @@ export default function FilmBand() {
       };
       window.requestAnimationFrame(warten);
     }
-    const versuch = v.play();
-    if (versuch && typeof versuch.catch === "function") versuch.catch(() => {});
+    const anlaufen = () => {
+      const versuch = v.play();
+      if (versuch && typeof versuch.catch === "function") versuch.catch(() => {});
+    };
+    anlaufen();
+
+    // Wer den Tab wechselt, kommt auf ein stehendes Bild zurück: der
+    // Browser hält Videos in versteckten Seiten an und startet sie von
+    // sich aus nicht wieder. Also hier.
+    const beiSichtbar = () => {
+      if (document.visibilityState === "visible") anlaufen();
+    };
+    document.addEventListener("visibilitychange", beiSichtbar);
+
     return () => {
       abgebrochen = true;
+      document.removeEventListener("visibilitychange", beiSichtbar);
     };
   }, [imBild]);
 
