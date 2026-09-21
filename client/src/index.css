@@ -30,6 +30,11 @@
 }
 
 :root {
+  /* Dieselbe Ansage wie im Kopf der Seite, für den Fall, dass die
+     Stilvorlage vor der Meta-Angabe greift: keine vom Browser
+     erfundene dunkle Fassung. */
+  color-scheme: only light;
+
   /* CKR Brand Colors: Royal Deep Navy (#121b74) + Clean Lime Green (#52b719) */
   --primary: #122272;
   --primary-foreground: #ffffff;
