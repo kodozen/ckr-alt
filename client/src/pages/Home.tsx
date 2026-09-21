@@ -1,6 +1,5 @@
 import Seitenrahmen from "@/components/Seitenrahmen";
 import HeroSection from "@/components/HeroSection";
-import MeisterSection from "@/components/MeisterSection";
 import ServicesSection from "@/components/ServicesSection";
 import BandSection from "@/components/BandSection";
 import AboutSection from "@/components/AboutSection";
@@ -25,7 +24,6 @@ export default function Home() {
   return (
     <Seitenrahmen seite={STARTSEITE}>
       <HeroSection onAngebotAnfordern={zumFormular} />
-      <MeisterSection />
       <ServicesSection anzahl={6} />
 
       <BandSection

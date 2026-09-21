@@ -48,7 +48,6 @@ export const CKR_INFO = {
   clientsSatisfied: "500+",
   coverageArea: "Bezirk Kufstein, Wörgl, Kitzbühel, Schwaz & Umgebung (Tirol)",
   logo: bild("/manus-storage/ckr-logo-original_a1e7247c.png"),
-  meisterSiegel: bild("/meisterbetrieb-siegel.jpg"),
   heroImage: bild("/manus-storage/G1jT57jzwtmc_8fc296a6.jpg"),
   teamImage: bild("/fotos/betrieb-gewerbe.jpg"),
   detailImageCare: bild("/fotos/band-unterhalt.jpg"),

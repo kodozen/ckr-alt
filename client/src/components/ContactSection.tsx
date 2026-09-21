@@ -184,7 +184,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
             <div className="bg-gradient-to-r from-emerald-950/40 to-blue-950/40 border border-emerald-500/30 rounded-2xl p-6">
               <div className="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-2">
                 <ShieldCheck className="w-4 h-4" />
-                Österreichischer Meisterbetrieb-Anspruch
+                Ausgebildete Reinigungsfachkräfte
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
                 Reinigungsfachkräfte nach strengen österreichischen Hygiene- und Sicherheitsrichtlinien ausgebildet.

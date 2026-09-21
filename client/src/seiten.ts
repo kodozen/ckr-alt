@@ -90,7 +90,7 @@ export const TEXTSEITEN: SeitenEintrag[] = [
 
 export const STARTSEITE: SeitenEintrag = {
   pfad: "/",
-  titel: `${MARKE} · Meisterbetrieb für Gebäudereinigung in Kufstein`,
+  titel: `${MARKE} · Gebäudereinigung in Kufstein & Tirol`,
   beschreibung:
     "Gebäudereinigung in Kufstein und ganz Tirol: Unterhalt, Glas, Hotel, Bau und Entrümpelung. 24 Stunden am Tag erreichbar.",
 };
