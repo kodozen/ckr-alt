@@ -68,24 +68,19 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
       >
         <div className="container flex items-center justify-between">
           {/* Logo Area */}
-          <a href={pfad("/")} className="flex items-center gap-3 group">
-            <span className="bg-white rounded-lg px-2 py-1.5 flex items-center">
+          {/* Der Schriftzug daneben ist entfallen: "CKR Cleaning Services"
+              steht bereits im Zeichen selbst, zweimal dasselbe zu lesen
+              bringt nichts. Das Zeichen darf dafür größer werden. */}
+          <a href={pfad("/")} className="flex items-center group">
+            <span className="bg-white rounded-lg px-2.5 py-1.5 flex items-center">
               <img
                 src={CKR_INFO.logo}
-                alt="CKR Cleaning Services Logo"
+                alt="CKR Cleaning Services, Kufstein"
                 width={1360}
                 height={682}
-                className="h-8 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
+                className="h-11 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105"
               />
             </span>
-            <div className="flex flex-col">
-              <span className="font-extrabold text-white tracking-tight text-lg sm:text-xl leading-none">
-                CKR
-              </span>
-              <span className="text-xs sm:text-xs font-semibold tracking-wider uppercase text-emerald-300">
-                Cleaning Services
-              </span>
-            </div>
           </a>
 
           {/* Desktop Nav Links */}
