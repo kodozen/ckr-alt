@@ -11,7 +11,7 @@ import { CKR_INFO } from "@/data/ckrData";
 export default function SozialeKanaele({
   className = "",
   farbig = false,
-  knopfKlasse = "h-11 w-11",
+  knopfKlasse = "h-11 w-11 rounded-lg",
 }: {
   className?: string;
   /** Im Kopf stehen die Symbole in den Farben der Dienste, damit sie
@@ -56,7 +56,7 @@ export default function SozialeKanaele({
             rel="noopener noreferrer"
             aria-label={`CKR auf ${k.name}`}
             title={`CKR auf ${k.name}`}
-            className={`inline-flex items-center justify-center rounded-lg transition-colors ${knopfKlasse} ${
+            className={`inline-flex items-center justify-center transition-colors ${knopfKlasse} ${
               farbig
                 ? k.markenKlasse
                 : "bg-white/10 text-slate-200 hover:bg-white/20 hover:text-white"
