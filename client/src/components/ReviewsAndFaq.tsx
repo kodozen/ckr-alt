@@ -49,7 +49,7 @@ export default function ReviewsAndFaq({
                   href={q.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm transition-colors hover:border-blue-200 hover:bg-white"
+                  className="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-slate-50 px-4 py-3 text-sm transition-colors hover:border-blue-200 hover:bg-white sm:py-2"
                 >
                   <Star className="h-4 w-4 fill-amber-400 text-amber-400" aria-hidden="true" />
                   <span className="font-bold text-slate-900">{q.wertung}</span>
@@ -150,7 +150,7 @@ export default function ReviewsAndFaq({
           <p className="mt-4 text-center">
             <Link
               href="/haeufige-fragen/"
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-[#122272] hover:text-[#2E7D0E]"
+              className="inline-flex items-center gap-1.5 py-3 text-sm font-bold text-[#122272] hover:text-[#2E7D0E] sm:py-0"
             >
               Häufige Fragen ansehen
               <ChevronDown className="h-4 w-4 -rotate-90" aria-hidden="true" />

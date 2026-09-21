@@ -29,27 +29,27 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
   return (
     <header className="sticky top-0 z-50 transition-all duration-300">
       {/* Top Banner (Contact & Notdienst) */}
-      <div className="bg-[#070d2e] text-white/90 text-xs sm:text-sm py-2 px-4 border-b border-white/10">
+      <div className="bg-[#070d2e] text-white/90 text-sm sm:text-[0.9375rem] py-1.5 px-4 border-b border-white/10 sm:py-2.5">
         <div className="container flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-6">
             <a
               href={`tel:${CKR_INFO.phoneRaw}`}
               className="flex items-center gap-1.5 font-medium hover:text-[#5CBC1A] transition-colors"
              aria-label="Anrufen">
-              <Phone className="w-3.5 h-3.5 text-[#5CBC1A]" aria-hidden="true" />
+              <Phone className="w-4 h-4 text-[#5CBC1A]" aria-hidden="true" />
               <span>24-Stunden-Hotline: {CKR_INFO.phone}</span>
             </a>
             <a
               href={`mailto:${CKR_INFO.email}`}
               className="hidden md:flex items-center gap-1.5 hover:text-[#5CBC1A] transition-colors"
             >
-              <Mail className="w-3.5 h-3.5 text-[#5CBC1A]" aria-hidden="true" />
+              <Mail className="w-4 h-4 text-[#5CBC1A]" aria-hidden="true" />
               <span>{CKR_INFO.email}</span>
             </a>
           </div>
 
-          <div className="flex items-center gap-4 text-xs">
-            <span className="hidden sm:inline-flex items-center gap-1.5 text-emerald-300 font-semibold bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-500/30">
+          <div className="flex items-center gap-4 text-sm">
+            <span className="hidden sm:inline-flex items-center gap-1.5 text-emerald-300 font-semibold bg-emerald-950/60 px-2.5 py-1 rounded-full border border-emerald-500/30">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               Kufstein & Umgebung (Tirol)
             </span>
@@ -62,8 +62,8 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
         aria-label="Hauptmenü"
         className={`transition-all duration-200 ${
           isScrolled
-            ? "bg-[#0c164a]/95 backdrop-blur-md shadow-lg py-3"
-            : "bg-[#0c164a] py-4"
+            ? "bg-[#0c164a]/95 backdrop-blur-md shadow-lg py-2.5 sm:py-3"
+            : "bg-[#0c164a] py-3 sm:py-4"
         }`}
       >
         <div className="container flex items-center justify-between">
@@ -84,7 +84,7 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
           </a>
 
           {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center gap-7 text-sm font-semibold text-white/80">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-7 text-[0.9375rem] font-semibold text-white/80">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -101,7 +101,7 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
             <button
               onClick={onAngebotAnfordern}
               type="button"
-              className="bg-[#2E7D0E] hover:bg-[#256A0B] text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition-all flex items-center gap-2 active:scale-95"
+              className="bg-[#2E7D0E] hover:bg-[#256A0B] text-white text-sm sm:text-[0.9375rem] font-semibold px-4 sm:px-5 py-3 rounded-lg shadow-sm hover:shadow transition-all flex items-center gap-2 active:scale-95"
             >
               <span>Angebot anfordern</span>
               <ArrowRight className="w-4 h-4 text-white/80" />
