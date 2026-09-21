@@ -1,11 +1,21 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
 import { Phone, Mail, Menu, X, ArrowRight, ShieldCheck } from "lucide-react";
 import { CKR_INFO } from "@/data/ckrData";
 import { pfad } from "@/lib/pfade";
+import { LEISTUNGSSEITEN } from "@/seiten";
+import SozialeKanaele from "@/components/SozialeKanaele";
+
+/** "/kontakt" und "/kontakt/" sind dieselbe Seite; "/" bleibt "/". */
+function gleichform(adresse: string) {
+  const ohne = adresse.replace(/\/+$/, "");
+  return ohne === "" ? "/" : ohne + "/";
+}
 
 export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [ort] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,12 +29,21 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
   // Unterseite aus zeigte "#leistungen" ins Leere — deshalb stehen hier
   // jetzt Adressen, die von überall aus gelten.
   const navLinks = [
-    { name: "Startseite", href: pfad("/") },
-    { name: "Leistungen", href: pfad("/leistungen/") },
-    { name: "Über uns", href: pfad("/ueber-uns/") },
-    { name: "Ausbildung & Stellen", href: pfad("/stellenanzeigen/") },
-    { name: "Kontakt", href: pfad("/kontakt/") },
-  ];
+    { name: "Startseite", route: "/" },
+    { name: "Leistungen", route: "/leistungen/" },
+    { name: "Über uns", route: "/ueber-uns/" },
+    { name: "Ausbildung & Stellen", route: "/stellenanzeigen/" },
+    { name: "Kontakt", route: "/kontakt/" },
+  ].map((l) => ({ ...l, href: pfad(l.route) }));
+
+  // Welcher Punkt gehört zur Seite, auf der man gerade steht? Eine
+  // Leistungsseite zählt zu "Leistungen" — sonst wäre auf zwölf von
+  // zweiundzwanzig Seiten kein Punkt gekennzeichnet.
+  const hier = gleichform(ort);
+  const istAktiv = (route: string) =>
+    hier === route ||
+    (route === "/leistungen/" &&
+      LEISTUNGSSEITEN.some((seite) => gleichform(seite.pfad) === hier));
 
   return (
     <header className="sticky top-0 z-50 transition-all duration-300">
@@ -83,17 +102,29 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
             </span>
           </a>
 
-          {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-7 text-[0.9375rem] font-semibold text-white/80">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="hover:text-white transition-colors py-1 relative hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#52b719] after:transition-all after:duration-200"
-              >
-                {link.name}
-              </a>
-            ))}
+          {/* Die Menüpunkte sitzen in einer eigenen Leiste statt frei im
+              Balken zu schweben. Der Punkt der laufenden Seite ist weiß
+              ausgefüllt — vorher war auf keiner Seite zu sehen, wo man
+              gerade ist, und der grüne Strich, der beim Überfahren von
+              links einlief, war die einzige Regung im ganzen Kopf. */}
+          <div className="hidden lg:flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1 text-[0.9375rem] font-semibold backdrop-blur">
+            {navLinks.map((link) => {
+              const aktiv = istAktiv(link.route);
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  aria-current={aktiv ? "page" : undefined}
+                  className={`whitespace-nowrap rounded-full px-3.5 py-2 transition-colors ${
+                    aktiv
+                      ? "bg-white text-[#122272] shadow-sm"
+                      : "text-white/85 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </div>
 
           {/* Action Button */}
@@ -101,7 +132,7 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
             <button
               onClick={onAngebotAnfordern}
               type="button"
-              className="bg-[#2E7D0E] hover:bg-[#256A0B] text-white text-sm sm:text-[0.9375rem] font-semibold px-4 sm:px-5 py-3 rounded-lg shadow-sm hover:shadow transition-all flex items-center gap-2 active:scale-95"
+              className="bg-[#2E7D0E] hover:bg-[#256A0B] text-white text-sm sm:text-[0.9375rem] font-semibold px-4 sm:px-5 py-3 rounded-lg shadow-sm hover:shadow transition-all flex items-center gap-2 whitespace-nowrap active:scale-95"
             >
               <span>Angebot anfordern</span>
               <ArrowRight className="w-4 h-4 text-white/80" />
@@ -110,13 +141,22 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
               href={`https://wa.me/436508933881?text=Hallo%20CKR%20Cleaning%20Services,%20ich%20habe%20eine%20Anfrage%20zu%20einer%20Reinigung.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#128C7E] hover:bg-[#075E54] text-white p-2.5 rounded-lg shadow-sm transition-all"
+              className="inline-flex bg-[#128C7E] hover:bg-[#075E54] text-white p-2.5 rounded-lg shadow-sm transition-all lg:hidden xl:inline-flex"
               title="Per WhatsApp anfragen"
              aria-label="Über WhatsApp schreiben">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
               </svg>
             </a>
+
+            {/* Instagram und Facebook neben WhatsApp. Zwischen 1024 und
+                1280 treten alle drei zurück, sonst bricht die Menüleiste
+                um — unten rechts und im Fuß stehen sie weiterhin. */}
+            <SozialeKanaele
+              farbig
+              knopfKlasse="h-10 w-10"
+              className="lg:hidden xl:flex"
+            />
           </div>
 
           {/* Mobile hamburger button */}
@@ -142,16 +182,24 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-white/10 bg-white px-4 pt-3 pb-6 mt-3 shadow-xl">
             <div className="flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2 text-base font-semibold text-slate-800 hover:bg-slate-50 hover:text-[#122272] rounded-lg transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const aktiv = istAktiv(link.route);
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    aria-current={aktiv ? "page" : undefined}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center rounded-lg border-l-4 px-3 py-2 text-base font-semibold transition-colors ${
+                      aktiv
+                        ? "border-[#5CBC1A] bg-slate-50 text-[#122272]"
+                        : "border-transparent text-slate-800 hover:bg-slate-50 hover:text-[#122272]"
+                    }`}
+                  >
+                    {link.name}
+                  </a>
+                );
+              })}
               <div className="pt-2 flex flex-col gap-2">
                 <button
                   onClick={() => {
