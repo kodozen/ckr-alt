@@ -1,6 +1,7 @@
 import Seitenrahmen from "@/components/Seitenrahmen";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
+import FilmBand from "@/components/FilmBand";
 import BandSection from "@/components/BandSection";
 import AboutSection from "@/components/AboutSection";
 import ReviewsAndFaq from "@/components/ReviewsAndFaq";
@@ -36,6 +37,9 @@ export default function Home() {
       />
 
       <AboutSection kurz />
+
+      {/* Ein ruhiger Moment zwischen zwei hellen Abschnitten. */}
+      <FilmBand />
       <ReviewsAndFaq ohneFragen />
     </Seitenrahmen>
   );
