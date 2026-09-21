@@ -181,3 +181,50 @@ html {
     min-height: 44px;
   }
 }
+
+/* ============================================================
+   Bewegung im Aufmacher
+   ------------------------------------------------------------
+   Zwei Regungen, die kein Byte nachladen und auf der Grafikkarte
+   laufen: die Aufnahme zieht sich über eine Minute langsam heran,
+   und alle zwölf Sekunden geht ein heller Streifen darüber — wie
+   ein Abzieher über eine nasse Scheibe. Beides ist so langsam,
+   dass es auffällt, ohne zu zappeln, und beides bleibt weg, wenn
+   das Gerät auf "weniger Bewegung" steht.
+   ============================================================ */
+
+/* Waagerecht gespiegelt: in der Aufnahme kommt der Arm mit dem
+   Abzieher von links — genau dort, wo der Schleier am dichtesten ist
+   und die Schrift steht. Gespiegelt arbeitet er auf der rechten
+   Seite, die frei bleibt, und der Aufmacher zeigt wieder jemanden
+   bei der Arbeit statt nur eine Glasfläche. */
+@keyframes atmen {
+  from { transform: scale(-1.04, 1.04) translate3d(-1%, 0.6%, 0); }
+  to   { transform: scale(-1.12, 1.12) translate3d(1%, -0.6%, 0); }
+}
+
+.atmen {
+  animation: atmen 42s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+  will-change: transform;
+}
+
+@keyframes wischer {
+  0%   { transform: translateX(-120%) skewX(-14deg); opacity: 0; }
+  8%   { opacity: 1; }
+  38%  { opacity: 0; }
+  100% { transform: translateX(420%) skewX(-14deg); opacity: 0; }
+}
+
+.wischer {
+  animation: wischer 12s ease-in-out 2s infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atmen,
+  .wischer { animation: none; }
+  /* Ohne Lauf bleibt die Spiegelung trotzdem: sonst stünde der Arm
+     plötzlich wieder links unter der Schrift. */
+  .atmen { transform: scale(-1.06, 1.06); }
+  .wischer { opacity: 0; }
+}
