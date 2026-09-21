@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { Phone, Mail, Menu, X, ArrowRight } from "lucide-react";
 import { CKR_INFO } from "@/data/ckrData";
@@ -34,6 +34,19 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [ort] = useLocation();
+  const leiste = useRef<HTMLDivElement>(null);
+
+  // Das Licht an der Oberkante folgt dem Zeiger. Gerechnet wird nichts
+  // in React: die Position geht als CSS-Variable an das Element, den
+  // Rest macht ein radialer Verlauf in der Stilvorlage. So kostet die
+  // Bewegung keinen einzigen Neuaufbau der Leiste.
+  const beiZeiger = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = leiste.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--zeiger-x", `${e.clientX - r.left}px`);
+    el.style.setProperty("--zeiger-y", `${e.clientY - r.top}px`);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,7 +77,7 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
       LEISTUNGSSEITEN.some((seite) => gleichform(seite.pfad) === hier));
 
   const glasKnopf =
-    "inline-flex items-center justify-center rounded-full bg-white/10 text-white/85 transition-colors hover:bg-white/20 hover:text-white";
+    "inline-flex items-center justify-center rounded-full text-white/60 transition-colors hover:bg-white/10 hover:text-white";
 
   return (
     <>
@@ -107,21 +120,35 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
               beim Scrollen stehen bleibt, kein Filter mit sich herum —
               der Browser muss nur eine kleine Fläche neu zusammensetzen
               statt die ganze Leiste samt Schrift und Symbolen. */}
-          <div className="relative">
+          {/* Die Leiste wird beim Scrollen schmaler und rückt zusammen —
+              dieselbe Bewegung wie im Vorbild: oben auf der Seite nimmt
+              sie die volle Breite, unterwegs tritt sie zurück. */}
+          <div
+            ref={leiste}
+            onMouseMove={beiZeiger}
+            className={`group/leiste relative mx-auto transition-[max-width] duration-500 ease-out ${
+              isScrolled ? "max-w-[68rem]" : "max-w-full"
+            }`}
+          >
             <span
               aria-hidden="true"
-              className={`pointer-events-none absolute inset-0 rounded-full border border-white/15 shadow-[0_14px_40px_-14px_rgba(0,0,0,0.8)] backdrop-blur-xl transition-colors duration-300 ${
+              className={`pointer-events-none absolute inset-0 rounded-[1.5rem] border border-white/12 shadow-[0_14px_40px_-14px_rgba(0,0,0,0.8)] backdrop-blur-xl transition-colors duration-300 ${
                 isScrolled ? "bg-[#0c164a]/85" : "bg-white/[0.07]"
               }`}
             >
-              {/* Die helle Kante: sie läuft an den Enden aus, sonst sähe
-                  sie aus wie ein Strich und nicht wie Licht. */}
-              <span className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white/45 to-transparent" />
+              {/* Ruhezustand: ein Hauch Licht in der Mitte der Oberkante. */}
+              <span className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent transition-opacity duration-300 group-hover/leiste:opacity-0" />
             </span>
+
+            {/* Und das Licht, das dem Zeiger folgt: ein heller Fleck, der
+                nur auf dem Rand sichtbar ist. */}
+            <span aria-hidden="true" className="zeigerlicht rounded-[1.5rem]" />
 
           <nav
             aria-label="Hauptmenü"
-            className="relative flex items-center justify-between gap-3 px-3 py-2"
+            className={`relative flex items-center justify-between gap-3 px-3 transition-[padding] duration-300 ${
+              isScrolled ? "py-1.5" : "py-2"
+            }`}
           >
 
             <a href={pfad("/")} className="group flex items-center">
@@ -131,7 +158,9 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
                   alt="CKR Cleaning Services, Kufstein"
                   width={1360}
                   height={682}
-                  className="h-10 w-auto object-contain transition-transform group-hover:scale-105 sm:h-11"
+                  className={`w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
+                    isScrolled ? "h-9 sm:h-10" : "h-10 sm:h-11"
+                  }`}
                 />
               </span>
             </a>
@@ -144,13 +173,22 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
                     key={link.name}
                     href={link.href}
                     aria-current={aktiv ? "page" : undefined}
-                    className={`whitespace-nowrap rounded-full px-3.5 py-2 transition-colors ${
-                      aktiv
-                        ? "bg-white/15 text-white ring-1 ring-inset ring-white/20"
-                        : "text-white/70 hover:bg-white/10 hover:text-white"
+                    className={`group/punkt relative whitespace-nowrap px-3.5 py-2.5 transition-colors ${
+                      aktiv ? "text-white" : "text-white/65 hover:text-white"
                     }`}
                   >
                     {link.name}
+                    {/* Der Strich wächst aus der Mitte, statt von links
+                        einzulaufen: kürzer, ruhiger, und er steht dicht
+                        unter der Schrift wie im Vorbild. */}
+                    <span
+                      aria-hidden="true"
+                      className={`absolute inset-x-3.5 bottom-1 h-0.5 origin-center rounded-full bg-[#5CBC1A] transition-all duration-200 ${
+                        aktiv
+                          ? "scale-x-100 opacity-100"
+                          : "scale-x-50 opacity-0 group-hover/punkt:scale-x-100 group-hover/punkt:opacity-100"
+                      }`}
+                    />
                   </a>
                 );
               })}
@@ -185,6 +223,7 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
 
               <SozialeKanaele
                 knopfKlasse="h-9 w-9 rounded-full"
+                stilKlasse="text-white/60 hover:bg-white/10 hover:text-white"
                 className="lg:hidden xl:flex"
               />
             </div>

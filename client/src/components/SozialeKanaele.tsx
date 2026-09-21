@@ -12,6 +12,7 @@ export default function SozialeKanaele({
   className = "",
   farbig = false,
   knopfKlasse = "h-11 w-11 rounded-lg",
+  stilKlasse,
 }: {
   className?: string;
   /** Im Kopf stehen die Symbole in den Farben der Dienste, damit sie
@@ -19,6 +20,9 @@ export default function SozialeKanaele({
       bleiben sie zurückhaltend. */
   farbig?: boolean;
   knopfKlasse?: string;
+  /** Ersetzt die ruhige Grundfläche — im Kopf stehen die Symbole ohne
+      eigene Fläche, damit die Leiste nicht wie eine Knopfreihe aussieht. */
+  stilKlasse?: string;
 }) {
   const kanaele = [
     {
@@ -59,7 +63,8 @@ export default function SozialeKanaele({
             className={`inline-flex items-center justify-center transition-colors ${knopfKlasse} ${
               farbig
                 ? k.markenKlasse
-                : "bg-white/10 text-slate-200 hover:bg-white/20 hover:text-white"
+                : stilKlasse ??
+                  "bg-white/10 text-slate-200 hover:bg-white/20 hover:text-white"
             }`}
           >
             {k.symbol}

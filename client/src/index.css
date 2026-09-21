@@ -228,3 +228,48 @@ html {
   .atmen { transform: scale(-1.06, 1.06); }
   .wischer { opacity: 0; }
 }
+
+/* ============================================================
+   Das Licht am Rand der Kopfleiste
+   ------------------------------------------------------------
+   Ein heller Fleck, der dem Zeiger folgt und nur auf dem Rand zu
+   sehen ist: ein radialer Verlauf, aus dem eine Maske alles
+   ausschneidet außer dem einen Pixel Rahmen. Bewegt wird er über
+   zwei CSS-Variablen, die der Kopf beim Mausbewegen setzt — das
+   kostet keinen Neuaufbau der Leiste.
+
+   Auf Geräten ohne Zeiger (Telefon, Tablet) bleibt er aus; dort
+   gibt es nichts, dem er folgen könnte.
+   ============================================================ */
+
+.zeigerlicht {
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(
+    14rem circle at var(--zeiger-x, 50%) var(--zeiger-y, 0px),
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0) 65%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .group\/leiste:hover .zeigerlicht {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zeigerlicht { transition: none; }
+}
