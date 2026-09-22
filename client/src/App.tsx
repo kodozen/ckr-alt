@@ -3,7 +3,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
-import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Leistung from "./pages/Leistung";
 import {
@@ -73,18 +72,16 @@ function Router({ ssrPfad }: { ssrPfad?: string }) {
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
+// Das Farbschema hängt nicht mehr an einem Anbieter im Programm: es
+// steht schon fest, bevor das erste Bild gezeichnet wird (ein kurzes
+// Skript im Kopf der Seite liest die Wahl aus dem Speicher oder fragt
+// das Gerät), und geändert wird es vom Schalter in der Kopfleiste.
+// Der alte ThemeProvider hat beim Übernehmen im Browser genau diese
+// Entscheidung wieder weggeräumt — er setzte die Klasse hart auf hell.
 
 function App({ ssrPfad }: { ssrPfad?: string } = {}) {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
         <TooltipProvider>
           {/* sonner beschriftet seinen Meldungsbereich sonst englisch
               ("Notifications alt+T") — auf einer deutschen Seite hört das
@@ -95,7 +92,6 @@ function App({ ssrPfad }: { ssrPfad?: string } = {}) {
           />
           <Router ssrPfad={ssrPfad} />
         </TooltipProvider>
-      </ThemeProvider>
     </ErrorBoundary>
   );
 }

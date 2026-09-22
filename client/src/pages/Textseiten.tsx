@@ -46,7 +46,7 @@ export function ImpressumSeite() {
   return (
     <Seitenrahmen seite={s}>
       <Aufschlag titel="Impressum" />
-      <section className="bg-white py-14">
+      <section className="bg-white dark:bg-[#070d2e] py-14">
         <div className="container max-w-2xl">
           <ImpressumText />
         </div>
@@ -60,7 +60,7 @@ export function DatenschutzSeite() {
   return (
     <Seitenrahmen seite={s}>
       <Aufschlag titel="Datenschutzerklärung" />
-      <section className="bg-white py-14">
+      <section className="bg-white dark:bg-[#070d2e] py-14">
         <div className="container max-w-2xl">
           <DatenschutzText />
         </div>
@@ -77,36 +77,36 @@ export function KontaktSeite() {
         titel="Kontakt"
         text="Rufen Sie an, schreiben Sie uns oder benutzen Sie das Formular weiter unten. Bei Havarie erreichen Sie uns rund um die Uhr."
       />
-      <section className="bg-white py-14">
+      <section className="bg-white dark:bg-[#070d2e] py-14">
         <div className="container grid max-w-3xl gap-4 sm:grid-cols-3">
           <a
             href={`tel:${CKR_INFO.phoneRaw}`}
-            className="rounded-2xl border border-slate-200 p-6 transition-colors hover:border-blue-200"
+            className="rounded-2xl border border-slate-200 dark:border-white/10 p-6 transition-colors hover:border-blue-200 dark:hover:border-white/25"
           >
             <Phone className="h-5 w-5 text-[#2E7D0E]" aria-hidden="true" />
-            <p className="mt-3 text-xs font-bold uppercase tracking-wider text-slate-500">
+            <p className="mt-3 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               Telefon
             </p>
-            <p className="mt-1 font-extrabold text-[#122272]">{CKR_INFO.phone}</p>
+            <p className="mt-1 font-extrabold text-[#122272] dark:text-white">{CKR_INFO.phone}</p>
           </a>
           <a
             href={`mailto:${CKR_INFO.email}`}
-            className="rounded-2xl border border-slate-200 p-6 transition-colors hover:border-blue-200"
+            className="rounded-2xl border border-slate-200 dark:border-white/10 p-6 transition-colors hover:border-blue-200 dark:hover:border-white/25"
           >
             <Mail className="h-5 w-5 text-[#2E7D0E]" aria-hidden="true" />
-            <p className="mt-3 text-xs font-bold uppercase tracking-wider text-slate-500">
+            <p className="mt-3 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               E-Mail
             </p>
-            <p className="mt-1 font-bold break-words text-[#122272]">
+            <p className="mt-1 font-bold break-words text-[#122272] dark:text-white">
               {CKR_INFO.email}
             </p>
           </a>
-          <div className="rounded-2xl border border-slate-200 p-6">
+          <div className="rounded-2xl border border-slate-200 dark:border-white/10 p-6">
             <MapPin className="h-5 w-5 text-[#2E7D0E]" aria-hidden="true" />
-            <p className="mt-3 text-xs font-bold uppercase tracking-wider text-slate-500">
+            <p className="mt-3 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               Büro
             </p>
-            <p className="mt-1 text-sm text-slate-700">{CKR_INFO.adresse}</p>
+            <p className="mt-1 text-sm text-slate-700 dark:text-slate-200">{CKR_INFO.adresse}</p>
           </div>
         </div>
       </section>
@@ -122,7 +122,7 @@ export function AngebotSeite() {
         titel="Angebot anfordern"
         text="Sagen Sie uns, um welches Objekt es geht. Wir sehen es uns kostenlos an und schreiben danach ein unverbindliches Angebot."
       />
-      <section className="bg-white py-14">
+      <section className="bg-white dark:bg-[#070d2e] py-14">
         <div className="container max-w-2xl">
           <ol className="grid gap-4 sm:grid-cols-3">
             {[
@@ -130,16 +130,16 @@ export function AngebotSeite() {
               ["Wir sehen uns das Objekt an", "Kostenlos, unverbindlich, zu einem Termin, der Ihnen passt."],
               ["Sie bekommen ein Angebot", "Schriftlich und nach Positionen aufgeschlüsselt."],
             ].map(([titel, text], i) => (
-              <li key={titel} className="rounded-2xl border border-slate-200 p-5">
-                <span className="text-2xl font-extrabold text-[#122272]">
+              <li key={titel} className="rounded-2xl border border-slate-200 dark:border-white/10 p-5">
+                <span className="text-2xl font-extrabold text-[#122272] dark:text-white">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="mt-2 font-bold text-slate-900">{titel}</p>
-                <p className="mt-1 text-xs leading-relaxed text-slate-600">{text}</p>
+                <p className="mt-2 font-bold text-slate-900 dark:text-white">{titel}</p>
+                <p className="mt-1 text-xs leading-relaxed text-slate-600 dark:text-slate-300">{text}</p>
               </li>
             ))}
           </ol>
-          <p className="mt-8 text-sm text-slate-600">
+          <p className="mt-8 text-sm text-slate-600 dark:text-slate-300">
             Das Formular steht direkt darunter.
           </p>
         </div>
@@ -156,14 +156,14 @@ export function StellenSeite() {
         titel="Ausbildung & Stellen"
         text="Wir bilden aus und suchen laufend Verstärkung im Bezirk Kufstein."
       />
-      <section className="bg-white py-14">
+      <section className="bg-white dark:bg-[#070d2e] py-14">
         <div className="container max-w-3xl">
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+          <div className="rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#0a1236] p-6 sm:p-8">
             <GraduationCap className="h-6 w-6 text-[#2E7D0E]" aria-hidden="true" />
-            <h2 className="mt-3 text-xl font-extrabold text-[#122272]">
+            <h2 className="mt-3 text-xl font-extrabold text-[#122272] dark:text-white">
               Lehrstelle Gebäudereiniger/in
             </h2>
-            <p className="mt-2 text-sm leading-relaxed text-slate-700">
+            <p className="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-200">
               Als anerkannter Ausbildungsbetrieb bilden wir Fachkräfte in
               modernen Arbeits- und Umwelttechniken aus. Du lernst bei Leuten,
               die den Beruf seit Jahren machen, und arbeitest vom ersten Jahr an
@@ -179,7 +179,7 @@ export function StellenSeite() {
             ].map((stelle) => (
               <li
                 key={stelle}
-                className="rounded-2xl border border-slate-200 bg-white p-5 text-sm font-bold text-slate-900"
+                className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c164a] p-5 text-sm font-bold text-slate-900 dark:text-white"
               >
                 {stelle}
               </li>
@@ -207,15 +207,15 @@ export function BewerbungSeite() {
         titel="Ihre Bewerbung"
         text="Schreiben Sie uns kurz, wofür Sie sich bewerben — im Formular unten oder direkt per E-Mail."
       />
-      <section className="bg-white py-14">
+      <section className="bg-white dark:bg-[#070d2e] py-14">
         <div className="container max-w-2xl">
-          <p className="text-sm leading-relaxed text-slate-700">
+          <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-200">
             Im Formular weiter unten schalten Sie oben auf{" "}
             <strong>Bewerbung / Lehrstelle</strong> um. Lieber per E-Mail?
             Schicken Sie Ihren Lebenslauf an{" "}
             <a
               href={`mailto:${CKR_INFO.email}`}
-              className="font-bold text-[#122272] underline"
+              className="font-bold text-[#122272] dark:text-white underline"
             >
               {CKR_INFO.email}
             </a>

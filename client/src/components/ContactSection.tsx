@@ -197,18 +197,18 @@ export default function ContactSection({ prefilledService }: { prefilledService?
 
           {/* Contact & Application Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-2xl p-6 sm:p-8 text-slate-900 shadow-2xl">
+            <div className="bg-white dark:bg-[#111c52] rounded-2xl p-6 sm:p-8 text-slate-900 dark:text-white shadow-2xl dark:ring-1 dark:ring-white/10">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#122272]">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#122272] dark:text-white">
                     Unverbindliche Anfrage senden
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
                     Wir antworten werktags meist innerhalb von 2 Stunden.
                   </p>
                 </div>
                 <div className="hidden sm:block">
-                  <span className="text-xs font-bold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">
+                  <span className="text-xs font-bold bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 px-3 py-1 rounded-full">
                     Kostenlos
                   </span>
                 </div>
@@ -216,14 +216,14 @@ export default function ContactSection({ prefilledService }: { prefilledService?
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Mode Switch (Anfrage vs Bewerbung) */}
-                <div className="flex rounded-lg bg-slate-100 p-1 mb-2">
+                <div className="flex rounded-lg bg-slate-100 dark:bg-[#111c52] p-1 mb-2">
                   <button
                     type="button"
                     onClick={() => setFormData({ ...formData, isApplication: false })}
                     className={`flex-1 py-2 text-xs font-bold rounded-md transition ${
                       !formData.isApplication
-                        ? "bg-white text-[#122272] shadow-sm"
-                        : "text-slate-600 hover:text-slate-900"
+                        ? "bg-white dark:bg-[#1e2e72] text-[#122272] dark:text-white shadow-sm"
+                        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
                     }`}
                   >
                     Reinigungsanfrage
@@ -233,8 +233,8 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     onClick={() => setFormData({ ...formData, isApplication: true })}
                     className={`flex-1 py-2 text-xs font-bold rounded-md transition ${
                       formData.isApplication
-                        ? "bg-white text-[#122272] shadow-sm"
-                        : "text-slate-600 hover:text-slate-900"
+                        ? "bg-white dark:bg-[#1e2e72] text-[#122272] dark:text-white shadow-sm"
+                        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
                     }`}
                   >
                     Bewerbung / Lehrstelle
@@ -243,7 +243,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider mb-1">
                       Ihr Name *
                     </label>
                     <input
@@ -254,11 +254,11 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                       aria-label="Vor- und Nachname"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:ring-2 focus:ring-[#122272] outline-none"
+                      className="w-full bg-slate-50 dark:bg-[#0a1236] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-[#122272] outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider mb-1">
                       Telefonnummer *
                     </label>
                     <input
@@ -270,14 +270,14 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                       aria-label="Ihre Telefonnummer"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:ring-2 focus:ring-[#122272] outline-none"
+                      className="w-full bg-slate-50 dark:bg-[#0a1236] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-[#122272] outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider mb-1">
                       E-Mail-Adresse
                     </label>
                     <input
@@ -288,18 +288,18 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                       aria-label="Ihre E-Mail-Adresse"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:ring-2 focus:ring-[#122272] outline-none"
+                      className="w-full bg-slate-50 dark:bg-[#0a1236] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-[#122272] outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider mb-1">
                       {formData.isApplication ? "Gewünschte Stelle" : "Gewünschte Leistung"}
                     </label>
                     <select
                       aria-label="Ihr Anliegen"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:ring-2 focus:ring-[#122272] outline-none"
+                      className="w-full bg-slate-50 dark:bg-[#0a1236] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-[#122272] outline-none"
                     >
                       {formData.isApplication ? (
                         <>
@@ -326,14 +326,14 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                 {!formData.isApplication && (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                      <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider mb-1">
                         Ungefähre Fläche
                       </label>
                       <select
                         aria-label="Ungefähre Fläche"
                         value={formData.flaeche}
                         onChange={(e) => setFormData({ ...formData, flaeche: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:ring-2 focus:ring-[#122272] outline-none"
+                        className="w-full bg-slate-50 dark:bg-[#0a1236] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-[#122272] outline-none"
                       >
                         <option value="">Bitte wählen</option>
                         <option value="bis 100 m²">bis 100 m²</option>
@@ -344,14 +344,14 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                       </select>
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                      <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider mb-1">
                         Wie oft
                       </label>
                       <select
                         aria-label="Gewünschter Turnus"
                         value={formData.turnus}
                         onChange={(e) => setFormData({ ...formData, turnus: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:ring-2 focus:ring-[#122272] outline-none"
+                        className="w-full bg-slate-50 dark:bg-[#0a1236] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-[#122272] outline-none"
                       >
                         <option value="">Bitte wählen</option>
                         <option value="einmalig">einmalig</option>
@@ -365,7 +365,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                 )}
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider mb-1">
                     Ihre Nachricht / Objektangaben
                   </label>
                   <textarea
@@ -374,11 +374,11 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     aria-label="Ihre Nachricht"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:ring-2 focus:ring-[#122272] outline-none resize-none"
+                    className="w-full bg-slate-50 dark:bg-[#0a1236] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-[#122272] outline-none resize-none"
                   />
                 </div>
 
-                <div className="flex items-center gap-2 pt-1 text-xs text-slate-600">
+                <div className="flex items-center gap-2 pt-1 text-xs text-slate-600 dark:text-slate-300">
                   <CheckCircle2 className="w-4 h-4 text-[#2E7D0E] shrink-0" />
                   <span>Ihre Daten werden vertraulich behandelt und nicht weitergegeben.</span>
                 </div>
@@ -444,7 +444,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
       {/* Impressum Modal */}
       {showImpressum && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-slate-900"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-slate-900 dark:text-white"
           onClick={() => setShowImpressum(false)}
         >
           <div
@@ -454,16 +454,16 @@ export default function ContactSection({ prefilledService }: { prefilledService?
             ref={rechtsfensterRef}
             tabIndex={-1}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl outline-none"
+            className="bg-white dark:bg-[#111c52] rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl outline-none dark:ring-1 dark:ring-white/10"
           >
             <button
               onClick={() => setShowImpressum(false)}
               aria-label="Fenster schließen"
-              className="absolute top-4 right-4 text-slate-500 hover:text-slate-900 text-lg font-bold"
+              className="absolute top-4 right-4 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-lg font-bold"
             >
               <span aria-hidden="true">✕</span>
             </button>
-            <h3 id="impressum-titel" className="text-2xl font-extrabold text-[#122272] mb-4">Impressum</h3>
+            <h3 id="impressum-titel" className="text-2xl font-extrabold text-[#122272] dark:text-white mb-4">Impressum</h3>
             <ImpressumText />
             <div className="mt-6 text-right">
               <button
@@ -480,7 +480,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
       {/* Datenschutz Modal */}
       {showDatenschutz && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-slate-900"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-slate-900 dark:text-white"
           onClick={() => setShowDatenschutz(false)}
         >
           <div
@@ -490,16 +490,16 @@ export default function ContactSection({ prefilledService }: { prefilledService?
             ref={rechtsfensterRef}
             tabIndex={-1}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl outline-none"
+            className="bg-white dark:bg-[#111c52] rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl outline-none dark:ring-1 dark:ring-white/10"
           >
             <button
               onClick={() => setShowDatenschutz(false)}
               aria-label="Fenster schließen"
-              className="absolute top-4 right-4 text-slate-500 hover:text-slate-900 text-lg font-bold"
+              className="absolute top-4 right-4 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-lg font-bold"
             >
               <span aria-hidden="true">✕</span>
             </button>
-            <h3 id="datenschutz-titel" className="text-2xl font-extrabold text-[#122272] mb-4">Datenschutzerklärung</h3>
+            <h3 id="datenschutz-titel" className="text-2xl font-extrabold text-[#122272] dark:text-white mb-4">Datenschutzerklärung</h3>
             <DatenschutzText />
             <div className="mt-6 text-right">
               <button

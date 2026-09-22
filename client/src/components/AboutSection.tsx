@@ -18,25 +18,25 @@ export default function AboutSection({
   kurz?: boolean;
 } = {}) {
   return (
-    <section id="ueber-uns" className="py-20 sm:py-28 bg-slate-50 relative overflow-hidden">
+    <section id="ueber-uns" className="py-20 sm:py-28 bg-slate-50 dark:bg-[#0a1236] relative overflow-hidden">
       <div className="container relative z-10">
         {/* Top Story Block */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 text-xs font-bold uppercase tracking-wider">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-300" />
               Verlässlichkeit & Qualität
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#122272] tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#122272] dark:text-white tracking-tight leading-tight">
               Willkommen bei CKR Cleaning Services in Kufstein
             </h2>
 
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
               Unsere ausgebildeten Gebäudereiniger arbeiten seit Jahren eigenständig und verfügen über ein hohes Maß an Praxiserfahrung. Wir sind bedacht auf die regelmäßige, fachliche Schulung unserer Mitarbeiter in modernen Arbeits- und Anwendungstechniken, um unseren Service stets zu perfektionieren.
             </p>
 
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
               Durch jahrelange Erfahrung und fachliche Kompetenz finden wir eine individuell abgestimmte Lösung für Sie. In regelmäßiger Absprache wollen wir die für Sie passende Lösung finden und mit höchster Tiroler Qualität umsetzen!
             </p>
 
@@ -50,7 +50,7 @@ export default function AboutSection({
                 "Flexibel bei Arbeits- & Nachtzeiten",
                 "Kostenlose Vor-Ort-Besichtigung",
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-800">
+                <div key={i} className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-100">
                   <CheckCircle className="w-4 h-4 text-[#2E7D0E] shrink-0" />
                   <span>{item}</span>
                 </div>
@@ -67,9 +67,9 @@ export default function AboutSection({
               </a>
               <a
                 href={`tel:${CKR_INFO.phoneRaw}`}
-                className="bg-white hover:bg-slate-100 text-[#122272] border border-slate-200 text-sm font-bold px-6 py-3 rounded-xl transition shadow-sm inline-flex items-center gap-2"
+                className="bg-white dark:bg-[#0c164a] hover:bg-slate-100 dark:hover:bg-white/10 text-[#122272] dark:text-white border border-slate-200 dark:border-white/10 text-sm font-bold px-6 py-3 rounded-xl transition shadow-sm inline-flex items-center gap-2"
                aria-label="Anrufen">
-                <PhoneCall className="w-4 h-4 text-emerald-600" />
+                <PhoneCall className="w-4 h-4 text-emerald-600 dark:text-emerald-300" />
                 <span>{CKR_INFO.phone}</span>
               </a>
             </div>
@@ -78,7 +78,7 @@ export default function AboutSection({
           {/* Image & Stats Mosaic */}
           <div className="lg:col-span-6 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-200">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-200 dark:bg-white/10">
                 <img
                   src={CKR_INFO.teamImage}
                   alt="Aufgeräumter Betriebsraum eines Optikers nach der Reinigung"
@@ -100,15 +100,15 @@ export default function AboutSection({
               </div>
 
               {/* Floating Stat Badge */}
-              <div className="absolute -bottom-6 -left-4 sm:left-4 bg-white rounded-2xl p-4 sm:p-5 shadow-xl border border-slate-100 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#122272] flex items-center justify-center font-black text-xl">
+              <div className="absolute -bottom-6 -left-4 sm:left-4 bg-white dark:bg-[#0c164a] rounded-2xl p-4 sm:p-5 shadow-xl border border-slate-100 dark:border-white/10 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-[#122272]/50 text-[#122272] dark:text-white flex items-center justify-center font-black text-xl">
                   {CKR_INFO.experienceYears}
                 </div>
                 <div>
-                  <div className="text-base font-extrabold text-slate-900 leading-tight">
+                  <div className="text-base font-extrabold text-slate-900 dark:text-white leading-tight">
                     Jahre Erfahrung
                   </div>
-                  <div className="text-xs text-slate-600 font-medium">
+                  <div className="text-xs text-slate-600 dark:text-slate-300 font-medium">
                     in Kufstein & ganz Tirol
                   </div>
                 </div>
@@ -137,13 +137,13 @@ export default function AboutSection({
             return (
               <div
                 key={idx}
-                className="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white dark:bg-[#0c164a] p-6 rounded-2xl border border-slate-200/70 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-800 dark:text-emerald-200 flex items-center justify-center mb-4">
                   <Icon className="w-6 h-6 text-[#2E7D0E]" />
                 </div>
-                <h3 className="text-base font-bold text-slate-900 mb-2">{adv.title}</h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">{adv.title}</h3>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {adv.description}
                 </p>
               </div>
@@ -157,7 +157,7 @@ export default function AboutSection({
           <p className="mt-10 text-center">
             <Link
               href="/ueber-uns/"
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-bold text-[#122272] transition-colors hover:border-blue-200 hover:text-[#2E7D0E]"
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c164a] px-6 py-3 text-sm font-bold text-[#122272] dark:text-white transition-colors hover:border-blue-200 dark:hover:border-white/25 hover:text-[#2E7D0E]"
             >
               Mehr über CKR
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

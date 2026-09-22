@@ -44,17 +44,17 @@ export default function ServicesSection({
 } = {}) {
   const gezeigt = anzahl ? CKR_SERVICES.slice(0, anzahl) : CKR_SERVICES;
   return (
-    <section id="leistungen" className="relative bg-white py-16 sm:py-24">
+    <section id="leistungen" className="relative bg-white dark:bg-[#070d2e] py-16 sm:py-24">
       <div className="container">
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#122272]">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-100 dark:border-white/10 bg-blue-50 dark:bg-[#122272]/50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#122272] dark:text-white">
             <Sparkles className="h-3.5 w-3.5 text-[#2E7D0E]" aria-hidden="true" />
             Leistungen
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-[#122272] sm:text-5xl">
+          <h2 className="text-3xl font-extrabold tracking-tight text-[#122272] dark:text-white sm:text-5xl">
             Was wir für Sie reinigen
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
+          <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-base">
             Zwölf Bereiche, ein Ansprechpartner. Öffnen Sie einen Bereich, um
             zu sehen, was dazugehört.
           </p>
@@ -67,11 +67,11 @@ export default function ServicesSection({
               <li key={service.id}>
                 <Link
                   href={`/${service.id}/`}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4 transition-all duration-300 hover:border-blue-200 hover:bg-white hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#122272] sm:p-6"
+                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 dark:border-white/10 bg-slate-50/70 p-4 transition-all duration-300 hover:border-blue-200 dark:hover:border-white/25 hover:bg-white dark:hover:bg-[#101a4d] hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#122272] sm:p-6"
                 >
                   <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-[#122272] to-[#52b719] opacity-0 transition-opacity group-hover:opacity-100" />
 
-                  <div className="relative mb-4 aspect-[16/9] overflow-hidden rounded-xl bg-slate-200 sm:aspect-[3/2]">
+                  <div className="relative mb-4 aspect-[16/9] overflow-hidden rounded-xl bg-slate-200 dark:bg-white/10 sm:aspect-[3/2]">
                     <img
                       src={service.image}
                       alt=""
@@ -90,19 +90,19 @@ export default function ServicesSection({
                       </span>
                     )}
 
-                    <div className="absolute bottom-3 left-3 flex h-8 w-8 items-center justify-center rounded-lg bg-white/90 text-[#122272] shadow-sm backdrop-blur-sm">
-                      <Icon className="h-4 w-4 text-[#122272]" aria-hidden="true" />
+                    <div className="absolute bottom-3 left-3 flex h-8 w-8 items-center justify-center rounded-lg bg-white/90 text-[#122272] dark:text-white shadow-sm backdrop-blur-sm">
+                      <Icon className="h-4 w-4 text-[#122272] dark:text-white" aria-hidden="true" />
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 transition-colors group-hover:text-[#122272] sm:text-xl">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white transition-colors group-hover:text-[#122272] sm:text-xl">
                     {service.title}
                   </h3>
-                  <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-slate-600 sm:text-sm">
+                  <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300 sm:text-sm">
                     {service.shortDesc}
                   </p>
 
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#122272] transition-colors group-hover:text-[#2E7D0E] sm:text-sm">
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#122272] dark:text-white transition-colors group-hover:text-[#2E7D0E] sm:text-sm">
                     Ansehen
                     <ArrowRight
                       className="h-4 w-4 transition-transform group-hover:translate-x-1"
@@ -119,7 +119,7 @@ export default function ServicesSection({
           <p className="mt-8 text-center sm:mt-10">
             <Link
               href="/leistungen/"
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-bold text-[#122272] transition-colors hover:border-blue-200 hover:text-[#2E7D0E]"
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c164a] px-6 py-3 text-sm font-bold text-[#122272] dark:text-white transition-colors hover:border-blue-200 dark:hover:border-white/25 hover:text-[#2E7D0E]"
             >
               Alle {CKR_SERVICES.length} Leistungen ansehen
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

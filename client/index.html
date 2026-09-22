@@ -7,14 +7,26 @@
     <meta name="description" content="Gebäudereinigung in Kufstein und ganz Tirol: Unterhalt, Glas, Hotel, Bau und Verkehrsmittel. 24 Stunden am Tag erreichbar. Kostenlose Besichtigung." />
     <meta name="theme-color" content="#122272" />
 
-    <!-- Die Seite bringt ihre Farben selbst mit und hat keine dunkle
-         Fassung. Ohne diese Angabe hält ein Browser sie für eine
-         Seite, die von Dunkelmodus nichts weiß, und rechnet sich eine
-         eigene aus: Flächen werden dunkel, Bilder bleiben hell, und
-         was auf einer weißen Platte steht — das Zeichen im Kopf, die
-         hellen Plaketten — verschwindet darin. "only light" ist die
-         Ansage, dass genau das unterbleiben soll. -->
-    <meta name="color-scheme" content="only light" />
+    <!-- Die Seite hat jetzt beide Fassungen. Damit hört auch der
+         erfundene Dunkelmodus der Browser auf: wer selbst eine dunkle
+         Fassung mitbringt, bekommt keine ausgerechnete. -->
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Das Schema steht fest, bevor das erste Bild gezeichnet wird.
+         Käme diese Entscheidung erst aus dem Programm, sähe man auf
+         jeder Seite kurz die helle Fassung aufblitzen. -->
+    <script>
+      (function () {
+        try {
+          var gewaehlt = localStorage.getItem("ckr-farbschema");
+          var dunkel =
+            gewaehlt === "dunkel" ||
+            (!gewaehlt &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
+          if (dunkel) document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
     <link rel="canonical" href="https://kodozen.github.io/ckr-alt/" />
 
     <!-- Symbole: dasselbe Zeichen wie im anderen Entwurf, damit beide

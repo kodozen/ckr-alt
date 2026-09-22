@@ -95,24 +95,24 @@ export default function Leistung({ id }: { id: string }) {
       </section>
 
       {/* Beschreibung und Umfang */}
-      <section className="bg-white py-16 sm:py-24">
+      <section className="bg-white dark:bg-[#070d2e] py-16 sm:py-24">
         <div className="container grid gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div>
-            <h2 className="text-2xl font-extrabold tracking-tight text-[#122272] sm:text-3xl">
+            <h2 className="text-2xl font-extrabold tracking-tight text-[#122272] dark:text-white sm:text-3xl">
               Was wir für Sie tun
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
+            <p className="mt-4 text-base leading-relaxed text-slate-700 dark:text-slate-200">
               {leistung.fullDesc}
             </p>
 
-            <h3 className="mt-10 text-xs font-bold uppercase tracking-wider text-slate-500">
+            <h3 className="mt-10 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               Im Leistungsumfang enthalten
             </h3>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               {leistung.features.map((f) => (
                 <li
                   key={f}
-                  className="flex items-start gap-2.5 rounded-xl border border-slate-200/60 bg-slate-50 p-3 text-sm text-slate-800"
+                  className="flex items-start gap-2.5 rounded-xl border border-slate-200/60 dark:border-white/10 bg-slate-50 dark:bg-[#0a1236] p-3 text-sm text-slate-800 dark:text-slate-100"
                 >
                   <CheckCircle2
                     className="mt-0.5 h-4 w-4 shrink-0 text-[#2E7D0E]"
@@ -125,35 +125,35 @@ export default function Leistung({ id }: { id: string }) {
           </div>
 
           <div className="lg:pt-2">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <p className="text-sm font-bold text-[#122272]">
+            <div className="rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#0a1236] p-6">
+              <p className="text-sm font-bold text-[#122272] dark:text-white">
                 Kostenlose Besichtigung
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-slate-700">
+              <p className="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-200">
                 Wir sehen uns Ihr Objekt an und schreiben danach ein
                 unverbindliches Angebot. Die Besichtigung kostet nichts und
                 verpflichtet Sie zu nichts.
               </p>
               <Link
                 href="/angebot-anfordern/"
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-[#122272] hover:text-[#2E7D0E]"
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-[#122272] dark:text-white hover:text-[#2E7D0E]"
               >
                 Angebot anfordern
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6">
-              <p className="text-sm font-bold text-[#122272]">
+            <div className="mt-6 rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c164a] p-6">
+              <p className="text-sm font-bold text-[#122272] dark:text-white">
                 Lieber gleich sprechen?
               </p>
               <a
                 href={`tel:${CKR_INFO.phoneRaw}`}
-                className="mt-2 flex items-center text-lg font-extrabold text-[#122272] hover:text-[#2E7D0E]"
+                className="mt-2 flex items-center text-lg font-extrabold text-[#122272] dark:text-white hover:text-[#2E7D0E]"
               >
                 {CKR_INFO.phone}
               </a>
-              <p className="mt-1 text-xs text-slate-600">
+              <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">
                 24 Stunden am Tag erreichbar.
               </p>
             </div>
@@ -162,9 +162,9 @@ export default function Leistung({ id }: { id: string }) {
       </section>
 
       {/* Weitere Leistungen */}
-      <section className="bg-[#f6f7fb] py-16">
+      <section className="bg-[#f6f7fb] dark:bg-[#0a1236] py-16">
         <div className="container">
-          <h2 className="text-xl font-extrabold tracking-tight text-[#122272]">
+          <h2 className="text-xl font-extrabold tracking-tight text-[#122272] dark:text-white">
             Weitere Leistungen
           </h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -172,15 +172,15 @@ export default function Leistung({ id }: { id: string }) {
               <li key={l.id}>
                 <Link
                   href={`/${l.id}/`}
-                  className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:border-blue-200 hover:shadow-lg"
+                  className="group flex h-full flex-col rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c164a] p-5 transition-all hover:border-blue-200 dark:hover:border-white/25 hover:shadow-lg"
                 >
-                  <span className="font-bold text-slate-900 group-hover:text-[#122272]">
+                  <span className="font-bold text-slate-900 dark:text-white group-hover:text-[#122272]">
                     {l.title}
                   </span>
-                  <span className="mt-2 line-clamp-2 text-xs text-slate-600">
+                  <span className="mt-2 line-clamp-2 text-xs text-slate-600 dark:text-slate-300">
                     {l.shortDesc}
                   </span>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#122272]">
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#122272] dark:text-white">
                     Ansehen
                     <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </span>

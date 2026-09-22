@@ -40,7 +40,7 @@ export default function Seitenrahmen({
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#fbfcfd] text-[#0f172a] selection:bg-emerald-100 selection:text-emerald-900">
+    <div className="min-h-screen flex flex-col bg-[#fbfcfd] dark:bg-[#070d2e] text-[#0f172a] dark:text-slate-200 selection:bg-emerald-100 selection:text-emerald-900">
       <Header onAngebotAnfordern={zumAngebot} />
 
       <main className="flex-1">{children}</main>

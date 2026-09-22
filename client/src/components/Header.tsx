@@ -5,6 +5,7 @@ import { CKR_INFO } from "@/data/ckrData";
 import { pfad } from "@/lib/pfade";
 import { LEISTUNGSSEITEN } from "@/seiten";
 import SozialeKanaele from "@/components/SozialeKanaele";
+import Farbschalter from "@/components/Farbschalter";
 
 /** "/kontakt" und "/kontakt/" sind dieselbe Seite; "/" bleibt "/". */
 function gleichform(adresse: string) {
@@ -152,6 +153,8 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
           >
 
             <a href={pfad("/")} className="group flex items-center">
+              {/* Die Platte bleibt in beiden Fassungen weiß: das Zeichen ist
+                  dunkelblau und grün, auf dunklem Grund verschwände es. */}
               <span className="flex items-center rounded-full bg-white px-3 py-1.5">
                 <img
                   src={CKR_INFO.logo}
@@ -226,9 +229,12 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
                 stilKlasse="text-white/60 hover:bg-white/10 hover:text-white"
                 className="lg:hidden xl:flex"
               />
+
+              <Farbschalter knopfKlasse={`${glasKnopf} h-9 w-9`} />
             </div>
 
-            <div className="flex items-center gap-2 lg:hidden">
+            <div className="flex items-center gap-1 lg:hidden">
+              <Farbschalter knopfKlasse={`${glasKnopf} h-10 w-10`} />
               <a
                 href={`tel:${CKR_INFO.phoneRaw}`}
                 className={`${glasKnopf} h-10 w-10`}

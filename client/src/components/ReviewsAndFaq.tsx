@@ -18,22 +18,22 @@ export default function ReviewsAndFaq({
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <section id="bewertungen" className="py-20 sm:py-28 bg-white relative">
+    <section id="bewertungen" className="py-20 sm:py-28 bg-white dark:bg-[#070d2e] relative">
       <div className="container">
         {/* Bewertungen — nur belegte Stimmen, jede mit Fundstelle */}
         {!ohneBewertungen && (
         <div className="mb-24">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold uppercase tracking-wider mb-4 border border-amber-200/60">
-              <MessageSquareQuote className="w-3.5 h-3.5 text-amber-600" aria-hidden="true" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-400/15 text-amber-800 dark:text-amber-200 text-xs font-bold uppercase tracking-wider mb-4 border border-amber-200/60 dark:border-amber-300/25">
+              <MessageSquareQuote className="w-3.5 h-3.5 text-amber-600 dark:text-amber-300" aria-hidden="true" />
               Bewertungen
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#122272] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#122272] dark:text-white tracking-tight">
               Was Kundinnen und Kunden geschrieben haben
             </h2>
             {/* Diese Zeile ist keine Zier: wer Bewertungen zeigt, muss
                 sagen, woher sie stammen (§ 2 Abs. 6 UWG, Anhang Z23b). */}
-            <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p className="mt-3 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
               Alle Zitate stammen unverändert von öffentlichen Bewertungs&shy;portalen,
               auf denen CKR geführt wird. Wir sammeln keine Bewertungen selbst,
               wählen nichts aus und kürzen nichts — jede Stimme ist unter der
@@ -49,11 +49,11 @@ export default function ReviewsAndFaq({
                   href={q.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-slate-50 px-4 py-3 text-sm transition-colors hover:border-blue-200 hover:bg-white sm:py-2"
+                  className="inline-flex items-center gap-2.5 rounded-full border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#0a1236] px-4 py-3 text-sm transition-colors hover:border-blue-200 dark:hover:border-white/25 hover:bg-white dark:hover:bg-[#101a4d] sm:py-2"
                 >
                   <Star className="h-4 w-4 fill-amber-400 text-amber-400" aria-hidden="true" />
-                  <span className="font-bold text-slate-900">{q.wertung}</span>
-                  <span className="text-slate-600">
+                  <span className="font-bold text-slate-900 dark:text-white">{q.wertung}</span>
+                  <span className="text-slate-600 dark:text-slate-300">
                     auf {q.portal} ({q.anzahl}{" "}
                     {q.anzahl === 1 ? "Bewertung" : "Bewertungen"})
                   </span>
@@ -66,7 +66,7 @@ export default function ReviewsAndFaq({
             {CKR_REVIEWS.map((rev, idx) => (
               <figure
                 key={idx}
-                className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-slate-50 p-7 transition-all duration-300 hover:border-blue-200 hover:shadow-lg"
+                className="flex flex-col justify-between rounded-2xl border border-slate-200/80 dark:border-white/10 bg-slate-50 dark:bg-[#0a1236] p-7 transition-all duration-300 hover:border-blue-200 dark:hover:border-white/25 hover:shadow-lg"
               >
                 <div>
                   <div
@@ -79,21 +79,21 @@ export default function ReviewsAndFaq({
                     ))}
                   </div>
 
-                  <blockquote className="mb-6 text-sm leading-relaxed text-slate-700 sm:text-base">
+                  <blockquote className="mb-6 text-sm leading-relaxed text-slate-700 dark:text-slate-200 sm:text-base">
                     „{rev.text}“
                   </blockquote>
                 </div>
 
-                <figcaption className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200/60 pt-4">
+                <figcaption className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200/60 dark:border-white/10 pt-4">
                   <div>
-                    <p className="text-sm font-bold text-slate-900">{rev.autor}</p>
-                    <p className="text-xs text-slate-600">{rev.datum}</p>
+                    <p className="text-sm font-bold text-slate-900 dark:text-white">{rev.autor}</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-300">{rev.datum}</p>
                   </div>
                   <a
                     href={rev.quelleUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border border-blue-100 bg-blue-50 px-2.5 py-1 text-xs font-semibold text-[#122272] hover:bg-white"
+                    className="inline-flex items-center justify-center rounded-full border border-blue-100 dark:border-white/10 bg-blue-50 dark:bg-[#122272]/50 px-2.5 py-1 text-xs font-semibold text-[#122272] dark:text-white hover:bg-white dark:hover:bg-[#101a4d]"
                   >
                     Quelle: {rev.quelle}
                   </a>
@@ -107,11 +107,11 @@ export default function ReviewsAndFaq({
         {!ohneFragen && (
         <div id="faq" className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#122272] text-xs font-bold uppercase tracking-wider mb-4 border border-blue-100">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-[#122272]/50 text-[#122272] dark:text-white text-xs font-bold uppercase tracking-wider mb-4 border border-blue-100 dark:border-white/10">
               <HelpCircle className="w-3.5 h-3.5 text-[#2E7D0E]" />
               Häufige Fragen (FAQ)
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#122272] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#122272] dark:text-white tracking-tight">
               Alles Wichtige rund um unsere Reinigungsdienste
             </h2>
           </div>
@@ -122,21 +122,21 @@ export default function ReviewsAndFaq({
               return (
                 <div
                   key={index}
-                  className="border border-slate-200 rounded-xl overflow-hidden bg-slate-50/50 transition-all"
+                  className="border border-slate-200 dark:border-white/10 rounded-xl overflow-hidden bg-slate-50/50 transition-all"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 font-bold text-slate-800 hover:text-[#122272] text-sm sm:text-base transition-colors"
+                    className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 font-bold text-slate-800 dark:text-slate-100 hover:text-[#122272] text-sm sm:text-base transition-colors"
                   >
                     <span>{item.q}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-slate-600 transition-transform duration-200 shrink-0 ${
-                        isOpen ? "rotate-180 text-[#122272]" : ""
+                      className={`w-5 h-5 text-slate-600 dark:text-slate-300 transition-transform duration-200 shrink-0 ${
+                        isOpen ? "rotate-180 text-[#122272] dark:text-white" : ""
                       }`}
                     />
                   </button>
                   {isOpen && (
-                    <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+                    <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-white/10 pt-3">
                       {item.a}
                     </div>
                   )}
@@ -150,7 +150,7 @@ export default function ReviewsAndFaq({
           <p className="mt-4 text-center">
             <Link
               href="/haeufige-fragen/"
-              className="inline-flex items-center gap-1.5 py-3 text-sm font-bold text-[#122272] hover:text-[#2E7D0E] sm:py-0"
+              className="inline-flex items-center gap-1.5 py-3 text-sm font-bold text-[#122272] dark:text-white hover:text-[#2E7D0E] sm:py-0"
             >
               Häufige Fragen ansehen
               <ChevronDown className="h-4 w-4 -rotate-90" aria-hidden="true" />

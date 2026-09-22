@@ -17,9 +17,9 @@ import { CKR_INFO } from "@/data/ckrData";
  * 20. Juli 2025 eingestellt, der Verweis zeigte ins Leere.
  */
 export function ImpressumText() {
-  const link = "text-[#122272] underline";
+  const link = "text-[#122272] dark:text-white underline";
   return (
-    <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-slate-700">
+    <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-200">
       <div>
         <p><strong>{CKR_INFO.legalName}</strong></p>
         <p>{CKR_INFO.strasse}</p>
@@ -93,7 +93,7 @@ export function ImpressumText() {
 
 export function DatenschutzText() {
   return (
-    <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-slate-700">
+    <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-200">
       <p>
         Wir verarbeiten personenbezogene Daten nach der
         Datenschutz-Grundverordnung (DSGVO) und dem österreichischen
@@ -167,7 +167,7 @@ export function DatenschutzText() {
           Sie haben das Recht auf Auskunft, Berichtigung, Löschung,
           Einschränkung der Verarbeitung, Datenübertragbarkeit und
           Widerspruch. Wenden Sie sich dafür an{" "}
-          <a href={`mailto:${CKR_INFO.email}`} className="text-[#122272] underline">
+          <a href={`mailto:${CKR_INFO.email}`} className="text-[#122272] dark:text-white underline">
             {CKR_INFO.email}
           </a>
           .
@@ -184,7 +184,7 @@ export function DatenschutzText() {
             href="https://www.dsb.gv.at"
             target="_blank"
             rel="noreferrer"
-            className="text-[#122272] underline"
+            className="text-[#122272] dark:text-white underline"
           >
             www.dsb.gv.at
           </a>

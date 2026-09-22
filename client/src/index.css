@@ -30,10 +30,7 @@
 }
 
 :root {
-  /* Dieselbe Ansage wie im Kopf der Seite, für den Fall, dass die
-     Stilvorlage vor der Meta-Angabe greift: keine vom Browser
-     erfundene dunkle Fassung. */
-  color-scheme: only light;
+  color-scheme: light;
 
   /* CKR Brand Colors: Royal Deep Navy (#121b74) + Clean Lime Green (#52b719) */
   --primary: #122272;
@@ -56,6 +53,44 @@
   --border: #e2e8f0;
   --input: #e2e8f0;
   --ring: #122272;
+}
+
+/* ============================================================
+   Die dunkle Fassung
+   ------------------------------------------------------------
+   Kein umgefärbtes Hell, sondern dieselbe Seite in ihren eigenen
+   Farben: das Dunkelblau, das im Aufmacher und im Fuß ohnehin die
+   Fläche trägt, wird zum Grund der ganzen Seite. Vier Stufen
+   genügen — Grund, zweiter Grund, Karte, Linie — dazu Schrift in
+   drei Helligkeiten und das Firmengrün, das auf Dunkel heller
+   ausfallen muss als auf Weiß.
+   ============================================================ */
+
+.dark {
+  color-scheme: dark;
+
+  --grund: #070d2e;
+  --grund-2: #0a1236;
+  --karte: #0c164a;
+  --linie: rgba(255, 255, 255, 0.1);
+
+  --background: var(--grund);
+  --foreground: #e2e8f0;
+  --card: var(--karte);
+  --card-foreground: #e2e8f0;
+  --popover: var(--karte);
+  --popover-foreground: #e2e8f0;
+  --primary: #8fe04a;
+  --primary-foreground: #06210a;
+  --secondary: #111c52;
+  --secondary-foreground: #e2e8f0;
+  --muted: #101a4d;
+  --muted-foreground: #94a3b8;
+  --accent: #5cbc1a;
+  --accent-foreground: #ffffff;
+  --border: var(--linie);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: #8fe04a;
 }
 
 @layer base {
