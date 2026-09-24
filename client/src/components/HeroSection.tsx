@@ -86,10 +86,15 @@ export default function HeroSection({ onAngebotAnfordern }: { onAngebotAnfordern
           </h1>
 
           <p className="mt-7 max-w-xl text-base leading-relaxed text-slate-200 sm:text-lg">
-            Professionelle Gebäudereinigung für Betriebe, Hausverwaltungen und
-            Privathaushalte — in
+            Ihr Spezialist für professionelle Gebäudereinigung in Tirol – von
+            Unterhalts- und Büroreinigung über Treppenhaus-, Hotel- und
+            Ferienwohnungsreinigung bis hin zu Bauendreinigung sowie Fenster-
+            und Glasreinigung.
+          </p>
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-slate-200 sm:text-lg">
+            Zuverlässig für Sie im Einsatz in
             <strong className="text-white"> Kufstein, Wörgl, Kitzbühel</strong> und
-            im übrigen Tirol.
+            ganz Tirol.
           </p>
 
           <ul className="mt-8 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
