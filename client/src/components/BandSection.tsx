@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { bildquellen } from "@/lib/bilder";
 
 /**
  * Ganzflächiges Band mit Aufnahme.
@@ -37,10 +38,17 @@ export default function BandSection({
 
   return (
     <section id={id} className="relative isolate overflow-hidden bg-[#070d2e]">
-      <div
+      {/* Als <img> statt als Hintergrundbild: nur so lädt der Browser es
+          erst, wenn das Band in die Nähe kommt — vorher gingen 150 kB
+          schon beim Öffnen der Seite über die Leitung. */}
+      <img
+        {...bildquellen(bild)}
+        sizes="100vw"
+        alt=""
         aria-hidden="true"
-        className="absolute inset-0 -z-20 bg-cover bg-center"
-        style={{ backgroundImage: `url(${bild})` }}
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 -z-20 h-full w-full object-cover"
       />
       <div className="absolute inset-0 -z-10 bg-[#070d2e]/65 sm:bg-[#070d2e]/30" />
       <div

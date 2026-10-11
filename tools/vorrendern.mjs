@@ -21,7 +21,50 @@ const { rendern, ALLE_SEITEN } = await import(
   path.join(WURZEL, "dist/ssr/entry-server.js")
 );
 
-const vorlage = await fs.readFile(path.join(AUSGABE, "index.html"), "utf-8");
+let vorlage = await fs.readFile(path.join(AUSGABE, "index.html"), "utf-8");
+
+// Im Kopf der Vorlage steht die Vorschauadresse fest drin — im canonical,
+// in den Vorschaukarten und in den strukturierten Daten (@id, url, image).
+// Für die eigene Domain muss überall die richtige Adresse stehen, sonst
+// hält Google die Vorschau für das Original. Ersetzt wird hier einmal für
+// alle Seiten, nicht Zeile für Zeile.
+const VORSCHAU_URL = "https://kodozen.github.io/ckr-alt";
+if (BASIS_URL !== VORSCHAU_URL) {
+  vorlage = vorlage.split(VORSCHAU_URL).join(BASIS_URL);
+  if (vorlage.includes("kodozen.github.io")) {
+    throw new Error("Vorschauadresse steht noch in der Vorlage");
+  }
+}
+
+// robots.txt mit der Sitemap der Adresse, für die gebaut wird.
+{
+  const robots = path.join(AUSGABE, "robots.txt");
+  const alt = await fs.readFile(robots, "utf-8");
+  await fs.writeFile(
+    robots,
+    alt.replace(/^Sitemap: .*$/m, `Sitemap: ${BASIS_URL}/sitemap.xml`),
+    "utf-8",
+  );
+}
+
+// Die beiden Schriften früh anstoßen. Ohne Vorladen fragt der Browser sie
+// erst an, wenn die Stilvorlage gelesen und der erste Text gesetzt ist —
+// dann wird zuerst in der Ersatzschrift gezeichnet und danach
+// umgebrochen, und die Seite springt. Vorgeladen wird nur der
+// lateinische Zeichensatz; Umlaute und ß gehören dazu.
+{
+  const dateien = await fs.readdir(path.join(AUSGABE, "assets"));
+  const schriften = dateien.filter((d) =>
+    /^(plus-jakarta-sans|outfit)-latin-wght-normal-[\w-]+\.woff2$/.test(d),
+  );
+  if (schriften.length !== 2) {
+    throw new Error(`Erwartet zwei Schriftdateien, gefunden: ${schriften.join(", ") || "keine"}`);
+  }
+  const vorladen = schriften
+    .map((d) => `    <link rel="preload" as="font" type="font/woff2" href="${BASIS_PFAD}assets/${d}" crossorigin />`)
+    .join("\n");
+  vorlage = vorlage.replace("</head>", `${vorladen}\n  </head>`);
+}
 
 /** Ersetzt den Inhalt eines Kopf-Eintrags, ohne den Rest anzufassen. */
 function setze(html, muster, ersatz) {

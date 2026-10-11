@@ -1,5 +1,4 @@
 import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -82,7 +81,6 @@ function Router({ ssrPfad }: { ssrPfad?: string }) {
 function App({ ssrPfad }: { ssrPfad?: string } = {}) {
   return (
     <ErrorBoundary>
-        <TooltipProvider>
           {/* sonner beschriftet seinen Meldungsbereich sonst englisch
               ("Notifications alt+T") — auf einer deutschen Seite hört das
               ein Screenreader-Nutzer als Fremdkörper. */}
@@ -91,7 +89,6 @@ function App({ ssrPfad }: { ssrPfad?: string } = {}) {
             toastOptions={{ closeButton: false }}
           />
           <Router ssrPfad={ssrPfad} />
-        </TooltipProvider>
     </ErrorBoundary>
   );
 }

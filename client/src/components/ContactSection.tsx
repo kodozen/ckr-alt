@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Send, ShieldCheck, CheckCircle2, FileText, ArrowRi
 import { toast } from "sonner";
 import { DatenschutzText, ImpressumText } from "./Rechtstexte";
 import SozialeKanaele from "./SozialeKanaele";
+import { bildquellen } from "@/lib/bilder";
 
 export default function ContactSection({ prefilledService }: { prefilledService?: string }) {
   const [formData, setFormData] = useState({
@@ -91,8 +92,8 @@ export default function ContactSection({ prefilledService }: { prefilledService?
   return (
     <footer id="kontakt" className="bg-[#0a133d] text-white pt-20 pb-12 relative overflow-hidden">
       {/* Background visual elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#122272]/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#52b719]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-16 -right-16 h-[32rem] w-[32rem] pointer-events-none" style={{ background: "radial-gradient(closest-side, rgba(18,34,114,0.3) 0%, rgba(18,34,114,0.3) 35%, rgba(18,34,114,0.15) 67%, rgba(18,34,114,0) 100%)" }} />
+      <div className="absolute -bottom-16 -left-16 h-[32rem] w-[32rem] pointer-events-none" style={{ background: "radial-gradient(closest-side, rgba(82,183,25,0.1) 0%, rgba(82,183,25,0.1) 35%, rgba(82,183,25,0.05) 67%, rgba(82,183,25,0) 100%)" }} />
 
       <div className="container relative z-10">
         {/* Contact Header */}
@@ -123,7 +124,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     Telefon & 24-Stunden-Hotline
                   </span>
                   <div className="text-lg font-bold mt-0.5">
-                    <a href={`tel:${CKR_INFO.phoneRaw}`} className="inline-flex items-center min-h-[44px] hover:text-[#5CBC1A] transition-colors" aria-label="Anrufen">
+                    <a href={`tel:${CKR_INFO.phoneRaw}`} className="inline-flex items-center min-h-[44px] hover:text-[#5CBC1A] transition-colors">
                       {CKR_INFO.phone}
                     </a>
                   </div>
@@ -143,7 +144,7 @@ export default function ContactSection({ prefilledService }: { prefilledService?
                     E-Mail
                   </span>
                   <div className="text-base font-bold mt-0.5">
-                    <a href={`mailto:${CKR_INFO.email}`} className="inline-flex items-center min-h-[44px] hover:text-[#5CBC1A] transition-colors" aria-label="E-Mail schreiben">
+                    <a href={`mailto:${CKR_INFO.email}`} className="inline-flex items-center min-h-[44px] hover:text-[#5CBC1A] transition-colors">
                       {CKR_INFO.email}
                     </a>
                   </div>
@@ -407,7 +408,8 @@ export default function ContactSection({ prefilledService }: { prefilledService?
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
           <div className="flex items-center gap-3">
             <img
-              src={CKR_INFO.logo}
+              {...bildquellen(CKR_INFO.logo)}
+                sizes="120px"
               alt="CKR Logo"
               loading="lazy"
               width={1360}

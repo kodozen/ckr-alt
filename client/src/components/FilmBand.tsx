@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { CKR_INFO } from "@/data/ckrData";
+import { bildquellen } from "@/lib/bilder";
 
 /**
  * Das Filmband.
@@ -108,7 +109,8 @@ export default function FilmBand() {
     >
       <div ref={band} className="absolute inset-0 -z-10">
         <img
-          src={CKR_INFO.bandStandbild}
+          {...bildquellen(CKR_INFO.bandStandbild)}
+          sizes="100vw"
           alt=""
           aria-hidden="true"
           loading="lazy"
@@ -150,7 +152,8 @@ export default function FilmBand() {
       <div className="flex flex-col items-center px-6 py-20">
         <span className="rounded-3xl bg-white/95 px-7 py-5 shadow-[0_25px_60px_-20px_rgba(0,0,0,0.85)] ring-1 ring-white/25 backdrop-blur-sm">
           <img
-            src={CKR_INFO.logo}
+            {...bildquellen(CKR_INFO.logo)}
+            sizes="200px"
             alt="CKR Cleaning Services, Kufstein"
             width={1360}
             height={682}

@@ -1,0 +1,66 @@
+# ======================================================================
+# CKR Cleaning Services — Servereinstellungen für one.com (Apache)
+# Erzeugt von tools/paket-onecom.sh — nicht von Hand im Paket ändern.
+# ======================================================================
+
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # --- Eine Adresse: https://ckrreinigung.at ------------------------
+  # Bisher hat WordPress www und http umgeleitet; ohne WordPress muss
+  # das hier stehen. Die www-Regel kann nicht kreisen (Ziel ist ein
+  # anderer Name). Die https-Regel prüft drei Anzeichen, damit sie hinter
+  # einem Proxy, der TLS abnimmt, keine Schleife baut.
+  RewriteCond %{HTTP_HOST} ^www\.ckrreinigung\.at$ [NC]
+  RewriteRule ^ https://ckrreinigung.at%{REQUEST_URI} [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^ckrreinigung\.at$ [NC]
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteCond %{ENV:HTTPS} !=on
+  RewriteRule ^ https://ckrreinigung.at%{REQUEST_URI} [R=301,L]
+
+  # --- Alte WordPress-Adressen ---------------------------------------
+  # Alle übrigen Seiten der alten Seite liegen unter derselben Adresse
+  # wie vorher; nur diese gibt es nicht mehr.
+  RewriteRule ^startseite-bald/?$ https://ckrreinigung.at/ [R=301,L]
+  RewriteRule ^feed/?$ https://ckrreinigung.at/ [R=301,L]
+  RewriteRule ^comments/feed/?$ https://ckrreinigung.at/ [R=301,L]
+</IfModule>
+
+# --- Sicherheitsheader ----------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  Header always set Strict-Transport-Security "max-age=31536000"
+  # Skripte nur aus eigener Quelle; das eine eingebettete Skript (die
+  # Wahl hell/dunkel vor dem ersten Bild) ist über seine Prüfsumme
+  # freigegeben, nicht pauschal. Stile dürfen inline sein, weil
+  # React Stilattribute setzt.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' __SKRIPT_HASH__; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; media-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:; object-src 'none'; upgrade-insecure-requests"
+</IfModule>
+
+# --- Zwischenspeicher -----------------------------------------------
+# Programm, Stile und Schriften tragen eine Prüfsumme im Namen: ändern
+# sie sich, ändert sich der Name. Sie dürfen also ein Jahr gelten.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(webp|jpe?g|png|ico|mp4)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.(html|xml|txt)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json application/xml image/svg+xml
+</IfModule>

@@ -122,11 +122,11 @@ export default function ReviewsAndFaq({
               return (
                 <div
                   key={index}
-                  className="border border-slate-200 dark:border-white/10 rounded-xl overflow-hidden bg-slate-50/50 transition-all"
+                  className="border border-slate-200 dark:border-white/10 rounded-xl overflow-hidden bg-slate-50/50 dark:bg-[#0c164a] transition-all"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 font-bold text-slate-800 dark:text-slate-100 hover:text-[#122272] text-sm sm:text-base transition-colors"
+                    className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 font-bold text-slate-800 dark:text-slate-100 hover:text-[#122272] dark:hover:text-[#8FE04A] text-sm sm:text-base transition-colors"
                   >
                     <span>{item.q}</span>
                     <ChevronDown
@@ -150,7 +150,7 @@ export default function ReviewsAndFaq({
           <p className="mt-4 text-center">
             <Link
               href="/haeufige-fragen/"
-              className="inline-flex items-center gap-1.5 py-3 text-sm font-bold text-[#122272] dark:text-white hover:text-[#2E7D0E] sm:py-0"
+              className="inline-flex items-center gap-1.5 py-3 text-sm font-bold text-[#122272] dark:text-white hover:text-[#2E7D0E] dark:hover:text-[#8FE04A] sm:py-0"
             >
               Häufige Fragen ansehen
               <ChevronDown className="h-4 w-4 -rotate-90" aria-hidden="true" />

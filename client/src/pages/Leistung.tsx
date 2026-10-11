@@ -5,6 +5,7 @@ import { CKR_INFO, CKR_SERVICES } from "@/data/ckrData";
 import { LEISTUNGSSEITEN } from "@/seiten";
 import { pfad } from "@/lib/pfade";
 import NotFound from "@/pages/NotFound";
+import { bildquellen } from "@/lib/bilder";
 
 /**
  * Eine Seite je Leistung.
@@ -29,7 +30,9 @@ export default function Leistung({ id }: { id: string }) {
       {/* Aufmacher mit der Aufnahme der Leistung */}
       <section className="relative isolate overflow-hidden bg-[#070d2e]">
         <img
-          src={leistung.bildSeite ?? leistung.image}
+          {...bildquellen(leistung.bildSeite ?? leistung.image)}
+          sizes="100vw"
+          fetchPriority="high"
           alt=""
           width={1200}
           height={900}
@@ -136,7 +139,7 @@ export default function Leistung({ id }: { id: string }) {
               </p>
               <Link
                 href="/angebot-anfordern/"
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-[#122272] dark:text-white hover:text-[#2E7D0E]"
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-[#122272] dark:text-white hover:text-[#2E7D0E] dark:hover:text-[#8FE04A]"
               >
                 Angebot anfordern
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -149,7 +152,7 @@ export default function Leistung({ id }: { id: string }) {
               </p>
               <a
                 href={`tel:${CKR_INFO.phoneRaw}`}
-                className="mt-2 flex items-center text-lg font-extrabold text-[#122272] dark:text-white hover:text-[#2E7D0E]"
+                className="mt-2 flex items-center text-lg font-extrabold text-[#122272] dark:text-white hover:text-[#2E7D0E] dark:hover:text-[#8FE04A]"
               >
                 {CKR_INFO.phone}
               </a>
@@ -174,7 +177,7 @@ export default function Leistung({ id }: { id: string }) {
                   href={`/${l.id}/`}
                   className="group flex h-full flex-col rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c164a] p-5 transition-all hover:border-blue-200 dark:hover:border-white/25 hover:shadow-lg"
                 >
-                  <span className="font-bold text-slate-900 dark:text-white group-hover:text-[#122272]">
+                  <span className="font-bold text-slate-900 dark:text-white group-hover:text-[#122272] dark:group-hover:text-[#8FE04A]">
                     {l.title}
                   </span>
                   <span className="mt-2 line-clamp-2 text-xs text-slate-600 dark:text-slate-300">

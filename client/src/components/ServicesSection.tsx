@@ -12,6 +12,7 @@ import {
   Truck,
 } from "lucide-react";
 import { CKR_SERVICES } from "@/data/ckrData";
+import { bildquellen } from "@/lib/bilder";
 
 const ICON_MAP: Record<string, any> = {
   Sparkles,
@@ -67,13 +68,14 @@ export default function ServicesSection({
               <li key={service.id}>
                 <Link
                   href={`/${service.id}/`}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 dark:border-white/10 bg-slate-50/70 p-4 transition-all duration-300 hover:border-blue-200 dark:hover:border-white/25 hover:bg-white dark:hover:bg-[#101a4d] hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#122272] sm:p-6"
+                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 dark:border-white/10 bg-slate-50/70 dark:bg-[#0c164a] p-4 transition-all duration-300 hover:border-blue-200 dark:hover:border-white/25 hover:bg-white dark:hover:bg-[#101a4d] hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#122272] sm:p-6"
                 >
                   <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-[#122272] to-[#52b719] opacity-0 transition-opacity group-hover:opacity-100" />
 
                   <div className="relative mb-4 aspect-[16/9] overflow-hidden rounded-xl bg-slate-200 dark:bg-white/10 sm:aspect-[3/2]">
                     <img
-                      src={service.image}
+                      {...bildquellen(service.image)}
+                      sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 90vw"
                       alt=""
                       loading="lazy"
                       decoding="async"
@@ -90,19 +92,19 @@ export default function ServicesSection({
                       </span>
                     )}
 
-                    <div className="absolute bottom-3 left-3 flex h-8 w-8 items-center justify-center rounded-lg bg-white/90 text-[#122272] dark:text-white shadow-sm backdrop-blur-sm">
-                      <Icon className="h-4 w-4 text-[#122272] dark:text-white" aria-hidden="true" />
+                    <div className="absolute bottom-3 left-3 flex h-8 w-8 items-center justify-center rounded-lg bg-white/90 text-[#122272] shadow-sm backdrop-blur-sm">
+                      <Icon className="h-4 w-4 text-[#122272]" aria-hidden="true" />
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white transition-colors group-hover:text-[#122272] sm:text-xl">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white transition-colors group-hover:text-[#122272] dark:group-hover:text-[#8FE04A] sm:text-xl">
                     {service.title}
                   </h3>
                   <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300 sm:text-sm">
                     {service.shortDesc}
                   </p>
 
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#122272] dark:text-white transition-colors group-hover:text-[#2E7D0E] sm:text-sm">
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#122272] dark:text-white transition-colors group-hover:text-[#2E7D0E] dark:group-hover:text-[#8FE04A] sm:text-sm">
                     Ansehen
                     <ArrowRight
                       className="h-4 w-4 transition-transform group-hover:translate-x-1"
@@ -119,7 +121,7 @@ export default function ServicesSection({
           <p className="mt-8 text-center sm:mt-10">
             <Link
               href="/leistungen/"
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c164a] px-6 py-3 text-sm font-bold text-[#122272] dark:text-white transition-colors hover:border-blue-200 dark:hover:border-white/25 hover:text-[#2E7D0E]"
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c164a] px-6 py-3 text-sm font-bold text-[#122272] dark:text-white transition-colors hover:border-blue-200 dark:hover:border-white/25 hover:text-[#2E7D0E] dark:hover:text-[#8FE04A]"
             >
               Alle {CKR_SERVICES.length} Leistungen ansehen
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

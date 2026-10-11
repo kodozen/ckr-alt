@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { CKR_ADVANTAGES, CKR_INFO } from "@/data/ckrData";
 import { Award, Clock, PhoneCall, GraduationCap, CheckCircle, ArrowRight, ShieldCheck } from "lucide-react";
+import { bildquellen } from "@/lib/bilder";
 
 const ICON_MAP: Record<string, any> = {
   Award,
@@ -67,8 +68,7 @@ export default function AboutSection({
               </a>
               <a
                 href={`tel:${CKR_INFO.phoneRaw}`}
-                className="bg-white dark:bg-[#0c164a] hover:bg-slate-100 dark:hover:bg-white/10 text-[#122272] dark:text-white border border-slate-200 dark:border-white/10 text-sm font-bold px-6 py-3 rounded-xl transition shadow-sm inline-flex items-center gap-2"
-               aria-label="Anrufen">
+                className="bg-white dark:bg-[#0c164a] hover:bg-slate-100 dark:hover:bg-white/10 text-[#122272] dark:text-white border border-slate-200 dark:border-white/10 text-sm font-bold px-6 py-3 rounded-xl transition shadow-sm inline-flex items-center gap-2">
                 <PhoneCall className="w-4 h-4 text-emerald-600 dark:text-emerald-300" />
                 <span>{CKR_INFO.phone}</span>
               </a>
@@ -80,7 +80,8 @@ export default function AboutSection({
             <div className="relative mx-auto max-w-md lg:max-w-none">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-200 dark:bg-white/10">
                 <img
-                  src={CKR_INFO.teamImage}
+                  {...bildquellen(CKR_INFO.teamImage)}
+                sizes="(min-width: 1024px) 560px, 90vw"
                   alt="Aufgeräumter Betriebsraum eines Optikers nach der Reinigung"
                   loading="lazy"
                   decoding="async"
@@ -157,7 +158,7 @@ export default function AboutSection({
           <p className="mt-10 text-center">
             <Link
               href="/ueber-uns/"
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c164a] px-6 py-3 text-sm font-bold text-[#122272] dark:text-white transition-colors hover:border-blue-200 dark:hover:border-white/25 hover:text-[#2E7D0E]"
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c164a] px-6 py-3 text-sm font-bold text-[#122272] dark:text-white transition-colors hover:border-blue-200 dark:hover:border-white/25 hover:text-[#2E7D0E] dark:hover:text-[#8FE04A]"
             >
               Mehr über CKR
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

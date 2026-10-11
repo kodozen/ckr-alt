@@ -1,5 +1,6 @@
 import { ArrowRight, Phone, CheckCircle2 } from "lucide-react";
 import { CKR_INFO } from "@/data/ckrData";
+import { bildquellen } from "@/lib/bilder";
 
 /**
  * Der Aufmacher.
@@ -29,7 +30,10 @@ export default function HeroSection({ onAngebotAnfordern }: { onAngebotAnfordern
       className="relative isolate flex min-h-[34rem] items-center overflow-hidden bg-[#070d2e] lg:min-h-[40rem]"
     >
       <img
-        src={CKR_INFO.heroImage}
+        {...bildquellen(CKR_INFO.heroImage)}
+        sizes="100vw"
+        width={1200}
+        height={900}
         alt=""
         aria-hidden="true"
         fetchPriority="high"
@@ -49,14 +53,20 @@ export default function HeroSection({ onAngebotAnfordern }: { onAngebotAnfordern
         className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-[#070d2e] to-transparent"
       />
 
-      {/* Zwei weiche Lichter statt eines zweiten Bildes. */}
+      {/* Zwei weiche Lichter statt eines zweiten Bildes. Sie sind als
+          radialer Verlauf gemalt, nicht als unscharf gefilterter Kreis:
+          filter: blur() mit großem Radius muss der Browser Bildpunkt für
+          Bildpunkt rechnen, ein Verlauf ist fast umsonst — und sieht
+          genauso aus. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-32 -top-32 -z-10 h-[32rem] w-[32rem] rounded-full bg-[#5CBC1A]/15 blur-[130px]"
+        className="pointer-events-none absolute -right-64 -top-64 -z-10 h-[48rem] w-[48rem]"
+        style={{ background: "radial-gradient(closest-side, rgba(92,188,26,0.15) 0%, rgba(92,188,26,0.15) 35%, rgba(92,188,26,0.075) 67%, rgba(92,188,26,0) 100%)" }}
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-40 -left-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-[#2743c8]/25 blur-[130px]"
+        className="pointer-events-none absolute -bottom-72 -left-64 -z-10 h-[44rem] w-[44rem]"
+        style={{ background: "radial-gradient(closest-side, rgba(39,67,200,0.25) 0%, rgba(39,67,200,0.25) 35%, rgba(39,67,200,0.125) 67%, rgba(39,67,200,0) 100%)" }}
       />
 
       {/* Der Abzieher: ein heller Streifen, der alle zwölf Sekunden
@@ -118,7 +128,6 @@ export default function HeroSection({ onAngebotAnfordern }: { onAngebotAnfordern
 
             <a
               href={`tel:${CKR_INFO.phoneRaw}`}
-              aria-label="24-Stunden-Hotline anrufen"
               className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/5 px-5 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/15 sm:px-6 sm:py-4 sm:text-base"
             >
               <Phone className="h-4 w-4 text-[#8FE04A]" />

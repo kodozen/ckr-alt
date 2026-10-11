@@ -6,6 +6,7 @@ import { pfad } from "@/lib/pfade";
 import { LEISTUNGSSEITEN } from "@/seiten";
 import SozialeKanaele from "@/components/SozialeKanaele";
 import Farbschalter from "@/components/Farbschalter";
+import { bildquellen } from "@/lib/bilder";
 
 /** "/kontakt" und "/kontakt/" sind dieselbe Seite; "/" bleibt "/". */
 function gleichform(adresse: string) {
@@ -89,7 +90,6 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
             <a
               href={`tel:${CKR_INFO.phoneRaw}`}
               className="flex items-center gap-1.5 font-medium transition-colors hover:text-[#5CBC1A]"
-              aria-label="Anrufen"
             >
               <Phone className="h-4 w-4 text-[#5CBC1A]" aria-hidden="true" />
               <span>24-Stunden-Hotline: {CKR_INFO.phone}</span>
@@ -157,7 +157,8 @@ export default function Header({ onAngebotAnfordern }: { onAngebotAnfordern: () 
                   dunkelblau und grün, auf dunklem Grund verschwände es. */}
               <span className="flex items-center rounded-full bg-white px-3 py-1.5">
                 <img
-                  src={CKR_INFO.logo}
+                  {...bildquellen(CKR_INFO.logo)}
+                  sizes="120px"
                   alt="CKR Cleaning Services, Kufstein"
                   width={1360}
                   height={682}
